@@ -16,7 +16,6 @@
 
 package cz.mpelant.deskclock;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -26,8 +25,6 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -360,7 +357,6 @@ public class Utils {
                         // } catch (IOException ioe) {
                         // // TODO: handle exception
                         // } catch (AuthenticatorException ae) {
-                        .
                         // // TODO: handle exception
                         
                         // }
