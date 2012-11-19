@@ -354,11 +354,14 @@ public class Utils {
 
                     } catch (Exception e) {
                         // catch (OperationCanceledException oce) {
+                        
+                        
                         // // TODO: handle exception
                         // } catch (IOException ioe) {
                         // // TODO: handle exception
                         // } catch (AuthenticatorException ae) {
                         // // TODO: handle exception
+                        
                         // }
                         e.printStackTrace();
                     }
