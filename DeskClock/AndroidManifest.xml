@@ -24,11 +24,7 @@
     <application
         android:icon="@mipmap/ic_launcher_alarmclock"
         android:label="@string/app_label" >
-        <provider
-            android:name="AlarmProvider"
-            android:authorities="cz.mpelant.deskclock"
-            android:exported="false" />
-
+  
         <activity
             android:name="DeskClock"
             android:icon="@mipmap/ic_launcher_alarmclock"
@@ -77,131 +73,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".worldclock.CitiesActivity"
-            android:excludeFromRecents="true"
-            android:label="@string/cities_activity_title"
-            android:taskAffinity=""
-            android:theme="@style/SettingsTheme" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="SetAlarm"
-            android:label="@string/set_alarm"
-            android:theme="@style/SetAlarmTheme" />
-        <activity
-            android:name="AlarmAlert"
-            android:configChanges="orientation|screenSize|keyboardHidden|keyboard|navigation"
-            android:excludeFromRecents="true"
-            android:launchMode="singleInstance"
-            android:taskAffinity=""
-            android:theme="@android:style/Theme.Holo" />
-
-        <!--
-             This activity is basically the same as AlarmAlert
-             but full-screen so that it can turn the display on.
-        -->
-        <activity
-            android:name="AlarmAlertFullScreen"
-            android:configChanges="orientation|screenSize|keyboardHidden|keyboard|navigation"
-            android:excludeFromRecents="true"
-            android:launchMode="singleInstance"
-            android:screenOrientation="nosensor"
-            android:showOnLockScreen="true"
-            android:taskAffinity=""
-            android:theme="@style/AlarmAlertFullScreenTheme" />
-        <activity
-            android:name="ScreensaverActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden|keyboard"
-            android:excludeFromRecents="true"
-            android:taskAffinity=""
-            android:theme="@style/ScreensaverActivityTheme" />
-
-        <receiver
-            android:name="AlarmReceiver"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="cz.mpelant.deskclock.ALARM_ALERT" />
-                <action android:name="alarm_killed" />
-                <action android:name="cancel_snooze" />
-            </intent-filter>
-        </receiver>
-
-        <activity
-            android:name="HandleSetAlarm"
-            android:excludeFromRecents="true"
-            android:permission="com.android.alarm.permission.SET_ALARM"
-            android:theme="@android:style/Theme.NoDisplay" >
-            <intent-filter>
-                <action android:name="android.intent.action.SET_ALARM" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!--
-             This service receives the same intent as AlarmReceiver but it does
-             not respond to the same broadcast. The AlarmReceiver will receive
-             the alert broadcast and will start this service with the same
-             intent. The service plays the alarm alert and vibrates the device.
-             This allows the alert to continue playing even if another activity
-             causes the AlarmAlert activity to pause.
-        -->
-        <service
-            android:name="AlarmKlaxon"
-            android:description="@string/alarm_klaxon_service_desc"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="cz.mpelant.deskclock.ALARM_ALERT" />
-            </intent-filter>
-        </service>
-
-        <receiver android:name="AlarmInitReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.TIME_SET" />
-                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
-                <action android:name="android.intent.action.LOCALE_CHANGED" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name="cz.mpelant.alarmclock.AnalogAppWidgetProvider"
-            android:icon="@mipmap/ic_launcher_alarmclock"
-            android:label="@string/analog_gadget" >
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.oldName"
-                android:value="cz.mpelant.deskclock.AnalogAppWidgetProvider" />
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/analog_appwidget" />
-        </receiver>
-        <receiver
-            android:name="cz.mpelant.alarmclock.DigitalAppWidgetProvider"
-            android:icon="@mipmap/ic_launcher_alarmclock"
-            android:label="@string/digital_gadget" >
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/digital_appwidget" />
-        </receiver>
-
-        <service
-            android:name="cz.mpelant.alarmclock.DigitalAppWidgetService"
-            android:exported="false"
-            android:permission="android.permission.BIND_REMOTEVIEWS" />
-
-        <receiver
-            android:name="cz.mpelant.alarmclock.DigitalWidgetViewsFactory"
-            android:exported="false" />
+      
 
         <!-- Dream (screensaver) implementation -->
         <service
