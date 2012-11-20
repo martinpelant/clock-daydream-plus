@@ -50,6 +50,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.ImageView;
 import android.widget.TextView;
 import cz.mpelant.deskclock.stopwatch.Stopwatches;
 import cz.mpelant.deskclock.timer.Timers;
@@ -320,7 +321,7 @@ public class Utils {
         private void handleUpdate() {
             mDate.setText(new SimpleDateFormat(mDateFormat).format(new Date()));
             checkGmail(mDate.getContext(), mNotifGmail);
-            checkSMS(mDate.getContext());
+            checkSMS(mDate.getContext(), mNotifMessage);
 
         }
 
@@ -338,7 +339,7 @@ public class Utils {
             final String[] FEATURES_MAIL = {
                 "service_mail"
             };
-            AccountManager.get(context).getAccountsByTypeAndFeatures(ACCOUNT_TYPE_GOOGLE, FEATURES_MAIL, new AccountManagerCallback() {
+            AccountManager.get(context).getAccountsByTypeAndFeatures(ACCOUNT_TYPE_GOOGLE, FEATURES_MAIL, new AccountManagerCallback<Account[]>() {
                 @Override
                 public void run(AccountManagerFuture future) {
                     Account[] accounts = null;
@@ -393,10 +394,15 @@ public class Utils {
             });
         }
 
-        private static void checkSMS(Context context) {
+        private static void checkSMS(Context context, View image) {
             Uri uriSMSURI = Uri.parse("content://sms/inbox");
             Cursor cur = context.getContentResolver().query(uriSMSURI, null, "read = 0", null, null);
             Log.d("SMS - " + cur.getCount());
+            if(cur.getCount()>0) {
+                image.setVisibility(View.VISIBLE);
+            }else {
+                image.setVisibility(View.GONE);
+            }
             cur.close();
         }
     }
