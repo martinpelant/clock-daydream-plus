@@ -50,10 +50,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.ImageView;
 import android.widget.TextView;
-import cz.mpelant.deskclock.stopwatch.Stopwatches;
-import cz.mpelant.deskclock.timer.Timers;
 
 public class Utils {
     private final static String TAG = Utils.class.getName();
@@ -172,31 +169,6 @@ public class Utils {
         return R.color.clock_gray;
     }
 
-    /**
-     * Clears the persistent data of stopwatch (start time, state, laps, etc...).
-     */
-    public static void clearSwSharedPref(SharedPreferences prefs) {
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.remove(Stopwatches.PREF_START_TIME);
-        editor.remove(Stopwatches.PREF_ACCUM_TIME);
-        editor.remove(Stopwatches.PREF_STATE);
-        int lapNum = prefs.getInt(Stopwatches.PREF_LAP_NUM, Stopwatches.STOPWATCH_RESET);
-        for (int i = 0; i < lapNum; i++) {
-            String key = Stopwatches.PREF_LAP_TIME + Integer.toString(i);
-            editor.remove(key);
-        }
-        editor.remove(Stopwatches.PREF_LAP_NUM);
-        editor.apply();
-    }
-
-    /**
-     * Broadcast a message to show the in-use timers in the notifications
-     */
-    public static void showInUseNotifications(Context context) {
-        Intent timerIntent = new Intent();
-        timerIntent.setAction(Timers.NOTIF_IN_USE_SHOW);
-        context.sendBroadcast(timerIntent);
-    }
 
     /**
      * Runnable for use with screensaver and dream, to move the clock every minute.
