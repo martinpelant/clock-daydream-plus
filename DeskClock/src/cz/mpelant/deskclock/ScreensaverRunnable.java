@@ -16,6 +16,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
@@ -146,10 +147,16 @@ public class ScreensaverRunnable implements Runnable {
 
     private void handleUpdate() {
         mDate.setText(new SimpleDateFormat(mDateFormat).format(new Date()));
-        checkGmail(mDate.getContext(), mNotifGmail);
-        checkSMS(mDate.getContext(), mNotifMessage);
+        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_GMAIL, true))
+            checkGmail(mDate.getContext(), mNotifGmail);
+        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true))
+            checkSMS(mDate.getContext(), mNotifMessage);
         checkAlarm(mDate.getContext(), mNextAlarm);
 
+    }
+
+    public boolean isPrefEnabled(String prefName, boolean defValue) {
+        return PreferenceManager.getDefaultSharedPreferences(mDate.getContext()).getBoolean(prefName, defValue);
     }
 
     public static final class LabelColumns {

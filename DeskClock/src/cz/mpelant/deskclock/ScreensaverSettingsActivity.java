@@ -16,20 +16,11 @@
 
 package cz.mpelant.deskclock;
 
-import cz.mpelant.deskclock.R;
-
-import android.app.ActionBar;
-import android.content.Intent;
-import android.media.AudioManager;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceScreen;
-import android.provider.Settings;
-import android.view.Menu;
-import android.view.MenuItem;
 
 /**
  * Settings for the Alarm Clock Dream (cz.mpelant.deskclock.Screensaver).
@@ -72,6 +63,15 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
 
         Preference pref = findPreference(KEY_NIGHT_MODE);
         boolean state = ((CheckBoxPreference) pref).isChecked();
+        pref.setOnPreferenceChangeListener(this);
+        
+        
+        pref = findPreference(KEY_NOTIF_GMAIL);
+        state = ((CheckBoxPreference) pref).isChecked();
+        pref.setOnPreferenceChangeListener(this);
+        
+        pref = findPreference(KEY_NOTIF_SMS);
+        state = ((CheckBoxPreference) pref).isChecked();
         pref.setOnPreferenceChangeListener(this);
     }
 
