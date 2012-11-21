@@ -6,74 +6,17 @@
     <original-package android:name="cz.mpelant.alarmclock" />
     <original-package android:name="cz.mpelant.deskclock" />
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    
+    <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="com.google.android.gm.permission.READ_CONTENT_PROVIDER"/>
+    <uses-permission android:name="com.google.android.gm.permission.READ_CONTENT_PROVIDER" />
 
-    <uses-sdk android:minSdkVersion="15" >
-    </uses-sdk>
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="17" />
 
     <application
         android:icon="@mipmap/ic_launcher_alarmclock"
-        android:label="@string/app_label" >
-  
-        <activity
-            android:name="DeskClock"
-            android:icon="@mipmap/ic_launcher_alarmclock"
-            android:label="@string/app_label"
-            android:launchMode="singleTask"
-            android:theme="@style/DeskClock" >
-        </activity>
-
-        <activity-alias
-            android:name="DockClock"
-            android:enabled="@bool/config_dockAppEnabled"
-            android:icon="@mipmap/ic_launcher_alarmclock"
-            android:label="@string/app_label"
-            android:launchMode="singleTask"
-            android:targetActivity="DeskClock"
-            android:theme="@style/DeskClock" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.DESK_DOCK" />
-            </intent-filter>
-        </activity-alias>
-
-        <activity
-            android:name="AlarmClock"
-            android:excludeFromRecents="true"
-            android:exported="true"
-            android:label="@string/alarm_list_title"
-            android:launchMode="standard"
-            android:taskAffinity=""
-            android:theme="@style/AlarmClockTheme" />
-
-        <activity-alias
-            android:name="cz.mpelant.alarmclock.AlarmClock"
-            android:exported="true"
-            android:targetActivity="cz.mpelant.deskclock.AlarmClock" />
-
-        <activity
-            android:name="SettingsActivity"
-            android:excludeFromRecents="true"
-            android:label="@string/settings"
-            android:taskAffinity=""
-            android:theme="@style/SettingsTheme" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-      
+        android:label="@string/app_label" android:allowBackup="true">
 
         <!-- Dream (screensaver) implementation -->
         <service
@@ -103,58 +46,6 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
-        <!--
-         This activity is basically like the TimerFragment in DeskClock
-         but only during lock screen
-         so that is only has the fired timers
-        -->
-        <activity
-            android:name="cz.mpelant.deskclock.timer.TimerAlertFullScreen"
-            android:configChanges="orientation|screenSize|keyboardHidden|keyboard|navigation"
-            android:excludeFromRecents="true"
-            android:launchMode="singleInstance"
-            android:showOnLockScreen="true"
-            android:taskAffinity=""
-            android:theme="@style/AlarmAlertFullScreenTheme" />
-
-        <service
-            android:name="TimerRingService"
-            android:description="@string/timer_ring_service_desc"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="cz.mpelant.deskclock.TIMER_ALERT" />
-            </intent-filter>
-        </service>
-
-        <receiver
-            android:name="cz.mpelant.deskclock.timer.TimerReceiver"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="start_timer" />
-                <action android:name="delete_timer" />
-                <action android:name="times_up" />
-                <action android:name="timer_stop" />
-                <action android:name="timer_reset" />
-                <action android:name="timer_done" />
-                <action android:name="timer_update" />
-                <action android:name="notif_in_use_show" />
-                <action android:name="notif_in_use_cancel" />
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name="cz.mpelant.deskclock.stopwatch.StopwatchService"
-            android:description="@string/stopwatch_service_desc"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="start_stopwatch" />
-                <action android:name="lap_stopwatch" />
-                <action android:name="stop_stopwatch" />
-                <action android:name="reset_stopwatch" />
-                <action android:name="share_stopwatch" />
-            </intent-filter>
-        </service>
     </application>
 
 </manifest>

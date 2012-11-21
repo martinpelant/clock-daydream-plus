@@ -213,6 +213,7 @@ public class Utils {
         private TextView mDate;
         private View mNotifGmail;
         private View mNotifMessage;
+        private TextView mNextAlarm;
         private String mDateFormat;
         private final Handler mHandler;
 
@@ -233,6 +234,7 @@ public class Utils {
             mDate = (TextView) contentView.findViewById(R.id.date);
             mNotifGmail = contentView.findViewById(R.id.gmail);
             mNotifMessage = contentView.findViewById(R.id.messages);
+            mNextAlarm = (TextView) contentView.findViewById(R.id.nextAlarm);
             mSaverView = saverView;
             mDateFormat = contentView.getContext().getString(R.string.abbrev_wday_month_day_no_year);
             handleUpdate();
@@ -308,7 +310,7 @@ public class Utils {
                 }
 
                 long now = System.currentTimeMillis();
-                long adjust = (now % 60000);
+                long adjust = (now % MOVE_DELAY);
                 delay = delay + (MOVE_DELAY - adjust) // minute aligned
                         - (SLIDE ? 0 : FADE_TIME) // start moving before the fade
                 ;
@@ -322,6 +324,7 @@ public class Utils {
             mDate.setText(new SimpleDateFormat(mDateFormat).format(new Date()));
             checkGmail(mDate.getContext(), mNotifGmail);
             checkSMS(mDate.getContext(), mNotifMessage);
+            checkAlarm(mDate.getContext(), mNextAlarm);
 
         }
 
@@ -352,14 +355,13 @@ public class Utils {
 
                     } catch (Exception e) {
                         // catch (OperationCanceledException oce) {
-                        
-                        
+
                         // // TODO: handle exception
                         // } catch (IOException ioe) {
                         // // TODO: handle exception
                         // } catch (AuthenticatorException ae) {
                         // // TODO: handle exception
-                        
+
                         // }
                         e.printStackTrace();
                     }
@@ -383,10 +385,10 @@ public class Utils {
                 }
             }, null /* handler */);
         }
-        
+
         private static void setViewVisibility(final View view, final int visibility) {
             view.post(new Runnable() {
-                
+
                 @Override
                 public void run() {
                     view.setVisibility(visibility);
@@ -395,16 +397,32 @@ public class Utils {
         }
 
         private static void checkSMS(Context context, View image) {
-            Uri uriSMSURI = Uri.parse("content://sms/inbox");
-            Cursor cur = context.getContentResolver().query(uriSMSURI, null, "read = 0", null, null);
-            Log.d("SMS - " + cur.getCount());
-            if(cur.getCount()>0) {
-                image.setVisibility(View.VISIBLE);
-            }else {
-                image.setVisibility(View.GONE);
+            try {
+                Uri uriSMSURI = Uri.parse("content://sms/inbox");
+                Cursor cur = context.getContentResolver().query(uriSMSURI, null, "read = 0", null, null);
+                Log.d("SMS - " + cur.getCount());
+                if (cur.getCount() > 0) {
+                    image.setVisibility(View.VISIBLE);
+                } else {
+                    image.setVisibility(View.GONE);
+                }
+                cur.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            cur.close();
+
         }
+
+        private static void checkAlarm(Context context, TextView alarm) {
+            String nextAlarm = Settings.System.getString(context.getContentResolver(), Settings.System.NEXT_ALARM_FORMATTED);
+            if (nextAlarm.isEmpty()) {
+                alarm.setVisibility(View.GONE);
+            } else {
+                alarm.setVisibility(View.VISIBLE);
+                alarm.setText(nextAlarm);
+            }
+        }
+
     }
 
     /** Setup to find out when the quarter-hour changes (e.g. Kathmandu is GMT+5:45) **/
