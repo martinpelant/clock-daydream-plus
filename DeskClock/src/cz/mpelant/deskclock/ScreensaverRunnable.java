@@ -17,6 +17,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.provider.CallLog;
 import android.provider.Settings;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
@@ -38,6 +39,7 @@ public class ScreensaverRunnable implements Runnable {
     private TextView mDate;
     private View mNotifGmail;
     private View mNotifMessage;
+    private View mMissedCall;
     private TextView mNextAlarm;
     private String mDateFormat;
     private final Handler mHandler;
@@ -59,6 +61,7 @@ public class ScreensaverRunnable implements Runnable {
         mDate = (TextView) contentView.findViewById(R.id.date);
         mNotifGmail = contentView.findViewById(R.id.gmail);
         mNotifMessage = contentView.findViewById(R.id.messages);
+        mMissedCall = contentView.findViewById(R.id.missedCalls);
         mNextAlarm = (TextView) contentView.findViewById(R.id.nextAlarm);
         mSaverView = saverView;
         mDateFormat = contentView.getContext().getString(R.string.abbrev_wday_month_day_no_year);
@@ -151,6 +154,8 @@ public class ScreensaverRunnable implements Runnable {
             checkGmail(mDate.getContext(), mNotifGmail);
         if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true))
             checkSMS(mDate.getContext(), mNotifMessage);
+        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_MISSED_CALLS, true))
+            checkMissedCalls(mDate.getContext(), mMissedCall);
         checkAlarm(mDate.getContext(), mNextAlarm);
 
     }
@@ -166,7 +171,6 @@ public class ScreensaverRunnable implements Runnable {
         public static final String NUM_UNREAD_CONVERSATIONS = "numUnreadConversations";
     }
 
-    @SuppressWarnings("unchecked")
     private static void checkGmail(final Context context, final View image) {
         // Get the account list, and pick the first one
         final String ACCOUNT_TYPE_GOOGLE = "com.google";
@@ -175,7 +179,7 @@ public class ScreensaverRunnable implements Runnable {
         };
         AccountManager.get(context).getAccountsByTypeAndFeatures(ACCOUNT_TYPE_GOOGLE, FEATURES_MAIL, new AccountManagerCallback<Account[]>() {
             @Override
-            public void run(AccountManagerFuture future) {
+            public void run(AccountManagerFuture<Account[]> future) {
                 Account[] accounts = null;
                 try {
                     accounts = (Account[]) future.getResult();
@@ -189,9 +193,7 @@ public class ScreensaverRunnable implements Runnable {
 
                     // // TODO: handle exception
                     // } catch (IOException ioe) {
-                    // // TODO: handle exception
                     // } catch (AuthenticatorException ae) {
-                    // // TODO: handle exception
 
                     // }
                     e.printStackTrace();
@@ -242,6 +244,26 @@ public class ScreensaverRunnable implements Runnable {
             e.printStackTrace();
         }
 
+    }
+
+    private static void checkMissedCalls(Context context, View image) {
+        final String[] projection = null;
+        final String selection = CallLog.Calls.TYPE + "=" + CallLog.Calls.MISSED_TYPE + " AND " + CallLog.Calls.IS_READ + "=0";
+        final String[] selectionArgs = null;
+        final String sortOrder = null;
+        Cursor cursor = null;
+        try {
+            cursor = context.getContentResolver().query(CallLog.Calls.CONTENT_URI, projection, selection, selectionArgs, sortOrder);
+            if (cursor.getCount() > 0) {
+                image.setVisibility(View.VISIBLE);
+            } else {
+                image.setVisibility(View.GONE);
+            }
+        } catch (Exception ex) {
+            Log.e("ERROR: " + ex.toString());
+        } finally {
+            cursor.close();
+        }
     }
 
     private static void checkAlarm(Context context, TextView alarm) {

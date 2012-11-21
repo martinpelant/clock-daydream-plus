@@ -34,13 +34,18 @@
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="notif_gmail"
-            android:summary="Show unread gmail icon"
+            android:summary="Show unread Gmail icon"
             android:title="Gmail" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="notif_sms"
             android:summary="Show unread SMS icon"
             android:title="SMS" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="notif_missed_calls"
+            android:summary="Show missed calls icon"
+            android:title="Calls" />
     </PreferenceCategory>
 
 </PreferenceScreen>

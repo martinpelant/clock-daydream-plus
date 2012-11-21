@@ -31,6 +31,7 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
     static final String KEY_NIGHT_MODE = "screensaver_night_mode";
     static final String KEY_NOTIF_GMAIL = "notif_gmail";
     static final String KEY_NOTIF_SMS = "notif_sms";
+    static final String KEY_NOTIF_MISSED_CALLS = "notif_missed_calls";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

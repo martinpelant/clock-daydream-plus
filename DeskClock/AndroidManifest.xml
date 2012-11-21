@@ -6,10 +6,11 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.google.android.gm.permission.READ_CONTENT_PROVIDER" />
-
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-sdk
         android:minSdkVersion="17"
         android:targetSdkVersion="17" />
+    
 
     <application
         android:icon="@mipmap/ic_launcher_alarmclock"
