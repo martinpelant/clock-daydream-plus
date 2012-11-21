@@ -16,27 +16,12 @@
 
 package cz.mpelant.deskclock;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.TimeInterpolator;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.service.dreams.DreamService;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.DecelerateInterpolator;
-
-import cz.mpelant.deskclock.R;
-
-import cz.mpelant.deskclock.Utils.ScreensaverMoveSaverRunnable;
 
 public class Screensaver extends DreamService {
     static final boolean DEBUG = false;
@@ -47,12 +32,12 @@ public class Screensaver extends DreamService {
 
     private final Handler mHandler = new Handler();
 
-    private final ScreensaverMoveSaverRunnable mMoveSaverRunnable;
+    private final ScreensaverRunnable mMoveSaverRunnable;
 
     public Screensaver() {
         if (DEBUG)
             Log.d(TAG, "Screensaver allocated");
-        mMoveSaverRunnable = new ScreensaverMoveSaverRunnable(mHandler);
+        mMoveSaverRunnable = new ScreensaverRunnable(mHandler);
     }
 
     @Override

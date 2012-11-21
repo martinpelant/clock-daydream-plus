@@ -34,13 +34,12 @@ import android.view.MenuItem;
 /**
  * Settings for the Alarm Clock Dream (cz.mpelant.deskclock.Screensaver).
  */
-public class ScreensaverSettingsActivity extends PreferenceActivity
-        implements Preference.OnPreferenceChangeListener {
+public class ScreensaverSettingsActivity extends PreferenceActivity implements Preference.OnPreferenceChangeListener {
 
-    static final String KEY_CLOCK_STYLE =
-            "screensaver_clock_style";
-    static final String KEY_NIGHT_MODE =
-            "screensaver_night_mode";
+    static final String KEY_CLOCK_STYLE = "screensaver_clock_style";
+    static final String KEY_NIGHT_MODE = "screensaver_night_mode";
+    static final String KEY_NOTIF_GMAIL = "notif_gmail";
+    static final String KEY_NOTIF_SMS = "notif_sms";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

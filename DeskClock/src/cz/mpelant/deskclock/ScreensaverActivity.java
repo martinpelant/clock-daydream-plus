@@ -16,45 +16,20 @@
 
 package cz.mpelant.deskclock;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.TimeInterpolator;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.app.UiModeManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.os.BatteryManager;
-import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
-import android.provider.Settings;
-import android.service.dreams.DreamService;
-import android.text.TextUtils;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.TextView;
-
-import cz.mpelant.deskclock.R;
-
-import cz.mpelant.deskclock.Utils.ScreensaverMoveSaverRunnable;
-
-import java.util.Calendar;
 
 public class ScreensaverActivity extends Activity {
     static final boolean DEBUG = false;
@@ -69,7 +44,7 @@ public class ScreensaverActivity extends Activity {
     private View mAnalogClock, mDigitalClock;
 
     private final Handler mHandler = new Handler();
-    private final ScreensaverMoveSaverRunnable mMoveSaverRunnable;
+    private final ScreensaverRunnable mMoveSaverRunnable;
     private String mDateFormat;
     private String mDateFormatForAccessibility;
     private PendingIntent mQuarterlyIntent;
@@ -103,7 +78,7 @@ public class ScreensaverActivity extends Activity {
     public ScreensaverActivity() {
         if (DEBUG)
             Log.d(TAG, "Screensaver allocated");
-        mMoveSaverRunnable = new ScreensaverMoveSaverRunnable(mHandler);
+        mMoveSaverRunnable = new ScreensaverRunnable(mHandler);
     }
 
     @Override
