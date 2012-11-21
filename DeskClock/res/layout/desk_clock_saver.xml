@@ -91,22 +91,25 @@
                 android:id="@+id/gmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:src="@drawable/stat_notify_gmail" />
-            
-             <ImageView
+                android:padding="5dp"
+                android:src="@drawable/stat_notify_gmail"
+                android:visibility="gone" />
+
+            <ImageView
                 android:id="@+id/messages"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:src="@drawable/stat_notify_messages" />
-             
-              <ImageView
+                android:padding="5dp"
+                android:src="@drawable/stat_notify_messages"
+                android:visibility="gone" />
+
+            <ImageView
                 android:id="@+id/missedCalls"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:src="@drawable/stat_notify_missed_call" />
+                android:padding="5dp"
+                android:src="@drawable/stat_notify_missed_call"
+                android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
 
