@@ -56,7 +56,7 @@ public class ZeroTopPaddingTextView extends TextView {
     public void updatePadding() {
         float paddingRatio = NORMAL_FONT_PADDING_RATIO;
         float bottomPaddingRatio = NORMAL_FONT_BOTTOM_PADDING_RATIO;
-        if (getTypeface().equals(SAN_SERIF_BOLD)) {
+        if (getTypeface()!=null && getTypeface().equals(SAN_SERIF_BOLD)) {
             paddingRatio = BOLD_FONT_PADDING_RATIO;
             bottomPaddingRatio = BOLD_FONT_BOTTOM_PADDING_RATIO;
         }

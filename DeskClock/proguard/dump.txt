@@ -47279,7 +47279,7 @@ Methods (count = 6):
     Access flags: 0x2
       = private void a()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 51, locals = 3, stack = 6):
+    + Code attribute instructions (code length = 58, locals = 3, stack = 6):
       [0] ldc #3
         + Float [0.328]
       [2] fstore_1 v1
@@ -47289,53 +47289,57 @@ Methods (count = 6):
       [6] aload_0 v0
       [7] invokevirtual #19
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.getTypeface ()Landroid/graphics/Typeface;]
-      [10] getstatic #10
+      [10] ifnull +22 (target=32)
+      [13] aload_0 v0
+      [14] invokevirtual #19
+        + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.getTypeface ()Landroid/graphics/Typeface;]
+      [17] getstatic #10
         + Fieldref [cz/mpelant/deskclock/ZeroTopPaddingTextView.a Landroid/graphics/Typeface;]
-      [13] invokevirtual #13
+      [20] invokevirtual #13
         + Methodref [android/graphics/Typeface.equals (Ljava/lang/Object;)Z]
-      [16] ifeq +9 (target=25)
-      [19] ldc #1
+      [23] ifeq +9 (target=32)
+      [26] ldc #1
         + Float [0.208]
-      [21] fstore_1 v1
-      [22] ldc #1
+      [28] fstore_1 v1
+      [29] ldc #1
         + Float [0.208]
-      [24] fstore_2 v2
-      [25] aload_0 v0
-      [26] iconst_0
-      [27] fload_1 v1
-      [28] fneg
-      [29] aload_0 v0
-      [30] invokevirtual #18
+      [31] fstore_2 v2
+      [32] aload_0 v0
+      [33] iconst_0
+      [34] fload_1 v1
+      [35] fneg
+      [36] aload_0 v0
+      [37] invokevirtual #18
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.getTextSize ()F]
-      [33] fmul
-      [34] f2i
-      [35] aload_0 v0
-      [36] getfield #11
+      [40] fmul
+      [41] f2i
+      [42] aload_0 v0
+      [43] getfield #11
         + Fieldref [cz/mpelant/deskclock/ZeroTopPaddingTextView.b I]
-      [39] fload_2 v2
-      [40] fneg
-      [41] aload_0 v0
-      [42] invokevirtual #18
+      [46] fload_2 v2
+      [47] fneg
+      [48] aload_0 v0
+      [49] invokevirtual #18
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.getTextSize ()F]
-      [45] fmul
-      [46] f2i
-      [47] invokevirtual #22
+      [52] fmul
+      [53] f2i
+      [54] invokevirtual #22
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.setPadding (IIII)V]
-      [50] return
+      [57] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 2):
       + Line number table attribute (count = 9)
         [0] -> line 57
         [3] -> line 58
         [6] -> line 59
-        [19] -> line 60
-        [22] -> line 61
-        [25] -> line 65
-        [39] -> line 66
-        [47] -> line 65
-        [50] -> line 67
+        [26] -> line 60
+        [29] -> line 61
+        [32] -> line 65
+        [46] -> line 66
+        [54] -> line 65
+        [57] -> line 67
       + Stack map table attribute (count = 1):
-        - [25] Var: ...[f][f], Stack: (empty)
+        - [32] Var: ...[f][f], Stack: (empty)
   + Method:       setPaddingRight(I)V
     Access flags: 0x1
       = public void setPaddingRight(int)
