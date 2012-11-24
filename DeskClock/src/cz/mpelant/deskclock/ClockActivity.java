@@ -76,7 +76,7 @@ public class ClockActivity extends BaseScreenOnActivity {
         final Intent alarmIntent = Utils.getAlarmPackage(this);
         if (alarmIntent != null) {
             item = menu.add("Alarms").setIcon(R.drawable.ic_action_alarm);
-            item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+            item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
             item.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 
                 @Override
@@ -88,7 +88,7 @@ public class ClockActivity extends BaseScreenOnActivity {
         }
 
         item = menu.add("Settings").setIcon(R.drawable.ic_action_settings);
-        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         item.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 
             @Override

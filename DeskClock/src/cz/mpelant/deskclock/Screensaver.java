@@ -16,13 +16,16 @@
 
 package cz.mpelant.deskclock;
 
+import android.annotation.TargetApi;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.service.dreams.DreamService;
 import android.util.Log;
 import android.view.View;
 
+@TargetApi(17)
 public class Screensaver extends DreamService {
     static final boolean DEBUG = false;
     static final String TAG = "DeskClock/Screensaver";
