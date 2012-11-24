@@ -127,7 +127,13 @@ public class ScreensaverRunnable implements Runnable {
                     s.play(fadeout);
                     s.play(xMove.setDuration(0)).after(FADE_TIME);
                     s.play(yMove.setDuration(0)).after(FADE_TIME);
-                    handleUpdate();
+                    mHandler.postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            handleUpdate();
+                        }
+                    }, FADE_TIME);
 
                     s.play(fadein).after(FADE_TIME);
                     s.play(grow).after(FADE_TIME);
@@ -147,14 +153,18 @@ public class ScreensaverRunnable implements Runnable {
     }
 
     private void handleUpdate() {
-        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_GMAIL, true))
-            checkGmail(mDate.getContext(), mNotifGmail);
-        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true))
-            checkSMS(mDate.getContext(), mNotifMessage);
-        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_MISSED_CALLS, true))
-            checkMissedCalls(mDate.getContext(), mMissedCall);
-        Utils.setAlarmTextView(mDate.getContext(), mNextAlarm);
-        Utils.setDateTextView(mDate.getContext(), mDate);
+        try {
+            if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_GMAIL, true))
+                checkGmail(mDate.getContext(), mNotifGmail);
+            if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true))
+                checkSMS(mDate.getContext(), mNotifMessage);
+            if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_MISSED_CALLS, true))
+                checkMissedCalls(mDate.getContext(), mMissedCall);
+            Utils.setAlarmTextView(mDate.getContext(), mNextAlarm);
+            Utils.setDateTextView(mDate.getContext(), mDate);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -263,7 +273,5 @@ public class ScreensaverRunnable implements Runnable {
             cursor.close();
         }
     }
-
-    
 
 }
