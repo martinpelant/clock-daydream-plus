@@ -23,6 +23,7 @@ public class ClockActivity extends BaseScreenOnActivity {
         @Override
         public void run() {
             startActivity(new Intent(ClockActivity.this, ScreensaverActivity.class));
+            overridePendingTransition(R.anim.undim, R.anim.dim);
         }
     };
 

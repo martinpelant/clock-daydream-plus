@@ -18,6 +18,7 @@ package cz.mpelant.deskclock;
 
 import android.content.res.Configuration;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -78,7 +79,8 @@ public class ScreensaverActivity extends BaseScreenOnActivity {
     private void setClockStyle() {
         Utils.setClockStyle(this, mDigitalClock, mAnalogClock, ScreensaverSettingsActivity.KEY_CLOCK_STYLE);
         mSaverView = findViewById(R.id.main_clock);
-        Utils.dimClockView(true, mSaverView);
+        boolean dimNightMode = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(ScreensaverSettingsActivity.KEY_NIGHT_MODE, false);
+        Utils.dimClockView(dimNightMode, mSaverView);
     }
 
     private void layoutClockSaver() {
