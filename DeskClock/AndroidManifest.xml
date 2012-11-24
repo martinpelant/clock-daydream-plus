@@ -58,6 +58,8 @@
             android:excludeFromRecents="true"
             android:taskAffinity=""
             android:theme="@style/ScreensaverActivityTheme" >
+        </activity>
+        <activity android:name="ClockActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -16,7 +16,9 @@
 
 package cz.mpelant.deskclock;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import android.content.Context;
@@ -231,6 +233,20 @@ public class Utils {
             dateDisplay.setText(newDate);
             dateDisplay.setContentDescription(DateFormat.format(dateFormatForAccessibility, cal));
         }
+    }
+    
+    public static void setAlarmTextView(Context context, TextView alarm) {
+        String nextAlarm = Settings.System.getString(context.getContentResolver(), Settings.System.NEXT_ALARM_FORMATTED);
+        if (nextAlarm.isEmpty()) {
+            alarm.setVisibility(View.GONE);
+        } else {
+            alarm.setVisibility(View.VISIBLE);
+            alarm.setText(nextAlarm);
+        }
+    }
+    
+    public static void setDateTextView(Context context, TextView dateView) {
+        dateView.setText(new SimpleDateFormat(context.getString(R.string.abbrev_wday_month_day_no_year)).format(new Date()));
     }
 
 }

@@ -47,7 +47,6 @@ public class ScreensaverActivity extends Activity {
     private String mDateFormat;
     private String mDateFormatForAccessibility;
     private PendingIntent mQuarterlyIntent;
-    private String mClockStyle;
     private boolean mPluggedIn = true;
     private final int mFlags = (WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
@@ -155,7 +154,6 @@ public class ScreensaverActivity extends Activity {
     private void setClockStyle() {
         Utils.setClockStyle(this, mDigitalClock, mAnalogClock, ScreensaverSettingsActivity.KEY_CLOCK_STYLE);
         mSaverView = findViewById(R.id.main_clock);
-        mClockStyle = (mSaverView == mDigitalClock ? Utils.CLOCK_TYPE_DIGITAL : Utils.CLOCK_TYPE_ANALOG);
         Utils.dimClockView(true, mSaverView);
     }
 

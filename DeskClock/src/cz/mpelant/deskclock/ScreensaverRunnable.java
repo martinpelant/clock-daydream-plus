@@ -41,7 +41,6 @@ public class ScreensaverRunnable implements Runnable {
     private View mNotifMessage;
     private View mMissedCall;
     private TextView mNextAlarm;
-    private String mDateFormat;
     private final Handler mHandler;
 
     private static TimeInterpolator mSlowStartWithBrakes;
@@ -64,7 +63,6 @@ public class ScreensaverRunnable implements Runnable {
         mMissedCall = contentView.findViewById(R.id.missedCalls);
         mNextAlarm = (TextView) contentView.findViewById(R.id.nextAlarm);
         mSaverView = saverView;
-        mDateFormat = contentView.getContext().getString(R.string.abbrev_wday_month_day_no_year);
         handleUpdate();
     }
 
@@ -149,14 +147,14 @@ public class ScreensaverRunnable implements Runnable {
     }
 
     private void handleUpdate() {
-        mDate.setText(new SimpleDateFormat(mDateFormat).format(new Date()));
         if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_GMAIL, true))
             checkGmail(mDate.getContext(), mNotifGmail);
         if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true))
             checkSMS(mDate.getContext(), mNotifMessage);
         if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_MISSED_CALLS, true))
             checkMissedCalls(mDate.getContext(), mMissedCall);
-        checkAlarm(mDate.getContext(), mNextAlarm);
+        Utils.setAlarmTextView(mDate.getContext(), mNextAlarm);
+        Utils.setDateTextView(mDate.getContext(), mDate);
 
     }
 
@@ -266,14 +264,6 @@ public class ScreensaverRunnable implements Runnable {
         }
     }
 
-    private static void checkAlarm(Context context, TextView alarm) {
-        String nextAlarm = Settings.System.getString(context.getContentResolver(), Settings.System.NEXT_ALARM_FORMATTED);
-        if (nextAlarm.isEmpty()) {
-            alarm.setVisibility(View.GONE);
-        } else {
-            alarm.setVisibility(View.VISIBLE);
-            alarm.setText(nextAlarm);
-        }
-    }
+    
 
 }
