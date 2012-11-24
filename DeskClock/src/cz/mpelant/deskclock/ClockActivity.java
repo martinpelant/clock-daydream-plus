@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class ClockActivity extends BaseScreenOnActivity {
-    private static final int SCREENSAVER_DELAY = 1000 * 60;
+    private static final int SCREENSAVER_DELAY = 1000 * 30;
     public static final String TAG = "ClockActivity";
     private View mDigitalClock;
     private View mAnalogClock;
@@ -53,6 +53,13 @@ public class ClockActivity extends BaseScreenOnActivity {
     public void onPause() {
         mHandler.removeCallbacks(startScreenSaverRunnable);
         super.onPause();
+    }
+    
+    @Override
+    public void onUserInteraction() {
+        mHandler.removeCallbacks(startScreenSaverRunnable);
+        mHandler.postDelayed(startScreenSaverRunnable, SCREENSAVER_DELAY);
+        super.onUserInteraction();
     }
 
     @Override
