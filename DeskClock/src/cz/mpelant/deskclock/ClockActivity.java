@@ -1,21 +1,30 @@
 
 package cz.mpelant.deskclock;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View;
 import android.widget.TextView;
 
-public class ClockActivity extends Activity {
+public class ClockActivity extends BaseScreenOnActivity {
+    private static final int SCREENSAVER_DELAY = 1000 * 60;
     public static final String TAG = "ClockActivity";
     private View mDigitalClock;
     private View mAnalogClock;
     private TextView mDate;
     private TextView mNextAlarm;
+    private final Handler mHandler = new Handler();
+    private final Runnable startScreenSaverRunnable = new Runnable() {
+
+        @Override
+        public void run() {
+            startActivity(new Intent(ClockActivity.this, ScreensaverActivity.class));
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +42,21 @@ public class ClockActivity extends Activity {
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         setClockStyle();
         updateViews();
+        mHandler.postDelayed(startScreenSaverRunnable, SCREENSAVER_DELAY);
         super.onResume();
     }
 
-    private void updateViews() {
+    @Override
+    public void onPause() {
+        mHandler.removeCallbacks(startScreenSaverRunnable);
+        super.onPause();
+    }
+
+    @Override
+    protected void updateViews() {
         Utils.setAlarmTextView(this, mNextAlarm);
         Utils.setDateTextView(this, mDate);
     }

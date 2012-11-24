@@ -16,22 +16,13 @@
 
 package cz.mpelant.deskclock;
 
-import android.app.Activity;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.res.Configuration;
-import android.os.BatteryManager;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 
-public class ScreensaverActivity extends Activity {
+public class ScreensaverActivity extends BaseScreenOnActivity {
     static final boolean DEBUG = false;
     static final String TAG = "DeskClock/ScreensaverActivity";
 
@@ -46,82 +37,27 @@ public class ScreensaverActivity extends Activity {
     private final ScreensaverRunnable mMoveSaverRunnable;
     private String mDateFormat;
     private String mDateFormatForAccessibility;
-    private PendingIntent mQuarterlyIntent;
-    private boolean mPluggedIn = true;
-    private final int mFlags = (WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-    private final BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            boolean changed = intent.getAction().equals(Intent.ACTION_TIME_CHANGED) || intent.getAction().equals(Intent.ACTION_TIMEZONE_CHANGED);
-            if (intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)) {
-                mPluggedIn = true;
-                setWakeLock();
-            } else if (intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED)) {
-                mPluggedIn = false;
-                setWakeLock();
-            } else if (intent.getAction().equals(Intent.ACTION_USER_PRESENT)) {
-                finish();
-            } else if (intent.getAction().equals(Utils.ACTION_ON_QUARTER_HOUR) || changed) {
-                Utils.updateDate(mDateFormat, mDateFormatForAccessibility, mContentView);
-            }
-
-            if (changed) {
-                Utils.refreshAlarm(ScreensaverActivity.this, mContentView);
-            }
-
-        }
-    };
 
     public ScreensaverActivity() {
-        if (DEBUG)
-            Log.d(TAG, "Screensaver allocated");
         mMoveSaverRunnable = new ScreensaverRunnable(mHandler);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Intent.ACTION_POWER_CONNECTED);
-        filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
-        filter.addAction(Intent.ACTION_USER_PRESENT);
-        filter.addAction(Utils.ACTION_ON_QUARTER_HOUR);
-        filter.addAction(Intent.ACTION_TIME_CHANGED);
-        filter.addAction(Intent.ACTION_TIMEZONE_CHANGED);
-        registerReceiver(mIntentReceiver, filter);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Intent chargingIntent = registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        int plugged = chargingIntent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
-        mPluggedIn = plugged == BatteryManager.BATTERY_PLUGGED_AC || plugged == BatteryManager.BATTERY_PLUGGED_USB || plugged == BatteryManager.BATTERY_PLUGGED_WIRELESS;
 
         mDateFormat = getString(R.string.abbrev_wday_month_day_no_year);
         mDateFormatForAccessibility = getString(R.string.full_wday_month_day_no_year);
 
-        setWakeLock();
         layoutClockSaver();
         mHandler.post(mMoveSaverRunnable);
 
-        long alarmOnQuarterHour = Utils.getAlarmOnQuarterHour();
-        mQuarterlyIntent = PendingIntent.getBroadcast(this, 0, new Intent(Utils.ACTION_ON_QUARTER_HOUR), 0);
-        ((AlarmManager) getSystemService(Context.ALARM_SERVICE)).setRepeating(AlarmManager.RTC, alarmOnQuarterHour, AlarmManager.INTERVAL_FIFTEEN_MINUTES, mQuarterlyIntent);
     }
 
     @Override
     public void onPause() {
         mHandler.removeCallbacks(mMoveSaverRunnable);
-        ((AlarmManager) getSystemService(Context.ALARM_SERVICE)).cancel(mQuarterlyIntent);
         super.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        unregisterReceiver(mIntentReceiver);
-        super.onStop();
     }
 
     @Override
@@ -136,19 +72,7 @@ public class ScreensaverActivity extends Activity {
 
     @Override
     public void onUserInteraction() {
-        // We want the screen saver to exit upon user interaction.
         finish();
-    }
-
-    private void setWakeLock() {
-        Window win = getWindow();
-        WindowManager.LayoutParams winParams = win.getAttributes();
-        winParams.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
-        if (mPluggedIn)
-            winParams.flags |= mFlags;
-        else
-            winParams.flags &= (~mFlags);
-        win.setAttributes(winParams);
     }
 
     private void setClockStyle() {
@@ -173,6 +97,17 @@ public class ScreensaverActivity extends Activity {
 
         Utils.updateDate(mDateFormat, mDateFormatForAccessibility, mContentView);
         Utils.refreshAlarm(ScreensaverActivity.this, mContentView);
+    }
+
+    @Override
+    protected void updateViews() {
+        Utils.updateDate(mDateFormat, mDateFormatForAccessibility, mContentView);
+        Utils.refreshAlarm(ScreensaverActivity.this, mContentView);
+    }
+
+    @Override
+    protected int getAdditionalFlags() {
+        return WindowManager.LayoutParams.FLAG_FULLSCREEN;
     }
 
 }
