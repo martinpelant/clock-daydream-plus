@@ -1,9 +1,6 @@
 
 package cz.mpelant.deskclock;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
@@ -18,7 +15,6 @@ import android.net.Uri;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.CallLog;
-import android.provider.Settings;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
@@ -154,14 +150,20 @@ public class ScreensaverRunnable implements Runnable {
 
     private void handleUpdate() {
         try {
-            if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_GMAIL, true))
-                checkGmail(mDate.getContext(), mNotifGmail);
-            if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true))
-                checkSMS(mDate.getContext(), mNotifMessage);
-            if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_MISSED_CALLS, true))
-                checkMissedCalls(mDate.getContext(), mMissedCall);
             Utils.setAlarmTextView(mDate.getContext(), mNextAlarm);
             Utils.setDateTextView(mDate.getContext(), mDate);
+
+            new Thread() {
+                public void run() {
+                    if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_GMAIL, true))
+                        checkGmail(mDate.getContext(), mNotifGmail);
+                    if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true))
+                        checkSMS(mDate.getContext(), mNotifMessage);
+                    if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_MISSED_CALLS, true))
+                        checkMissedCalls(mDate.getContext(), mMissedCall);
+                };
+            }.start();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
