@@ -249,19 +249,39 @@ public class Utils {
     }
 
     public static Intent getAlarmPackage(Context context) {
+        // Verify clock implementation
+        String clockImpls[][] = {
+                {
+                        "JellyBean Alarm Clock", "com.google.android.deskclock", "com.android.deskclock.AlarmClock"
+                }, {
+                        "HTC Alarm Clock", "com.htc.android.worldclock", "com.htc.android.worldclock.WorldClockTabControl"
+                }, {
+                        "Standard Alarm Clock", "com.android.deskclock", "com.android.deskclock.AlarmClock"
+                }, {
+                        "Froyo Nexus Alarm Clock", "com.google.android.deskclock", "com.android.deskclock.DeskClock"
+                }, {
+                        "Moto Blur Alarm Clock", "com.motorola.blur.alarmclock", "com.motorola.blur.alarmclock.AlarmClock"
+                }, {
+                        "Samsung Galaxy Clock", "com.sec.android.app.clockpackage", "com.sec.android.app.clockpackage.ClockPackage"
+                }
+        };
+
         PackageManager manager = context.getPackageManager();
         Intent intent = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);
 
-        try {
-            ComponentName c = new ComponentName("com.google.android.deskclock", "com.android.deskclock.AlarmClock");
-            manager.getActivityInfo(c, PackageManager.GET_META_DATA);
-            intent.setComponent(c);
-        } catch (NameNotFoundException nf) {
-            Log.e("Caught name not found exception!");
-            return null;
+        for (int i = 0; i < clockImpls.length; i++) {
+            try {
+                ComponentName c = new ComponentName(clockImpls[i][1], clockImpls[i][2]);
+                manager.getActivityInfo(c, PackageManager.GET_META_DATA);
+                intent.setComponent(c);
+                return intent;
+            } catch (NameNotFoundException nf) {
+                Log.e("Caught name not found exception!" + clockImpls[i][0]);
+                continue;
+            }
         }
 
-        return intent;
+        return null;
     }
 
 }
