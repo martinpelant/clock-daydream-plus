@@ -245,9 +245,9 @@ public class ScreensaverRunnable implements Runnable {
             Cursor cur = context.getContentResolver().query(uriSMSURI, null, "read = 0", null, null);
             Log.d("SMS - " + cur.getCount());
             if (cur.getCount() > 0) {
-                image.setVisibility(View.VISIBLE);
+                setViewVisibility(image, View.VISIBLE);
             } else {
-                image.setVisibility(View.GONE);
+                setViewVisibility(image, View.GONE);
             }
             cur.close();
         } catch (Exception e) {
@@ -265,9 +265,9 @@ public class ScreensaverRunnable implements Runnable {
         try {
             cursor = context.getContentResolver().query(CallLog.Calls.CONTENT_URI, projection, selection, selectionArgs, sortOrder);
             if (cursor.getCount() > 0) {
-                image.setVisibility(View.VISIBLE);
+                setViewVisibility(image, View.VISIBLE);
             } else {
-                image.setVisibility(View.GONE);
+                setViewVisibility(image, View.GONE);
             }
         } catch (Exception ex) {
             Log.e("ERROR: " + ex.toString());
