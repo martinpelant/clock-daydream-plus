@@ -21,10 +21,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -157,9 +159,6 @@ public class Utils {
         return R.color.clock_gray;
     }
 
-
- 
-
     /** Setup to find out when the quarter-hour changes (e.g. Kathmandu is GMT+5:45) **/
     public static long getAlarmOnQuarterHour() {
         Calendar nextQuarter = Calendar.getInstance();
@@ -234,7 +233,7 @@ public class Utils {
             dateDisplay.setContentDescription(DateFormat.format(dateFormatForAccessibility, cal));
         }
     }
-    
+
     public static void setAlarmTextView(Context context, TextView alarm) {
         String nextAlarm = Settings.System.getString(context.getContentResolver(), Settings.System.NEXT_ALARM_FORMATTED);
         if (nextAlarm.isEmpty()) {
@@ -244,9 +243,25 @@ public class Utils {
             alarm.setText(nextAlarm);
         }
     }
-    
+
     public static void setDateTextView(Context context, TextView dateView) {
         dateView.setText(new SimpleDateFormat(context.getString(R.string.abbrev_wday_month_day_no_year)).format(new Date()));
+    }
+
+    public static Intent getAlarmPackage(Context context) {
+        PackageManager manager = context.getPackageManager();
+        Intent intent = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);
+
+        try {
+            ComponentName c = new ComponentName("com.google.android.deskclock", "com.android.deskclock.AlarmClock");
+            manager.getActivityInfo(c, PackageManager.GET_META_DATA);
+            intent.setComponent(c);
+        } catch (NameNotFoundException nf) {
+            Log.e("Caught name not found exception!");
+            return null;
+        }
+
+        return intent;
     }
 
 }

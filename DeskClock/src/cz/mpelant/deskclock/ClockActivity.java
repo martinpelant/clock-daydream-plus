@@ -46,7 +46,23 @@ public class ClockActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem item = menu.add("Settings").setIcon(R.drawable.ic_action_settings);
+        MenuItem item;
+
+        final Intent alarmIntent = Utils.getAlarmPackage(this);
+        if (alarmIntent != null) {
+            item = menu.add("Alarms").setIcon(R.drawable.ic_action_alarm);
+            item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+            item.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    startActivity(alarmIntent);
+                    return true;
+                }
+            });
+        }
+
+        item = menu.add("Settings").setIcon(R.drawable.ic_action_settings);
         item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         item.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 
