@@ -24,6 +24,14 @@
     public static *** v(...);
     public static *** w(...);
 }
+
+-assumenosideeffects class cz.mpelant.deskclock.Log {
+    public static *** d(...);
+    public static *** e(...);
+    public static *** i(...);
+    public static *** v(...);
+    public static *** w(...);
+}
 ##-------- lepsi trackovani chyb (zachova cisla radku)-----
 -renamesourcefileattribute SourceFile    
 -keepattributes SourceFile,LineNumberTable
