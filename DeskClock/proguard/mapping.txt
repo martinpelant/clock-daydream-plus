@@ -797,6 +797,8 @@ cz.mpelant.deskclock.AnalogClock$1 -> cz.mpelant.deskclock.a:
 cz.mpelant.deskclock.AnalogClock$2 -> cz.mpelant.deskclock.b:
     cz.mpelant.deskclock.AnalogClock this$0 -> a
     293:296:void run() -> run
+cz.mpelant.deskclock.App -> cz.mpelant.deskclock.App:
+    14:21:void onCreate() -> onCreate
 cz.mpelant.deskclock.BaseScreenOnActivity -> cz.mpelant.deskclock.c:
     android.app.PendingIntent mQuarterlyIntent -> a
     boolean mPluggedIn -> b

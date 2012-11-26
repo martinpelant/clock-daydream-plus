@@ -53,6 +53,8 @@ cz.mpelant.deskclock.AnalogClock: AnalogClock(android.content.Context)
 cz.mpelant.deskclock.AnalogClock: AnalogClock(android.content.Context,android.util.AttributeSet)
 cz.mpelant.deskclock.AnalogClock: AnalogClock(android.content.Context,android.util.AttributeSet,int)
 cz.mpelant.deskclock.AnalogClock: void setTimeZone(java.lang.String)
+cz.mpelant.deskclock.App
+cz.mpelant.deskclock.App: App()
 cz.mpelant.deskclock.BaseScreenOnActivity: BaseScreenOnActivity()
 cz.mpelant.deskclock.ClockActivity
 cz.mpelant.deskclock.ClockActivity: ClockActivity()

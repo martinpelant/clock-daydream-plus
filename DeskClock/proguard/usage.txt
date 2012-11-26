@@ -714,6 +714,8 @@ cz.mpelant.deskclock.Alarms:
 cz.mpelant.deskclock.AnalogClock:
     312:313:public void enableSeconds(boolean)
 cz.mpelant.deskclock.AndroidClockTextView
+cz.mpelant.deskclock.App:
+    public static final java.lang.String TAG
 cz.mpelant.deskclock.BaseScreenOnActivity:
     static final boolean DEBUG
     static final java.lang.String TAG
@@ -753,7 +755,6 @@ cz.mpelant.deskclock.Log:
     public static final java.lang.String LOGTAG
     static final boolean LOGV
     26:26:public Log()
-    38:39:public static void i(java.lang.String)
     50:51:public static void e(java.lang.String,java.lang.Exception)
     54:55:public static void w(java.lang.String)
     62:62:public static java.lang.String formatTime(long)
