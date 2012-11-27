@@ -155,12 +155,17 @@ public class ScreensaverRunnable implements Runnable {
 
             new Thread() {
                 public void run() {
-                    if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_GMAIL, true))
-                        checkGmail(mDate.getContext(), mNotifGmail);
-                    if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true))
-                        checkSMS(mDate.getContext(), mNotifMessage);
-                    if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_MISSED_CALLS, true))
-                        checkMissedCalls(mDate.getContext(), mMissedCall);
+                    try {
+                        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_GMAIL, true))
+                            checkGmail(mDate.getContext(), mNotifGmail);
+                        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true))
+                            checkSMS(mDate.getContext(), mNotifMessage);
+                        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_MISSED_CALLS, true))
+                            checkMissedCalls(mDate.getContext(), mMissedCall);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                 };
             }.start();
 
