@@ -216,10 +216,9 @@ public class ScreensaverRunnable implements Runnable {
                 Cursor labelsCursor = context.getContentResolver().query(GmailContract.Labels.getLabelsUri(selectedAccount), null, null, null, null);
                 labelsCursor.moveToFirst();
                 do {
-
-                    String name = labelsCursor.getString(labelsCursor.getColumnIndex(GmailContract.Labels.NAME));
+                    String name = labelsCursor.getString(labelsCursor.getColumnIndex(GmailContract.Labels.CANONICAL_NAME));
                     int unread = labelsCursor.getInt(labelsCursor.getColumnIndex(GmailContract.Labels.NUM_UNREAD_CONVERSATIONS));// here's the value you need
-                    if (name.equals("Inbox") && unread > 0) {
+                    if (name.equals(GmailContract.Labels.LabelCanonicalNames.CANONICAL_NAME_INBOX) && unread > 0) {
                         Log.d("Gmail - " + name + "-" + unread);
                         setViewVisibility(image, View.VISIBLE);
                         return;
