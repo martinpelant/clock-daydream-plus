@@ -197,20 +197,16 @@ public class ScreensaverRunnable implements Runnable {
             public void run(AccountManagerFuture<Account[]> future) {
                 Account[] accounts = null;
                 try {
+                    setViewVisibility(image, View.GONE);
                     accounts = (Account[]) future.getResult();
                     if (accounts != null && accounts.length > 0) {
-                        String selectedAccount = accounts[0].name;
-                        queryLabels(selectedAccount, context);
+                        for (Account account : accounts) {
+                            String selectedAccount = account.name;
+                            queryLabels(selectedAccount, context);
+                        }
                     }
 
                 } catch (Exception e) {
-                    // catch (OperationCanceledException oce) {
-
-                    // // TODO: handle exception
-                    // } catch (IOException ioe) {
-                    // } catch (AuthenticatorException ae) {
-
-                    // }
                     e.printStackTrace();
                 }
             }
@@ -229,7 +225,6 @@ public class ScreensaverRunnable implements Runnable {
                         return;
                     }
                 } while (labelsCursor.moveToNext());
-                setViewVisibility(image, View.GONE);
             }
         }, null /* handler */);
     }
