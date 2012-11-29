@@ -57,10 +57,21 @@
 
     <!-- Description of field showing the next alarm time in the clock page, for accessibility. -->
     <string name="next_alarm_description">Next alarm: <xliff:g id="alarm_time" example="Wed 8:00am">%s</xliff:g></string>
-    
+
     <!--  -->
-    
-    
-    <string name="tip_unread_gmail">Tip: Search your Gmail for \"is:unread\" to display any unread email.</string>
+
+    <string name="tip_unread_gmail">Tip: Search your Gmail for \"is:unread\" to display unread emails</string>
+    <string name="notification_icons">Notification icons</string>
+    <string name="show_unread_gmail_icon">Show unread Gmail icon</string>
+    <string name="gmail">Gmail</string>
+    <string name="show_unread_texts_icon">Show unread texts icon</string>
+    <string name="sms">SMS</string>
+    <string name="show_missed_calls_icon">Show missed calls icon</string>
+    <string name="calls">Calls</string>
+    <string name="hide_this_app_from_the_launcher">Hide this app from the launcher</string>
+    <string name="hide_icon">Hide icon</string>
+    <string name="about">About</string>
+    <string name="restart_required">You may need to restart the launcher or reboot the phone in order for this action to take effect</string>
+    <string name="action_not_available_in_this_android">This action is not available on this version of Android</string>
 
 </resources>

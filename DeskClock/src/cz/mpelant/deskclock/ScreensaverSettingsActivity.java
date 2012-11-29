@@ -46,6 +46,7 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
     static final String KEY_ABOUT = "about";
     static final long TIP_DELAY = 1000 * 3600 * 24; // 24h
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,13 +75,14 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
             if (Build.VERSION.SDK_INT >= 17) {
                 PackageManager p = getPackageManager();
                 p.setComponentEnabledSetting(new ComponentName(ClockActivity.class.getPackage().getName(), ClockActivity.class.getName()), state, PackageManager.DONT_KILL_APP);
-                Toast.makeText(this, "You may need to restart the launcher or reboot the phone in order for this action to take effect", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.restart_required, Toast.LENGTH_LONG).show();
             }
 
         }
         return true;
     }
 
+    @SuppressWarnings("deprecation")
     private void refresh() {
         ListPreference listPref = (ListPreference) findPreference(KEY_CLOCK_STYLE);
         listPref.setSummary(listPref.getEntry());
@@ -98,7 +100,7 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
         pref = findPreference(KEY_HIDE_ACTIVITY);
         if (Build.VERSION.SDK_INT < 17) {
             pref.setEnabled(false);
-            pref.setSummary("This action is not available on this version of Android");
+            pref.setSummary(R.string.action_not_available_in_this_android);
         } else {
             pref.setOnPreferenceChangeListener(this);
         }
