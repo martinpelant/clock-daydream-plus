@@ -34,7 +34,7 @@ public class ClockActivity extends BaseScreenOnActivity {
         setContentView(R.layout.main_clock_frame);
         mDigitalClock = findViewById(R.id.digital_clock);
         mAnalogClock = findViewById(R.id.analog_clock);
-        ((View)mAnalogClock.getParent()).setOnLongClickListener(new OnLongClickListener() {
+        ((View)mAnalogClock.getParent().getParent()).setOnLongClickListener(new OnLongClickListener() {
             
             @Override
             public boolean onLongClick(View v) {

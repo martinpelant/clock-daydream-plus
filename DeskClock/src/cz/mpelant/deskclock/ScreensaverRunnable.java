@@ -186,7 +186,7 @@ public class ScreensaverRunnable implements Runnable {
         public static final String NUM_UNREAD_CONVERSATIONS = "numUnreadConversations";
     }
 
-    private static void checkGmail(final Context context, final View image) {
+    private void checkGmail(final Context context, final View image) {
         // Get the account list, and pick the first one
         final String ACCOUNT_TYPE_GOOGLE = "com.google";
         final String[] FEATURES_MAIL = {
@@ -228,8 +228,8 @@ public class ScreensaverRunnable implements Runnable {
         }, null /* handler */);
     }
 
-    private static void setViewVisibility(final View view, final int visibility) {
-        view.post(new Runnable() {
+    private void setViewVisibility(final View view, final int visibility) {
+        mHandler.post(new Runnable() {
 
             @Override
             public void run() {
@@ -238,7 +238,7 @@ public class ScreensaverRunnable implements Runnable {
         });
     }
 
-    private static void checkSMS(Context context, View image) {
+    private void checkSMS(Context context, View image) {
         try {
             Uri uriSMSURI = Uri.parse("content://sms/inbox");
             Cursor cur = context.getContentResolver().query(uriSMSURI, null, "read = 0", null, null);
@@ -255,7 +255,7 @@ public class ScreensaverRunnable implements Runnable {
 
     }
 
-    private static void checkMissedCalls(Context context, View image) {
+    private void checkMissedCalls(Context context, View image) {
         final String[] projection = null;
         final String selection = CallLog.Calls.TYPE + "=" + CallLog.Calls.MISSED_TYPE + " AND " + CallLog.Calls.IS_READ + "=0";
         final String[] selectionArgs = null;
