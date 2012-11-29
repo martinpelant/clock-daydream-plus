@@ -100,6 +100,7 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
         pref = findPreference(KEY_HIDE_ACTIVITY);
         if (Build.VERSION.SDK_INT < 17) {
             pref.setEnabled(false);
+            pref.setSelectable(false);
             pref.setSummary(R.string.action_not_available_in_this_android);
         } else {
             pref.setOnPreferenceChangeListener(this);

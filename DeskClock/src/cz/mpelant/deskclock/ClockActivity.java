@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.widget.TextView;
 
 public class ClockActivity extends BaseScreenOnActivity {
@@ -33,10 +34,19 @@ public class ClockActivity extends BaseScreenOnActivity {
         setContentView(R.layout.main_clock_frame);
         mDigitalClock = findViewById(R.id.digital_clock);
         mAnalogClock = findViewById(R.id.analog_clock);
+        ((View)mAnalogClock.getParent()).setOnLongClickListener(new OnLongClickListener() {
+            
+            @Override
+            public boolean onLongClick(View v) {
+                startScreenSaverRunnable.run();
+                return true;
+            }
+        });
         mDate = (TextView) findViewById(R.id.date);
         mNextAlarm = (TextView) findViewById(R.id.nextAlarm);
         setClockStyle();
     }
+    
 
     private void setClockStyle() {
         Utils.setClockStyle(this, mDigitalClock, mAnalogClock, ScreensaverSettingsActivity.KEY_CLOCK_STYLE);
