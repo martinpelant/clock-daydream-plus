@@ -71,7 +71,7 @@
     <string name="hide_this_app_from_the_launcher">Hide this app from the launcher</string>
     <string name="hide_icon">Hide icon</string>
     <string name="about">About</string>
-    <string name="restart_required">You may need to restart the launcher or reboot the phone in order for this action to take effect</string>
+    <string name="restart_required">You may need to restart the launcher or reboot the device in order for this action to take effect</string>
     <string name="action_not_available_in_this_android">This action is not available on this version of Android</string>
 
 </resources>
