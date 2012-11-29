@@ -798,7 +798,6 @@ cz.mpelant.deskclock.AnalogClock$2 -> cz.mpelant.deskclock.b:
     cz.mpelant.deskclock.AnalogClock this$0 -> a
     293:296:void run() -> run
 cz.mpelant.deskclock.App -> cz.mpelant.deskclock.App:
-    14:21:void onCreate() -> onCreate
 cz.mpelant.deskclock.BaseScreenOnActivity -> cz.mpelant.deskclock.c:
     android.app.PendingIntent mQuarterlyIntent -> a
     boolean mPluggedIn -> b
@@ -823,23 +822,27 @@ cz.mpelant.deskclock.ClockActivity -> cz.mpelant.deskclock.ClockActivity:
     android.widget.TextView mNextAlarm -> d
     android.os.Handler mHandler -> e
     java.lang.Runnable startScreenSaverRunnable -> f
-    32:39:void onCreate(android.os.Bundle) -> onCreate
-    42:43:void setClockStyle() -> c
-    47:51:void onResume() -> onResume
-    55:57:void onPause() -> onPause
-    61:64:void onUserInteraction() -> onUserInteraction
-    68:70:void updateViews() -> a
-    76:100:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    33:48:void onCreate(android.os.Bundle) -> onCreate
+    52:53:void setClockStyle() -> c
+    57:61:void onResume() -> onResume
+    65:67:void onPause() -> onPause
+    71:74:void onUserInteraction() -> onUserInteraction
+    78:80:void updateViews() -> a
+    86:110:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    22:22:java.lang.Runnable access$0(cz.mpelant.deskclock.ClockActivity) -> a
 cz.mpelant.deskclock.ClockActivity$1 -> cz.mpelant.deskclock.e:
     cz.mpelant.deskclock.ClockActivity this$0 -> a
-    25:27:void run() -> run
+    26:28:void run() -> run
 cz.mpelant.deskclock.ClockActivity$2 -> cz.mpelant.deskclock.f:
     cz.mpelant.deskclock.ClockActivity this$0 -> a
-    android.content.Intent val$alarmIntent -> b
-    84:85:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
+    41:42:boolean onLongClick(android.view.View) -> onLongClick
 cz.mpelant.deskclock.ClockActivity$3 -> cz.mpelant.deskclock.g:
     cz.mpelant.deskclock.ClockActivity this$0 -> a
-    96:97:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
+    android.content.Intent val$alarmIntent -> b
+    94:95:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
+cz.mpelant.deskclock.ClockActivity$4 -> cz.mpelant.deskclock.h:
+    cz.mpelant.deskclock.ClockActivity this$0 -> a
+    106:107:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
 cz.mpelant.deskclock.DigitalClock -> cz.mpelant.deskclock.DigitalClock:
     java.util.Calendar mCalendar -> a
     java.lang.String mHoursFormat -> b
@@ -865,22 +868,22 @@ cz.mpelant.deskclock.DigitalClock -> cz.mpelant.deskclock.DigitalClock:
     60:60:android.os.Handler access$2(cz.mpelant.deskclock.DigitalClock) -> b
     194:194:void access$3(cz.mpelant.deskclock.DigitalClock) -> c
     222:222:void access$4(cz.mpelant.deskclock.DigitalClock) -> d
-cz.mpelant.deskclock.DigitalClock$1 -> cz.mpelant.deskclock.h:
+cz.mpelant.deskclock.DigitalClock$1 -> cz.mpelant.deskclock.i:
     cz.mpelant.deskclock.DigitalClock this$0 -> a
     64:74:void onReceive(android.content.Context,android.content.Intent) -> onReceive
     61:61:cz.mpelant.deskclock.DigitalClock access$0(cz.mpelant.deskclock.DigitalClock$1) -> a
-cz.mpelant.deskclock.DigitalClock$1$1 -> cz.mpelant.deskclock.i:
+cz.mpelant.deskclock.DigitalClock$1$1 -> cz.mpelant.deskclock.j:
     cz.mpelant.deskclock.DigitalClock$1 this$1 -> a
     71:72:void run() -> run
-cz.mpelant.deskclock.DigitalClock$AmPm -> cz.mpelant.deskclock.j:
+cz.mpelant.deskclock.DigitalClock$AmPm -> cz.mpelant.deskclock.k:
     android.widget.TextView mAmPm -> a
     java.lang.String mAmString -> b
     java.lang.String mPmString -> c
-cz.mpelant.deskclock.DigitalClock$FormatChangeObserver -> cz.mpelant.deskclock.k:
+cz.mpelant.deskclock.DigitalClock$FormatChangeObserver -> cz.mpelant.deskclock.l:
     cz.mpelant.deskclock.DigitalClock this$0 -> a
     108:110:void onChange(boolean) -> onChange
-cz.mpelant.deskclock.R -> cz.mpelant.deskclock.l:
-cz.mpelant.deskclock.R$styleable -> cz.mpelant.deskclock.m:
+cz.mpelant.deskclock.R -> cz.mpelant.deskclock.m:
+cz.mpelant.deskclock.R$styleable -> cz.mpelant.deskclock.n:
     int[] AnalogClock -> AnalogClock
     int AnalogClock_jewelColor -> AnalogClock_jewelColor
     int AnalogClock_jewelOffset -> AnalogClock_jewelOffset
@@ -928,7 +931,7 @@ cz.mpelant.deskclock.ScreensaverActivity -> cz.mpelant.deskclock.ScreensaverActi
     87:102:void layoutClockSaver() -> c
     106:108:void updateViews() -> a
     112:112:int getAdditionalFlags() -> b
-cz.mpelant.deskclock.ScreensaverRunnable -> cz.mpelant.deskclock.n:
+cz.mpelant.deskclock.ScreensaverRunnable -> cz.mpelant.deskclock.o:
     android.view.View mContentView -> e
     android.view.View mSaverView -> f
     android.widget.TextView mDate -> a
@@ -940,32 +943,36 @@ cz.mpelant.deskclock.ScreensaverRunnable -> cz.mpelant.deskclock.n:
     android.animation.TimeInterpolator mSlowStartWithBrakes -> i
     55:63:void registerViews(android.view.View,android.view.View) -> a
     67:149:void run() -> run
-    153:171:void handleUpdate() -> a
-    174:174:boolean isPrefEnabled$505cbf47(java.lang.String) -> a
-    233:240:void setViewVisibility(android.view.View,int) -> a
-    232:232:void access$8(android.view.View,int) -> b
-cz.mpelant.deskclock.ScreensaverRunnable$1 -> cz.mpelant.deskclock.o:
+    153:176:void handleUpdate() -> a
+    179:179:boolean isPrefEnabled$505cbf47(java.lang.String) -> a
+    232:239:void setViewVisibility(android.view.View,int) -> a
+    231:231:void access$8(cz.mpelant.deskclock.ScreensaverRunnable,android.view.View,int) -> a
+cz.mpelant.deskclock.ScreensaverRunnable$1 -> cz.mpelant.deskclock.p:
     cz.mpelant.deskclock.ScreensaverRunnable this$0 -> a
     49:49:float getInterpolation(float) -> getInterpolation
-cz.mpelant.deskclock.ScreensaverRunnable$2 -> cz.mpelant.deskclock.p:
+cz.mpelant.deskclock.ScreensaverRunnable$2 -> cz.mpelant.deskclock.q:
     cz.mpelant.deskclock.ScreensaverRunnable this$0 -> a
     130:131:void run() -> run
-cz.mpelant.deskclock.ScreensaverRunnable$3 -> cz.mpelant.deskclock.q:
+cz.mpelant.deskclock.ScreensaverRunnable$3 -> cz.mpelant.deskclock.r:
     cz.mpelant.deskclock.ScreensaverRunnable this$0 -> a
-    158:164:void run() -> run
-cz.mpelant.deskclock.ScreensaverRunnable$4 -> cz.mpelant.deskclock.r:
-    android.content.Context val$context -> a
+    159:169:void run() -> run
+cz.mpelant.deskclock.ScreensaverRunnable$4 -> cz.mpelant.deskclock.s:
+    cz.mpelant.deskclock.ScreensaverRunnable this$0 -> a
     android.view.View val$image -> b
-    193:211:void run(android.accounts.AccountManagerFuture) -> run
-cz.mpelant.deskclock.ScreensaverRunnable$5 -> cz.mpelant.deskclock.s:
-    android.view.View val$view -> a
-    int val$visibility -> b
-    237:238:void run() -> run
+    android.content.Context val$context -> c
+    198:212:void run(android.accounts.AccountManagerFuture) -> run
+cz.mpelant.deskclock.ScreensaverRunnable$5 -> cz.mpelant.deskclock.t:
+    cz.mpelant.deskclock.ScreensaverRunnable this$0 -> a
+    android.view.View val$view -> b
+    int val$visibility -> c
+    236:237:void run() -> run
 cz.mpelant.deskclock.ScreensaverSettingsActivity -> cz.mpelant.deskclock.ScreensaverSettingsActivity:
-    38:40:void onCreate(android.os.Bundle) -> onCreate
-    44:46:void onResume() -> onResume
-    50:57:boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
-cz.mpelant.deskclock.Utils -> cz.mpelant.deskclock.t:
+    52:59:void onCreate(android.os.Bundle) -> onCreate
+    63:65:void onResume() -> onResume
+    69:82:boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
+    125:131:int getVersionCode(android.content.Context) -> a
+    143:149:java.lang.String getVersionName(android.content.Context) -> b
+cz.mpelant.deskclock.Utils -> cz.mpelant.deskclock.u:
     java.lang.String TAG -> a
     java.lang.String sCachedVersionCode -> b
     164:173:long getAlarmOnQuarterHour() -> a

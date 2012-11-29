@@ -166,6 +166,8 @@ cz.mpelant.deskclock.R$plurals: int snooze_duration
 cz.mpelant.deskclock.R$plurals: int snooze_picker_label
 cz.mpelant.deskclock.R$plurals: int timers_num
 cz.mpelant.deskclock.R$string: int abbrev_wday_month_day_no_year
+cz.mpelant.deskclock.R$string: int about
+cz.mpelant.deskclock.R$string: int action_not_available_in_this_android
 cz.mpelant.deskclock.R$string: int add_alarm
 cz.mpelant.deskclock.R$string: int alarm_alert_alert_silenced
 cz.mpelant.deskclock.R$string: int alarm_alert_dismiss_text
@@ -201,6 +203,7 @@ cz.mpelant.deskclock.R$string: int battery_charging_level
 cz.mpelant.deskclock.R$string: int button_alarms
 cz.mpelant.deskclock.R$string: int button_cities
 cz.mpelant.deskclock.R$string: int button_menu
+cz.mpelant.deskclock.R$string: int calls
 cz.mpelant.deskclock.R$string: int cities_activity_title
 cz.mpelant.deskclock.R$string: int city_delete_confirmation
 cz.mpelant.deskclock.R$string: int clock_instructions
@@ -233,8 +236,11 @@ cz.mpelant.deskclock.R$string: int every_day
 cz.mpelant.deskclock.R$string: int expand_alarm
 cz.mpelant.deskclock.R$string: int full_wday_month_day_no_year
 cz.mpelant.deskclock.R$string: int gallery_button_description
+cz.mpelant.deskclock.R$string: int gmail
 cz.mpelant.deskclock.R$string: int help
 cz.mpelant.deskclock.R$string: int hide_clock
+cz.mpelant.deskclock.R$string: int hide_icon
+cz.mpelant.deskclock.R$string: int hide_this_app_from_the_launcher
 cz.mpelant.deskclock.R$string: int home_button_description
 cz.mpelant.deskclock.R$string: int home_label
 cz.mpelant.deskclock.R$string: int home_time_zone
@@ -266,6 +272,8 @@ cz.mpelant.deskclock.R$string: int next_timer_notif
 cz.mpelant.deskclock.R$string: int night_mode_summary
 cz.mpelant.deskclock.R$string: int night_mode_title
 cz.mpelant.deskclock.R$string: int nightmode_button_description
+cz.mpelant.deskclock.R$string: int notification_icons
+cz.mpelant.deskclock.R$string: int restart_required
 cz.mpelant.deskclock.R$string: int revert
 cz.mpelant.deskclock.R$string: int ringtone
 cz.mpelant.deskclock.R$string: int ringtone_description
@@ -276,8 +284,12 @@ cz.mpelant.deskclock.R$string: int see_all
 cz.mpelant.deskclock.R$string: int set_alarm
 cz.mpelant.deskclock.R$string: int settings
 cz.mpelant.deskclock.R$string: int show_clock
+cz.mpelant.deskclock.R$string: int show_missed_calls_icon
+cz.mpelant.deskclock.R$string: int show_unread_gmail_icon
+cz.mpelant.deskclock.R$string: int show_unread_texts_icon
 cz.mpelant.deskclock.R$string: int silent_alarm_summary
 cz.mpelant.deskclock.R$string: int slash
+cz.mpelant.deskclock.R$string: int sms
 cz.mpelant.deskclock.R$string: int snooze_duration_title
 cz.mpelant.deskclock.R$string: int stopwatch_service_desc
 cz.mpelant.deskclock.R$string: int sw_lap_button
@@ -311,6 +323,7 @@ cz.mpelant.deskclock.R$string: int timer_stopped
 cz.mpelant.deskclock.R$string: int timer_times_up
 cz.mpelant.deskclock.R$string: int timers_in_use
 cz.mpelant.deskclock.R$string: int timers_stopped
+cz.mpelant.deskclock.R$string: int tip_unread_gmail
 cz.mpelant.deskclock.R$string: int volume_button_dialog_title
 cz.mpelant.deskclock.R$string: int volume_button_setting_title
 cz.mpelant.deskclock.R$string: int weather_fetch_failure

@@ -755,6 +755,7 @@ cz.mpelant.deskclock.Log:
     public static final java.lang.String LOGTAG
     static final boolean LOGV
     26:26:public Log()
+    38:39:public static void i(java.lang.String)
     50:51:public static void e(java.lang.String,java.lang.Exception)
     54:55:public static void w(java.lang.String)
     62:62:public static java.lang.String formatTime(long)
@@ -774,7 +775,7 @@ cz.mpelant.deskclock.R$plurals
 cz.mpelant.deskclock.R$string
 cz.mpelant.deskclock.R$style
 cz.mpelant.deskclock.R$styleable:
-    639:639:public R$styleable()
+    654:654:public R$styleable()
 cz.mpelant.deskclock.R$xml
 cz.mpelant.deskclock.Screensaver:
     static final boolean DEBUG
@@ -795,6 +796,9 @@ cz.mpelant.deskclock.ScreensaverSettingsActivity:
     static final java.lang.String KEY_NOTIF_GMAIL
     static final java.lang.String KEY_NOTIF_SMS
     static final java.lang.String KEY_NOTIF_MISSED_CALLS
+    static final java.lang.String KEY_HIDE_ACTIVITY
+    static final java.lang.String KEY_ABOUT
+    static final long TIP_DELAY
 cz.mpelant.deskclock.Utils:
     private static final java.lang.String PARAM_LANGUAGE_CODE
     private static final java.lang.String PARAM_VERSION
