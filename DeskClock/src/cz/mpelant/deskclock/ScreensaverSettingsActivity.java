@@ -16,11 +16,14 @@
 
 package cz.mpelant.deskclock;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
+import android.widget.Toast;
 
 /**
  * Settings for the Alarm Clock Dream (cz.mpelant.deskclock.Screensaver).
@@ -32,11 +35,17 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
     static final String KEY_NOTIF_GMAIL = "notif_gmail";
     static final String KEY_NOTIF_SMS = "notif_sms";
     static final String KEY_NOTIF_MISSED_CALLS = "notif_missed_calls";
+    static final long TIP_DELAY = 1000*3600*24; //24h
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.dream_settings);
+        SharedPreferences sp  = PreferenceManager.getDefaultSharedPreferences(this);
+        if(System.currentTimeMillis() - sp.getLong("tip", 0) > TIP_DELAY) {
+            sp.edit().putLong("tip", System.currentTimeMillis()).commit();
+            Toast.makeText(this, R.string.tip_unread_gmail, Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
