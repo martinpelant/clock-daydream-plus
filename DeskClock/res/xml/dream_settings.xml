@@ -39,13 +39,26 @@
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="notif_sms"
-            android:summary="Show unread SMS icon"
+            android:summary="Show unread texts icon"
             android:title="SMS" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="notif_missed_calls"
             android:summary="Show missed calls icon"
             android:title="Calls" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Misc" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="hide_activity"
+            android:summary="Hide this app from the launcher"
+            android:title="Hide icon" />
+
+        <Preference
+            android:selectable="false"
+            android:key="about"
+            android:persistent="false"
+            android:title="About" />
     </PreferenceCategory>
 
 </PreferenceScreen>
