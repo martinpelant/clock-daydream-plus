@@ -775,7 +775,7 @@ cz.mpelant.deskclock.R$plurals
 cz.mpelant.deskclock.R$string
 cz.mpelant.deskclock.R$style
 cz.mpelant.deskclock.R$styleable:
-    654:654:public R$styleable()
+    657:657:public R$styleable()
 cz.mpelant.deskclock.R$xml
 cz.mpelant.deskclock.Screensaver:
     static final boolean DEBUG

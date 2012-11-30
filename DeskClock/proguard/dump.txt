@@ -42971,16 +42971,16 @@ Methods (count = 1):
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 10)
-        [0] -> line 669
-        [5] -> line 670
-        [18] -> line 669
-        [21] -> line 755
-        [27] -> line 756
-        [47] -> line 757
-        [70] -> line 758
-        [94] -> line 759
-        [103] -> line 755
-        [106] -> line 962
+        [0] -> line 672
+        [5] -> line 673
+        [18] -> line 672
+        [21] -> line 758
+        [27] -> line 759
+        [47] -> line 760
+        [70] -> line 761
+        [94] -> line 762
+        [103] -> line 758
+        [106] -> line 965
 
 Class file attributes (count = 1):
   + Source file attribute:
@@ -47727,21 +47727,24 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 71):
+Constant Pool (count = 80):
   + Float [0.208]
   + Float [0.25]
   + Float [0.328]
   + String [san-serif]
   + Class [android/content/Context]
   + Class [android/graphics/Typeface]
+  + Class [android/os/Build$VERSION]
   + Class [android/util/AttributeSet]
   + Class [android/widget/TextView]
   + Class [cz/mpelant/deskclock/ZeroTopPaddingTextView]
+  + Fieldref [android/os/Build$VERSION.SDK_INT I]
   + Fieldref [cz/mpelant/deskclock/ZeroTopPaddingTextView.a Landroid/graphics/Typeface;]
   + Fieldref [cz/mpelant/deskclock/ZeroTopPaddingTextView.b I]
   + Methodref [android/graphics/Typeface.create (Ljava/lang/String;I)Landroid/graphics/Typeface;]
   + Methodref [android/graphics/Typeface.equals (Ljava/lang/Object;)Z]
   + Methodref [android/widget/TextView.<init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V]
+  + Methodref [android/widget/TextView.onLayout (ZIIII)V]
   + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.<init> (Landroid/content/Context;Landroid/util/AttributeSet;)V]
   + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.<init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V]
   + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.a ()V]
@@ -47752,6 +47755,7 @@ Constant Pool (count = 71):
   + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.setPadding (IIII)V]
   + NameAndType [<init> (Landroid/content/Context;Landroid/util/AttributeSet;)V]
   + NameAndType [<init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V]
+  + NameAndType [SDK_INT I]
   + NameAndType [a ()V]
   + NameAndType [a Landroid/graphics/Typeface;]
   + NameAndType [b I]
@@ -47760,6 +47764,7 @@ Constant Pool (count = 71):
   + NameAndType [getTextSize ()F]
   + NameAndType [getTypeface ()Landroid/graphics/Typeface;]
   + NameAndType [isInEditMode ()Z]
+  + NameAndType [onLayout (ZIIII)V]
   + NameAndType [setIncludeFontPadding (Z)V]
   + NameAndType [setPadding (IIII)V]
   + Utf8 [()F]
@@ -47774,17 +47779,20 @@ Constant Pool (count = 71):
   + Utf8 [(Ljava/lang/Object;)Z]
   + Utf8 [(Ljava/lang/String;I)Landroid/graphics/Typeface;]
   + Utf8 [(Z)V]
+  + Utf8 [(ZIIII)V]
   + Utf8 [<clinit>]
   + Utf8 [<init>]
   + Utf8 [Code]
   + Utf8 [I]
   + Utf8 [Landroid/graphics/Typeface;]
   + Utf8 [LineNumberTable]
+  + Utf8 [SDK_INT]
   + Utf8 [SourceFile]
   + Utf8 [StackMapTable]
   + Utf8 [a]
   + Utf8 [android/content/Context]
   + Utf8 [android/graphics/Typeface]
+  + Utf8 [android/os/Build$VERSION]
   + Utf8 [android/util/AttributeSet]
   + Utf8 [android/widget/TextView]
   + Utf8 [b]
@@ -47794,6 +47802,7 @@ Constant Pool (count = 71):
   + Utf8 [getTextSize]
   + Utf8 [getTypeface]
   + Utf8 [isInEditMode]
+  + Utf8 [onLayout]
   + Utf8 [san-serif]
   + Utf8 [setIncludeFontPadding]
   + Utf8 [setPadding]
@@ -47807,7 +47816,7 @@ Fields (count = 2):
     Access flags: 0x2
       = private int b
 
-Methods (count = 6):
+Methods (count = 7):
   - Method:       <clinit>()V
     Access flags: 0x8
       = static void <clinit>()
@@ -47816,15 +47825,15 @@ Methods (count = 6):
       [0] ldc #4
         + String [san-serif]
       [2] iconst_1
-      [3] invokestatic #12
+      [3] invokestatic #14
         + Methodref [android/graphics/Typeface.create (Ljava/lang/String;I)Landroid/graphics/Typeface;]
-      [6] putstatic #10
+      [6] putstatic #12
         + Fieldref [cz/mpelant/deskclock/ZeroTopPaddingTextView.a Landroid/graphics/Typeface;]
       [9] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 1)
-        [0] -> line 36
+        [0] -> line 37
   - Method:       <init>(Landroid/content/Context;)V
     Access flags: 0x1
       = public ZeroTopPaddingTextView(android.content.Context)
@@ -47833,14 +47842,14 @@ Methods (count = 6):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] aconst_null
-      [3] invokespecial #15
+      [3] invokespecial #18
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.<init> (Landroid/content/Context;Landroid/util/AttributeSet;)V]
       [6] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 2)
-        [0] -> line 41
-        [6] -> line 42
+        [0] -> line 42
+        [6] -> line 43
   - Method:       <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     Access flags: 0x1
       = public ZeroTopPaddingTextView(android.content.Context,android.util.AttributeSet)
@@ -47850,54 +47859,56 @@ Methods (count = 6):
       [1] aload_1 v1
       [2] aload_2 v2
       [3] iconst_0
-      [4] invokespecial #16
+      [4] invokespecial #19
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.<init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V]
       [7] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 2)
-        [0] -> line 45
-        [7] -> line 46
+        [0] -> line 46
+        [7] -> line 47
   - Method:       <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     Access flags: 0x1
       = public ZeroTopPaddingTextView(android.content.Context,android.util.AttributeSet,int)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 30, locals = 4, stack = 4):
+    + Code attribute instructions (code length = 34, locals = 4, stack = 4):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] aload_2 v2
       [3] iload_3 v3
-      [4] invokespecial #14
+      [4] invokespecial #16
         + Methodref [android/widget/TextView.<init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V]
       [7] aload_0 v0
       [8] iconst_0
-      [9] putfield #11
+      [9] putfield #13
         + Fieldref [cz/mpelant/deskclock/ZeroTopPaddingTextView.b I]
       [12] aload_0 v0
-      [13] invokevirtual #20
+      [13] invokevirtual #23
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.isInEditMode ()Z]
       [16] ifeq +4 (target=20)
       [19] return
-      [20] aload_0 v0
-      [21] iconst_0
-      [22] invokevirtual #21
+      [20] getstatic #11
+        + Fieldref [android/os/Build$VERSION.SDK_INT I]
+      [23] bipush 16
+      [25] ificmplt +8 (target=33)
+      [28] aload_0 v0
+      [29] iconst_0
+      [30] invokevirtual #24
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.setIncludeFontPadding (Z)V]
-      [25] aload_0 v0
-      [26] invokespecial #17
-        + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.a ()V]
-      [29] return
+      [33] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 2):
       + Line number table attribute (count = 7)
-        [0] -> line 49
-        [7] -> line 38
-        [12] -> line 50
-        [19] -> line 51
-        [20] -> line 52
-        [25] -> line 53
-        [29] -> line 54
-      + Stack map table attribute (count = 1):
+        [0] -> line 50
+        [7] -> line 39
+        [12] -> line 51
+        [19] -> line 52
+        [20] -> line 53
+        [28] -> line 54
+        [33] -> line 56
+      + Stack map table attribute (count = 2):
         - [20] Var: [a:cz/mpelant/deskclock/ZeroTopPaddingTextView][a:android/content/Context][a:android/util/AttributeSet][i], Stack: 
+        - [33] Var: ..., Stack: (empty)
   + Method:       a()V
     Access flags: 0x2
       = private void a()
@@ -47910,15 +47921,15 @@ Methods (count = 6):
         + Float [0.25]
       [5] fstore_2 v2
       [6] aload_0 v0
-      [7] invokevirtual #19
+      [7] invokevirtual #22
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.getTypeface ()Landroid/graphics/Typeface;]
       [10] ifnull +22 (target=32)
       [13] aload_0 v0
-      [14] invokevirtual #19
+      [14] invokevirtual #22
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.getTypeface ()Landroid/graphics/Typeface;]
-      [17] getstatic #10
+      [17] getstatic #12
         + Fieldref [cz/mpelant/deskclock/ZeroTopPaddingTextView.a Landroid/graphics/Typeface;]
-      [20] invokevirtual #13
+      [20] invokevirtual #15
         + Methodref [android/graphics/Typeface.equals (Ljava/lang/Object;)Z]
       [23] ifeq +9 (target=32)
       [26] ldc #1
@@ -47932,35 +47943,35 @@ Methods (count = 6):
       [34] fload_1 v1
       [35] fneg
       [36] aload_0 v0
-      [37] invokevirtual #18
+      [37] invokevirtual #21
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.getTextSize ()F]
       [40] fmul
       [41] f2i
       [42] aload_0 v0
-      [43] getfield #11
+      [43] getfield #13
         + Fieldref [cz/mpelant/deskclock/ZeroTopPaddingTextView.b I]
       [46] fload_2 v2
       [47] fneg
       [48] aload_0 v0
-      [49] invokevirtual #18
+      [49] invokevirtual #21
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.getTextSize ()F]
       [52] fmul
       [53] f2i
-      [54] invokevirtual #22
+      [54] invokevirtual #25
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.setPadding (IIII)V]
       [57] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 2):
       + Line number table attribute (count = 9)
-        [0] -> line 57
-        [3] -> line 58
-        [6] -> line 59
-        [26] -> line 60
-        [29] -> line 61
-        [32] -> line 65
-        [46] -> line 66
-        [54] -> line 65
-        [57] -> line 67
+        [0] -> line 59
+        [3] -> line 60
+        [6] -> line 61
+        [26] -> line 62
+        [29] -> line 63
+        [32] -> line 67
+        [46] -> line 68
+        [54] -> line 67
+        [57] -> line 69
       + Stack map table attribute (count = 1):
         - [32] Var: ...[f][f], Stack: (empty)
   + Method:       setPaddingRight(I)V
@@ -47970,18 +47981,41 @@ Methods (count = 6):
     + Code attribute instructions (code length = 10, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] iload_1 v1
-      [2] putfield #11
+      [2] putfield #13
         + Fieldref [cz/mpelant/deskclock/ZeroTopPaddingTextView.b I]
       [5] aload_0 v0
-      [6] invokespecial #17
+      [6] invokespecial #20
         + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.a ()V]
       [9] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 3)
-        [0] -> line 70
-        [5] -> line 71
-        [9] -> line 72
+        [0] -> line 72
+        [5] -> line 73
+        [9] -> line 74
+  + Method:       onLayout(ZIIII)V
+    Access flags: 0x4
+      = protected void onLayout(boolean,int,int,int,int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 16, locals = 6, stack = 6):
+      [0] aload_0 v0
+      [1] iload_1 v1
+      [2] iload_2 v2
+      [3] iload_3 v3
+      [4] iload v4
+      [6] iload v5
+      [8] invokespecial #17
+        + Methodref [android/widget/TextView.onLayout (ZIIII)V]
+      [11] aload_0 v0
+      [12] invokespecial #20
+        + Methodref [cz/mpelant/deskclock/ZeroTopPaddingTextView.a ()V]
+      [15] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Line number table attribute (count = 3)
+        [0] -> line 78
+        [11] -> line 79
+        [15] -> line 80
 
 Class file attributes (count = 1):
   + Source file attribute:

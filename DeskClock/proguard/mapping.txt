@@ -986,5 +986,6 @@ cz.mpelant.deskclock.Utils -> cz.mpelant.deskclock.u:
 cz.mpelant.deskclock.ZeroTopPaddingTextView -> cz.mpelant.deskclock.ZeroTopPaddingTextView:
     android.graphics.Typeface SAN_SERIF_BOLD -> a
     int mPaddingRight -> b
-    57:67:void updatePadding() -> a
-    70:72:void setPaddingRight(int) -> setPaddingRight
+    59:69:void updatePadding() -> a
+    72:74:void setPaddingRight(int) -> setPaddingRight
+    78:80:void onLayout(boolean,int,int,int,int) -> onLayout
