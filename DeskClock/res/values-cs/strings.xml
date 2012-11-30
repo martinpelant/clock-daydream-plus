@@ -16,6 +16,25 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    
+    
+    <string name="tip_unread_gmail">Tip: Vyhledejte v Gmailu \"is:unread\" pro zobrazení nepřečtených emailů.</string>
+    <string name="notification_icons">Notifikační ikonky</string>
+    <string name="show_unread_gmail_icon">Zobrazit ikonu pro nepřečtený Gmail</string>
+    <string name="gmail">Gmail</string>
+    <string name="show_unread_texts_icon">Zobrazit ikonu pro nepřečtené SMS</string>
+    <string name="sms">SMS</string>
+    <string name="show_missed_calls_icon">Zobrazit ikonu pro zmeškané hovory</string>
+    <string name="calls">Zmeškané hovory</string>
+    <string name="hide_this_app_from_the_launcher">Schovat ikonku aplikace z launcheru</string>
+    <string name="hide_icon">Schovat aplikaci</string>
+    <string name="about">O aplikaci</string>
+    <string name="restart_required">Nejspíš bude nutné restartovat launcher nebo rebootovat zařízení.</string>
+    <string name="action_not_available_in_this_android">Tato akce není dostupná pro tuto verzi Androida.</string>
+    
+    
+    
+<!--     old -->
     <string name="app_label" msgid="6674495003718166674">"Hodiny"</string>
     <string name="alarm_list_title" msgid="7589940465292950600">"Budíky"</string>
     <string name="add_alarm" msgid="5976616107390962899">"Přidat budík"</string>
