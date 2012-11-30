@@ -18,6 +18,7 @@ package cz.mpelant.deskclock;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -49,8 +50,9 @@ public class ZeroTopPaddingTextView extends TextView {
         super(context, attrs, defStyle);
         if(isInEditMode())
             return;
-        setIncludeFontPadding(false);
-        updatePadding();
+        if(Build.VERSION.SDK_INT>=16)
+            setIncludeFontPadding(false);
+//        updatePadding();
     }
 
     public void updatePadding() {
@@ -68,6 +70,12 @@ public class ZeroTopPaddingTextView extends TextView {
 
     public void setPaddingRight(int padding) {
         mPaddingRight = padding;
+        updatePadding();
+    }
+    
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
         updatePadding();
     }
 }
