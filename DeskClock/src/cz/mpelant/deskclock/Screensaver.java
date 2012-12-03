@@ -18,7 +18,6 @@ package cz.mpelant.deskclock;
 
 import android.annotation.TargetApi;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.service.dreams.DreamService;
@@ -57,7 +56,6 @@ public class Screensaver extends DreamService {
         super.onConfigurationChanged(newConfig);
         mHandler.removeCallbacks(mMoveSaverRunnable);
         layoutClockSaver();
-        mHandler.post(mMoveSaverRunnable);
     }
 
     @Override
@@ -68,12 +66,8 @@ public class Screensaver extends DreamService {
 
         // We want the screen saver to exit upon user interaction.
         setInteractive(false);
-
         setFullscreen(true);
-
         layoutClockSaver();
-
-        mHandler.post(mMoveSaverRunnable);
     }
 
     @Override
@@ -94,6 +88,8 @@ public class Screensaver extends DreamService {
     }
 
     private void layoutClockSaver() {
+        if (getWindow() == null)// fix for a weird fc
+            return;
         setContentView(R.layout.desk_clock_saver);
         mDigitalClock = findViewById(R.id.digital_clock);
         mAnalogClock = findViewById(R.id.analog_clock);
@@ -102,5 +98,6 @@ public class Screensaver extends DreamService {
         mSaverView.setAlpha(0);
 
         mMoveSaverRunnable.registerViews(mContentView, mSaverView);
+        mHandler.post(mMoveSaverRunnable);
     }
 }
