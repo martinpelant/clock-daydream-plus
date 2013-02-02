@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--  Copyright (C) 2007 The Android Open Source Project
+<!--
+      Copyright (C) 2007 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,12 +13,10 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
+-->
 
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    
-    
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <string name="tip_unread_gmail">Tip: Vyhledejte v Gmailu \"is:unread\" pro zobrazení nepřečtených emailů.</string>
     <string name="notification_icons">Notifikační ikonky</string>
     <string name="show_unread_gmail_icon">Zobrazit ikonu pro nepřečtený Gmail</string>
@@ -31,10 +30,23 @@
     <string name="about">O aplikaci</string>
     <string name="restart_required">Nejspíš bude nutné restartovat launcher nebo rebootovat zařízení.</string>
     <string name="action_not_available_in_this_android">Tato akce není dostupná pro tuto verzi Androida.</string>
-    
-    
-    
-<!--     old -->
+    <!-- v1.2 -->
+    <string name="battery_full">Nabito</string>
+    <string name="battery_charging">Nabíjení</string>
+    <string name="_usb_">" (USB)"</string>
+    <string name="_ac_">" (AC)"</string>
+    <string name="show_battery_status">Zobrazit stav baterky</string>
+    <string name="battery_status">Stav baterky</string>
+    <string name="adjust_brightness">Nastavit jas</string>
+    <string name="brightness">Jas</string>
+
+    <string-array name="clock_style_entries2">
+        <item>Analogové</item>
+        <item>Digitální</item>
+        <item>Digitální (starý styl)</item>
+    </string-array>
+
+    <!-- old -->
     <string name="app_label" msgid="6674495003718166674">"Hodiny"</string>
     <string name="alarm_list_title" msgid="7589940465292950600">"Budíky"</string>
     <string name="add_alarm" msgid="5976616107390962899">"Přidat budík"</string>
@@ -59,22 +71,24 @@
     <string name="alarm_alert_snooze_text" msgid="1774416052207651584">"Odložit"</string>
     <string name="alarm_alert_snooze_set" msgid="656470966696912087">"Upozornění odloženo o <xliff:g id="MINUTES">%d</xliff:g> min."</string>
     <string name="alarm_alert_snooze_until" msgid="6958013659168344550">"Odloženo do <xliff:g id="TIME">%s</xliff:g>"</string>
-  <string-array name="timer_notifications">
-    <item msgid="7760558912503484257">"Zbývá méně než minuta"</item>
-    <item msgid="83197792732433351">"Zbývající čas: <xliff:g id="HOURS">%1$s</xliff:g> h"</item>
-    <item msgid="8919698220200894252">"Zbývající čas: <xliff:g id="MINUTES">%2$s</xliff:g> min"</item>
-    <item msgid="8458069283817013813">"Zbývající čas: <xliff:g id="HOURS">%1$s</xliff:g> h <xliff:g id="MINUTES">%2$s</xliff:g> min"</item>
-  </string-array>
-  <string-array name="alarm_set">
-    <item msgid="6450913786084215050">"Budík se spustí za méně než 1 minutu."</item>
-    <item msgid="6002066367368421848">"Budík se spustí za <xliff:g id="DAYS">%1$s</xliff:g>."</item>
-    <item msgid="8824719306247973774">"Budík se spustí za <xliff:g id="HOURS">%2$s</xliff:g>."</item>
-    <item msgid="8182406852935468862">"Budík se spustí za <xliff:g id="DAYS">%1$s</xliff:g> a <xliff:g id="HOURS">%2$s</xliff:g>"</item>
-    <item msgid="2532279224777213194">"Budík se spustí za <xliff:g id="MINUTES">%3$s</xliff:g>."</item>
-    <item msgid="5936557894247187717">"Budík se spustí za <xliff:g id="DAYS">%1$s</xliff:g> a <xliff:g id="MINUTES">%3$s</xliff:g>."</item>
-    <item msgid="9115697840826129603">"Budík se spustí za <xliff:g id="HOURS">%2$s</xliff:g> a <xliff:g id="MINUTES">%3$s</xliff:g>."</item>
-    <item msgid="2332583385137381060">"Budík se spustí za <xliff:g id="DAYS">%1$s</xliff:g>, <xliff:g id="HOURS">%2$s</xliff:g> a <xliff:g id="MINUTES">%3$s</xliff:g>."</item>
-  </string-array>
+
+    <string-array name="timer_notifications">
+        <item msgid="7760558912503484257">"Zbývá méně než minuta"</item>
+        <item msgid="83197792732433351">"Zbývající čas: <xliff:g id="HOURS">%1$s</xliff:g> h"</item>
+        <item msgid="8919698220200894252">"Zbývající čas: <xliff:g id="MINUTES">%2$s</xliff:g> min"</item>
+        <item msgid="8458069283817013813">"Zbývající čas: <xliff:g id="HOURS">%1$s</xliff:g> h <xliff:g id="MINUTES">%2$s</xliff:g> min"</item>
+    </string-array>
+    <string-array name="alarm_set">
+        <item msgid="6450913786084215050">"Budík se spustí za méně než 1 minutu."</item>
+        <item msgid="6002066367368421848">"Budík se spustí za <xliff:g id="DAYS">%1$s</xliff:g>."</item>
+        <item msgid="8824719306247973774">"Budík se spustí za <xliff:g id="HOURS">%2$s</xliff:g>."</item>
+        <item msgid="8182406852935468862">"Budík se spustí za <xliff:g id="DAYS">%1$s</xliff:g> a <xliff:g id="HOURS">%2$s</xliff:g>"</item>
+        <item msgid="2532279224777213194">"Budík se spustí za <xliff:g id="MINUTES">%3$s</xliff:g>."</item>
+        <item msgid="5936557894247187717">"Budík se spustí za <xliff:g id="DAYS">%1$s</xliff:g> a <xliff:g id="MINUTES">%3$s</xliff:g>."</item>
+        <item msgid="9115697840826129603">"Budík se spustí za <xliff:g id="HOURS">%2$s</xliff:g> a <xliff:g id="MINUTES">%3$s</xliff:g>."</item>
+        <item msgid="2332583385137381060">"Budík se spustí za <xliff:g id="DAYS">%1$s</xliff:g>, <xliff:g id="HOURS">%2$s</xliff:g> a <xliff:g id="MINUTES">%3$s</xliff:g>."</item>
+    </string-array>
+
     <string name="day" msgid="7984755014526510295">"1 den"</string>
     <string name="days" msgid="2070509222727852210">"dny: <xliff:g id="DAYS">%s</xliff:g>"</string>
     <string name="hour" msgid="2546819039651509323">"1 hodina"</string>
@@ -89,26 +103,30 @@
     <string name="help" msgid="7786263119482654015">"nápověda"</string>
     <string name="settings" msgid="5849739030579520686">"Nastavení"</string>
     <string name="snooze_duration_title" msgid="1097309861110780483">"Délka odložení zvonění"</string>
-  <plurals name="snooze_duration">
-    <item quantity="one" msgid="7406963706727564418">"1 minuta"</item>
-    <item quantity="other" msgid="568504136093419703">"<xliff:g id="NUMBER">%d</xliff:g> min"</item>
-  </plurals>
-  <plurals name="snooze_picker_label">
-    <item quantity="one" msgid="3783171637798575068">"min"</item>
-    <item quantity="other" msgid="1304056759541595077">"min"</item>
-  </plurals>
+
+    <plurals name="snooze_duration">
+        <item msgid="7406963706727564418" quantity="one">"1 minuta"</item>
+        <item msgid="568504136093419703" quantity="other">"<xliff:g id="NUMBER">%d</xliff:g> min"</item>
+    </plurals>
+    <plurals name="snooze_picker_label">
+        <item msgid="3783171637798575068" quantity="one">"min"</item>
+        <item msgid="1304056759541595077" quantity="other">"min"</item>
+    </plurals>
+
     <string name="auto_silence_title" msgid="2012754009554434544">"Ztišit po"</string>
     <string name="auto_silence_summary" msgid="7028508740659733028">"<xliff:g id="MINUTES">%d</xliff:g> min"</string>
     <string name="auto_silence_never" msgid="4821982647348750809">"Nikdy"</string>
-  <string-array name="auto_silence_entries">
-    <item msgid="3693401222993867634">"5 minut"</item>
-    <item msgid="3663730603519549990">"10 minut"</item>
-    <item msgid="1385481095199681200">"15 minut"</item>
-    <item msgid="420479821767342125">"20 minut"</item>
-    <item msgid="2107936130151066746">"25 minut"</item>
-    <item msgid="7219791437023378544">"30 minut"</item>
-    <item msgid="4278641338024561333">"Nikdy"</item>
-  </string-array>
+
+    <string-array name="auto_silence_entries">
+        <item msgid="3693401222993867634">"5 minut"</item>
+        <item msgid="3663730603519549990">"10 minut"</item>
+        <item msgid="1385481095199681200">"15 minut"</item>
+        <item msgid="420479821767342125">"20 minut"</item>
+        <item msgid="2107936130151066746">"25 minut"</item>
+        <item msgid="7219791437023378544">"30 minut"</item>
+        <item msgid="4278641338024561333">"Nikdy"</item>
+    </string-array>
+
     <string name="done" msgid="6509722361933858451">"Hotovo"</string>
     <string name="revert" msgid="9100911171235162926">"Vrátit zpět"</string>
     <string name="delete" msgid="5732434972457000541">"Smazat"</string>
@@ -119,11 +137,13 @@
     <string name="alarm_notify_snooze_text" msgid="4819324081410990368">"Budík je nastaven na <xliff:g id="TIME">%s</xliff:g>. Dotykem jej zrušíte."</string>
     <string name="volume_button_setting_title" msgid="6937131248843413357">"Tlačítka hlasitosti"</string>
     <string name="volume_button_dialog_title" msgid="8768042543750036853">"Funkce tlačítek"</string>
-  <string-array name="volume_button_setting_entries">
-    <item msgid="7972756698723318690">"Odložit zvonění"</item>
-    <item msgid="3450979320164769576">"Zavřít"</item>
-    <item msgid="6302517608411378024">"Nic nedělat"</item>
-  </string-array>
+
+    <string-array name="volume_button_setting_entries">
+        <item msgid="7972756698723318690">"Odložit zvonění"</item>
+        <item msgid="3450979320164769576">"Zavřít"</item>
+        <item msgid="6302517608411378024">"Nic nedělat"</item>
+    </string-array>
+
     <string name="default_ringtone_setting_title" msgid="4549726190682964245">"Nastavení výchozího vyzvánění"</string>
     <string name="alarm_button_description" msgid="740283647046258651">"Budíky"</string>
     <string name="gallery_button_description" msgid="1151743663255257668">"Galerie"</string>
@@ -133,7 +153,7 @@
     <string name="desk_clock_button_description" msgid="4207371097361657274">"Zobrazení hodin"</string>
     <string name="label_description" msgid="8736179296142915727">"Štítek"</string>
     <string name="ringtone_description" msgid="7580922112921069925">"Vyzváněcí tón"</string>
-    <string name="battery_charging_level" msgid="5251483622085889693">"<xliff:g id="NUMBER">%d</xliff:g> <xliff:g id="PERCENT">%%</xliff:g>"</string>
+    <string name="battery_charging_level" msgid="5251483622085889693">"<xliff:g id="NUMBER">%d</xliff:g><xliff:g id="PERCENT">%%</xliff:g>"</string>
     <string name="weather_fetch_failure" msgid="3425804832021006835">"Informace o počasí nejsou momentálně k dispozici."</string>
     <string name="alarm_klaxon_service_desc" msgid="2147506334302260256">"Služba přehrávání zvuku budíků nastavených v aplikaci Hodiny."</string>
     <string name="loading_ringtone" msgid="6523322777415268044">"Načítání vyzváněcího tónu..."</string>
@@ -141,6 +161,7 @@
     <string name="control_set_alarm" msgid="2194676418924016327">"Nastavit budík"</string>
     <!-- no translation found for control_set_alarm_with_existing (3359285346655630660) -->
     <skip />
+
     <string name="menu_timer" msgid="6459070074762877114">"Časovač"</string>
     <string name="menu_clock" msgid="5612760670606829805">"Hodiny"</string>
     <string name="menu_stopwatch" msgid="3396117705293574701">"Stopky"</string>
@@ -166,18 +187,20 @@
     <string name="sw_share_main" msgid="7703563468204234405">"Můj čas je <xliff:g id="TIME">%s</xliff:g>."</string>
     <string name="sw_share_laps" msgid="614390674795945007">"Časy etap:"</string>
     <string name="sw_notification_lap_number" msgid="3535420316052647126">"Úsek <xliff:g id="NUMBER">%d</xliff:g>"</string>
-  <plurals name="Nhours_description">
-    <item quantity="one" msgid="371227238759147245">"1 hodina"</item>
-    <item quantity="other" msgid="7018184076091344797">"<xliff:g id="NUMBER">%d</xliff:g> h"</item>
-  </plurals>
-  <plurals name="Nminutes_description">
-    <item quantity="one" msgid="1001391305885322059">"1 min"</item>
-    <item quantity="other" msgid="6948360065351547776">"<xliff:g id="NUMBER">%d</xliff:g> min"</item>
-  </plurals>
-  <plurals name="Nseconds_description">
-    <item quantity="one" msgid="6589853086641485725">"1 s"</item>
-    <item quantity="other" msgid="7583230315175387547">"<xliff:g id="NUMBER">%d</xliff:g> s"</item>
-  </plurals>
+
+    <plurals name="Nhours_description">
+        <item msgid="371227238759147245" quantity="one">"1 hodina"</item>
+        <item msgid="7018184076091344797" quantity="other">"<xliff:g id="NUMBER">%d</xliff:g> h"</item>
+    </plurals>
+    <plurals name="Nminutes_description">
+        <item msgid="1001391305885322059" quantity="one">"1 min"</item>
+        <item msgid="6948360065351547776" quantity="other">"<xliff:g id="NUMBER">%d</xliff:g> min"</item>
+    </plurals>
+    <plurals name="Nseconds_description">
+        <item msgid="6589853086641485725" quantity="one">"1 s"</item>
+        <item msgid="7583230315175387547" quantity="other">"<xliff:g id="NUMBER">%d</xliff:g> s"</item>
+    </plurals>
+
     <string name="timer_add_timer" msgid="862733633862574752">"Přidat časovač"</string>
     <string name="timer_start" msgid="6158486445614356442">"Začátek"</string>
     <string name="timer_delete" msgid="8699122001991909302">"Smazat"</string>
@@ -187,32 +210,37 @@
     <string name="timer_cancel" msgid="3572868404230815644">"Zrušit"</string>
     <string name="timer_times_up" msgid="9190440395938519009">"Čas vypršel"</string>
     <string name="timer_notification_label" msgid="4933184831583137249">"Časovač"</string>
-  <string-array name="sw_share_strings">
-    <item msgid="842841032273927988">"Jste rychlí jako ďas."</item>
-    <item msgid="6332879039890727169">"Vychutnejte si plody své práce."</item>
-    <item msgid="815382761274660130">"Androidy jsou rychlé, ale ne tak rychlé jako vy."</item>
-    <item msgid="7916250650982813737">"Uf."</item>
-    <item msgid="6836603904515182333">"Časy tajných kódů."</item>
-    <item msgid="7508085100680861631">"Taková úžasná rychlost."</item>
-    <item msgid="5961245252909589573">"Pojďme si zase hrát s časem."</item>
-    <item msgid="5211891900854545940">"Jen skok doleva."</item>
-    <item msgid="9071353477103826053">"Máte proč pospíchat."</item>
-    <item msgid="3785193933691117181">"Fotonická rychlost."</item>
-  </string-array>
-  <plurals name="timers_num">
-    <item quantity="one" msgid="6764708652976799977">"1 minuta"</item>
-    <item quantity="other" msgid="3799129667336330616">"<xliff:g id="NUMBER">%d</xliff:g> časovačů"</item>
-  </plurals>
+
+    <string-array name="sw_share_strings">
+        <item msgid="842841032273927988">"Jste rychlí jako ďas."</item>
+        <item msgid="6332879039890727169">"Vychutnejte si plody své práce."</item>
+        <item msgid="815382761274660130">"Androidy jsou rychlé, ale ne tak rychlé jako vy."</item>
+        <item msgid="7916250650982813737">"Uf."</item>
+        <item msgid="6836603904515182333">"Časy tajných kódů."</item>
+        <item msgid="7508085100680861631">"Taková úžasná rychlost."</item>
+        <item msgid="5961245252909589573">"Pojďme si zase hrát s časem."</item>
+        <item msgid="5211891900854545940">"Jen skok doleva."</item>
+        <item msgid="9071353477103826053">"Máte proč pospíchat."</item>
+        <item msgid="3785193933691117181">"Fotonická rychlost."</item>
+    </string-array>
+
+    <plurals name="timers_num">
+        <item msgid="6764708652976799977" quantity="one">"1 minuta"</item>
+        <item msgid="3799129667336330616" quantity="other">"<xliff:g id="NUMBER">%d</xliff:g> časovačů"</item>
+    </plurals>
+
     <string name="home_label" msgid="4436139365695453870">"Domovská stránka"</string>
     <string name="cities_activity_title" msgid="8552462751129256730">"Města"</string>
     <string name="alarm_on" msgid="4344630320756422804">"I"</string>
     <string name="alarm_off" msgid="6478058633710013612">"O"</string>
     <string name="clock_settings" msgid="8887845806151785393">"HODINY"</string>
     <string name="clock_style" msgid="2265011060429742344">"Styl"</string>
-  <string-array name="clock_style_entries">
-    <item msgid="917900462224167608">"Analogové"</item>
-    <item msgid="8483930821046925592">"Digitální"</item>
-  </string-array>
+
+    <string-array name="clock_style_entries">
+        <item msgid="917900462224167608">"Analogové"</item>
+        <item msgid="8483930821046925592">"Digitální"</item>
+    </string-array>
+
     <string name="automatic_home_clock" msgid="6274174710735449252">"Automatické domácí hodiny"</string>
     <string name="automatic_home_clock_summary" msgid="6020476321040807273">"Při cestování do oblasti s jiným časovým pásmem přidat domovský čas"</string>
     <string name="home_time_zone" msgid="9199730676287974501">"Domovské časové pásmo"</string>
@@ -223,92 +251,94 @@
     <string name="time_picker_ampm_label" msgid="6754113715199751083">"–"</string>
     <string name="time_picker_00_label" msgid="6001006474735281911">":00"</string>
     <string name="time_picker_30_label" msgid="1027250857384838129">":30"</string>
-  <string-array name="timezone_labels">
-    <item msgid="5495601234086197399">"Marshallovy ostrovy"</item>
-    <item msgid="4196408495909011020">"Midwayské ostrovy"</item>
-    <item msgid="1414384194857730006">"Havaj"</item>
-    <item msgid="2687091371581931926">"Aljaška"</item>
-    <item msgid="1922100269679049660">"Tichomořský čas"</item>
-    <item msgid="7156402158716866161">"Tijuana"</item>
-    <item msgid="1144117502254612241">"Arizona"</item>
-    <item msgid="101284182011722637">"Chihuahua"</item>
-    <item msgid="689121094232986897">"Horský čas"</item>
-    <item msgid="5445331923942302756">"Střední Amerika"</item>
-    <item msgid="2749806434052452351">"Centrální čas"</item>
-    <item msgid="3997138870229703753">"Mexico City"</item>
-    <item msgid="5425567073027744888">"Saskatchewan"</item>
-    <item msgid="2877342865396629368">"Bogotá"</item>
-    <item msgid="568682398893899670">"Východní čas"</item>
-    <item msgid="668135984541863866">"Venezuela"</item>
-    <item msgid="3737474220861486223">"Atlantický čas (Barbados)"</item>
-    <item msgid="6279116051273436870">"Atlantický čas (Kanada)"</item>
-    <item msgid="8513382867172014244">"Manaus"</item>
-    <item msgid="7776299003105932407">"Santiago"</item>
-    <item msgid="8636989494746218677">"Newfoundland"</item>
-    <item msgid="4402541016410147505">"Brasília"</item>
-    <item msgid="2251184440733164084">"Buenos Aires"</item>
-    <item msgid="6202926618569004969">"Grónsko"</item>
-    <item msgid="2355275037115290628">"Montevideo"</item>
-    <item msgid="1377549694711708945">"Středoatlantická oblast"</item>
-    <item msgid="3457671272126347981">"Azory"</item>
-    <item msgid="3659315141063710840">"Kapverdské ostrovy"</item>
-    <item msgid="1260941741802367635">"Casablanca"</item>
-    <item msgid="8275203689687954762">"Londýn, Dublin"</item>
-    <item msgid="5970179539479320905">"Amsterdam, Berlín"</item>
-    <item msgid="5396319478750517962">"Bělehrad"</item>
-    <item msgid="8688787475056663004">"Brusel"</item>
-    <item msgid="3415827874921681622">"Sarajevo"</item>
-    <item msgid="402008965928320066">"Windhoek"</item>
-    <item msgid="6436942724959275569">"Západoafrický čas"</item>
-    <item msgid="954536568417204026">"Ammán, Jordánsko"</item>
-    <item msgid="8932745482008902551">"Atény, Istanbul"</item>
-    <item msgid="320025725949024510">"Bejrút, Libanon"</item>
-    <item msgid="7242083112551905970">"Káhira"</item>
-    <item msgid="7241520146011450419">"Helsinki"</item>
-    <item msgid="2717065017510546526">"Jeruzalém"</item>
-    <item msgid="8698556287741466553">"Minsk"</item>
-    <item msgid="1797598357342084506">"Harare"</item>
-    <item msgid="5169119919905066998">"Bagdád"</item>
-    <item msgid="2615788116201065182">"Moskva"</item>
-    <item msgid="9084354867885584646">"Kuvajt"</item>
-    <item msgid="1351570519986178268">"Nairobi"</item>
-    <item msgid="7094569580635877460">"Teherán"</item>
-    <item msgid="3953138772617909704">"Baku"</item>
-    <item msgid="2868893113598800752">"Tbilisi"</item>
-    <item msgid="7088581865802476373">"Jerevan"</item>
-    <item msgid="1941122257623887992">"Dubaj"</item>
-    <item msgid="9194797225058249720">"Kábul"</item>
-    <item msgid="6486569254364577332">"Islámábád, Karáčí"</item>
-    <item msgid="5487724896895412089">"Uralsk"</item>
-    <item msgid="364906869710826982">"Jekatěrinburg"</item>
-    <item msgid="2106505051751383358">"Kalkata"</item>
-    <item msgid="6851586621581501447">"Srí Lanka"</item>
-    <item msgid="800438544128213134">"Káthmándú"</item>
-    <item msgid="6173621471007643021">"Astana"</item>
-    <item msgid="8645125891971581128">"Rangún"</item>
-    <item msgid="2886407505119737794">"Krasnojarsk"</item>
-    <item msgid="3408222398188107090">"Bangkok"</item>
-    <item msgid="4441612937172851228">"Peking"</item>
-    <item msgid="4936715789028996930">"Hongkong"</item>
-    <item msgid="4261031143777385525">"Irkutsk"</item>
-    <item msgid="3538060959338191835">"Kuala Lumpur"</item>
-    <item msgid="1438847562643099201">"Perth"</item>
-    <item msgid="3063913827688244383">"Taipei"</item>
-    <item msgid="3502757135046564209">"Soul"</item>
-    <item msgid="6107588684519111669">"Tokio, Ósaka"</item>
-    <item msgid="4350769099755608471">"Jakutsk"</item>
-    <item msgid="2422707004533526462">"Adelaide"</item>
-    <item msgid="1292192084554134339">"Darwin"</item>
-    <item msgid="1320883699470001716">"Brisbane"</item>
-    <item msgid="5137198806146386527">"Hobart"</item>
-    <item msgid="5920063686933941174">"Sydney, Canberra"</item>
-    <item msgid="615906039696009425">"Vladivostok"</item>
-    <item msgid="7738680449356275374">"Guam"</item>
-    <item msgid="2882915026380778227">"Magadan"</item>
-    <item msgid="8255615641810148152">"Auckland"</item>
-    <item msgid="3027153773466391728">"Fidži"</item>
-    <item msgid="5911600083231840181">"Tonga"</item>
-  </string-array>
+
+    <string-array name="timezone_labels">
+        <item msgid="5495601234086197399">"Marshallovy ostrovy"</item>
+        <item msgid="4196408495909011020">"Midwayské ostrovy"</item>
+        <item msgid="1414384194857730006">"Havaj"</item>
+        <item msgid="2687091371581931926">"Aljaška"</item>
+        <item msgid="1922100269679049660">"Tichomořský čas"</item>
+        <item msgid="7156402158716866161">"Tijuana"</item>
+        <item msgid="1144117502254612241">"Arizona"</item>
+        <item msgid="101284182011722637">"Chihuahua"</item>
+        <item msgid="689121094232986897">"Horský čas"</item>
+        <item msgid="5445331923942302756">"Střední Amerika"</item>
+        <item msgid="2749806434052452351">"Centrální čas"</item>
+        <item msgid="3997138870229703753">"Mexico City"</item>
+        <item msgid="5425567073027744888">"Saskatchewan"</item>
+        <item msgid="2877342865396629368">"Bogotá"</item>
+        <item msgid="568682398893899670">"Východní čas"</item>
+        <item msgid="668135984541863866">"Venezuela"</item>
+        <item msgid="3737474220861486223">"Atlantický čas (Barbados)"</item>
+        <item msgid="6279116051273436870">"Atlantický čas (Kanada)"</item>
+        <item msgid="8513382867172014244">"Manaus"</item>
+        <item msgid="7776299003105932407">"Santiago"</item>
+        <item msgid="8636989494746218677">"Newfoundland"</item>
+        <item msgid="4402541016410147505">"Brasília"</item>
+        <item msgid="2251184440733164084">"Buenos Aires"</item>
+        <item msgid="6202926618569004969">"Grónsko"</item>
+        <item msgid="2355275037115290628">"Montevideo"</item>
+        <item msgid="1377549694711708945">"Středoatlantická oblast"</item>
+        <item msgid="3457671272126347981">"Azory"</item>
+        <item msgid="3659315141063710840">"Kapverdské ostrovy"</item>
+        <item msgid="1260941741802367635">"Casablanca"</item>
+        <item msgid="8275203689687954762">"Londýn, Dublin"</item>
+        <item msgid="5970179539479320905">"Amsterdam, Berlín"</item>
+        <item msgid="5396319478750517962">"Bělehrad"</item>
+        <item msgid="8688787475056663004">"Brusel"</item>
+        <item msgid="3415827874921681622">"Sarajevo"</item>
+        <item msgid="402008965928320066">"Windhoek"</item>
+        <item msgid="6436942724959275569">"Západoafrický čas"</item>
+        <item msgid="954536568417204026">"Ammán, Jordánsko"</item>
+        <item msgid="8932745482008902551">"Atény, Istanbul"</item>
+        <item msgid="320025725949024510">"Bejrút, Libanon"</item>
+        <item msgid="7242083112551905970">"Káhira"</item>
+        <item msgid="7241520146011450419">"Helsinki"</item>
+        <item msgid="2717065017510546526">"Jeruzalém"</item>
+        <item msgid="8698556287741466553">"Minsk"</item>
+        <item msgid="1797598357342084506">"Harare"</item>
+        <item msgid="5169119919905066998">"Bagdád"</item>
+        <item msgid="2615788116201065182">"Moskva"</item>
+        <item msgid="9084354867885584646">"Kuvajt"</item>
+        <item msgid="1351570519986178268">"Nairobi"</item>
+        <item msgid="7094569580635877460">"Teherán"</item>
+        <item msgid="3953138772617909704">"Baku"</item>
+        <item msgid="2868893113598800752">"Tbilisi"</item>
+        <item msgid="7088581865802476373">"Jerevan"</item>
+        <item msgid="1941122257623887992">"Dubaj"</item>
+        <item msgid="9194797225058249720">"Kábul"</item>
+        <item msgid="6486569254364577332">"Islámábád, Karáčí"</item>
+        <item msgid="5487724896895412089">"Uralsk"</item>
+        <item msgid="364906869710826982">"Jekatěrinburg"</item>
+        <item msgid="2106505051751383358">"Kalkata"</item>
+        <item msgid="6851586621581501447">"Srí Lanka"</item>
+        <item msgid="800438544128213134">"Káthmándú"</item>
+        <item msgid="6173621471007643021">"Astana"</item>
+        <item msgid="8645125891971581128">"Rangún"</item>
+        <item msgid="2886407505119737794">"Krasnojarsk"</item>
+        <item msgid="3408222398188107090">"Bangkok"</item>
+        <item msgid="4441612937172851228">"Peking"</item>
+        <item msgid="4936715789028996930">"Hongkong"</item>
+        <item msgid="4261031143777385525">"Irkutsk"</item>
+        <item msgid="3538060959338191835">"Kuala Lumpur"</item>
+        <item msgid="1438847562643099201">"Perth"</item>
+        <item msgid="3063913827688244383">"Taipei"</item>
+        <item msgid="3502757135046564209">"Soul"</item>
+        <item msgid="6107588684519111669">"Tokio, Ósaka"</item>
+        <item msgid="4350769099755608471">"Jakutsk"</item>
+        <item msgid="2422707004533526462">"Adelaide"</item>
+        <item msgid="1292192084554134339">"Darwin"</item>
+        <item msgid="1320883699470001716">"Brisbane"</item>
+        <item msgid="5137198806146386527">"Hobart"</item>
+        <item msgid="5920063686933941174">"Sydney, Canberra"</item>
+        <item msgid="615906039696009425">"Vladivostok"</item>
+        <item msgid="7738680449356275374">"Guam"</item>
+        <item msgid="2882915026380778227">"Magadan"</item>
+        <item msgid="8255615641810148152">"Auckland"</item>
+        <item msgid="3027153773466391728">"Fidži"</item>
+        <item msgid="5911600083231840181">"Tonga"</item>
+    </string-array>
+
     <string name="alarm_settings" msgid="6049627772103646753">"BUDÍKY"</string>
     <string name="see_all" msgid="775983396630163739">"Zobrazit vše..."</string>
     <string name="stopwatch_service_desc" msgid="8416624630388063996">"Služba Stopky ke spouštění upozornění."</string>
@@ -335,12 +365,15 @@
     <string name="label_unlabeled" msgid="4699506713571930740"></string>
     <string name="alarms_selected" msgid="1075308195332888260">"Počet vybraných budíků: <xliff:g id="ALARMS">%d</xliff:g>"</string>
     <string name="deleted_message" msgid="1220848140260509437">"Smazáno"</string>
-  <plurals name="alarm_delete_confirmation">
-    <item quantity="one" msgid="111940612131906802">"Chcete vybraný budík smazat?"</item>
-    <item quantity="other" msgid="6918176478191272189">"Chcete vybrané budíky smazat?"</item>
-  </plurals>
+
+    <plurals name="alarm_delete_confirmation">
+        <item msgid="111940612131906802" quantity="one">"Chcete vybraný budík smazat?"</item>
+        <item msgid="6918176478191272189" quantity="other">"Chcete vybrané budíky smazat?"</item>
+    </plurals>
+
     <string name="timer_delete_confirmation" msgid="2815524107015816453">"Chcete tento časovač smazat?"</string>
     <string name="city_delete_confirmation" msgid="1783441538785676299">"Chcete toto město odebrat?"</string>
     <string name="widget_loading_ms" msgid="790841709484678848">"Načítání"</string>
     <string name="digital_gadget" msgid="2326954556720571358">"Digitální hodiny"</string>
+
 </resources>

@@ -75,13 +75,14 @@
     <string name="about">About</string>
     <string name="restart_required">You may need to restart the launcher or reboot the device in order for this action to take effect</string>
     <string name="action_not_available_in_this_android">This action is not available on this version of Android</string>
+     <!-- v1.2 -->
     <string name="battery_full">Charged</string>
     <string name="battery_charging">Charging</string>
     <string name="_usb_">" (USB)"</string>
     <string name="_ac_">" (AC)"</string>
-    <string name="battery_">"Battery: "</string>
     <string name="show_battery_status">Show battery status</string>
     <string name="battery_status">Battery status</string>
-    <string name="night">(night)</string>
+    <string name="adjust_brightness">Adjust brightness</string>
+    <string name="brightness">Brightness</string>
 
 </resources>

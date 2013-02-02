@@ -29,8 +29,8 @@
         android:defaultValue="192"
         android:key="brightness"
         android:max="255"
-        android:summary="Adjust brightness"
-        android:title="Brightness"
+        android:summary="@string/adjust_brightness"
+        android:title="@string/brightness"
         clockns:min="1"
         clockns:unitsLeft=""
         clockns:unitsRight="" />
