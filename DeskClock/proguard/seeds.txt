@@ -56,6 +56,9 @@ cz.mpelant.deskclock.AnalogClock: void setTimeZone(java.lang.String)
 cz.mpelant.deskclock.App
 cz.mpelant.deskclock.App: App()
 cz.mpelant.deskclock.BaseScreenOnActivity: BaseScreenOnActivity()
+cz.mpelant.deskclock.BrightnessPreference
+cz.mpelant.deskclock.BrightnessPreference: BrightnessPreference(android.content.Context,android.util.AttributeSet)
+cz.mpelant.deskclock.BrightnessPreference: BrightnessPreference(android.content.Context,android.util.AttributeSet,int)
 cz.mpelant.deskclock.ClockActivity
 cz.mpelant.deskclock.ClockActivity: ClockActivity()
 cz.mpelant.deskclock.DigitalClock
@@ -69,7 +72,8 @@ cz.mpelant.deskclock.R$anim: int undim
 cz.mpelant.deskclock.R$array: int alarm_set
 cz.mpelant.deskclock.R$array: int auto_silence_entries
 cz.mpelant.deskclock.R$array: int clock_style_entries
-cz.mpelant.deskclock.R$array: int clock_style_values
+cz.mpelant.deskclock.R$array: int clock_style_entries2
+cz.mpelant.deskclock.R$array: int clock_style_values2
 cz.mpelant.deskclock.R$array: int sw_share_strings
 cz.mpelant.deskclock.R$array: int timer_notifications
 cz.mpelant.deskclock.R$array: int timezone_labels
@@ -140,6 +144,8 @@ cz.mpelant.deskclock.R$drawable: int stat_notify_messages
 cz.mpelant.deskclock.R$drawable: int stat_notify_missed_call
 cz.mpelant.deskclock.R$id: int am_pm
 cz.mpelant.deskclock.R$id: int analog_clock
+cz.mpelant.deskclock.R$id: int battery
+cz.mpelant.deskclock.R$id: int batteryContainer
 cz.mpelant.deskclock.R$id: int date
 cz.mpelant.deskclock.R$id: int digital_clock
 cz.mpelant.deskclock.R$id: int gmail
@@ -149,11 +155,17 @@ cz.mpelant.deskclock.R$id: int messages
 cz.mpelant.deskclock.R$id: int missedCalls
 cz.mpelant.deskclock.R$id: int nextAlarm
 cz.mpelant.deskclock.R$id: int numbers_key
+cz.mpelant.deskclock.R$id: int seekBarPrefBarContainer
+cz.mpelant.deskclock.R$id: int seekBarPrefUnitsLeft
+cz.mpelant.deskclock.R$id: int seekBarPrefUnitsRight
+cz.mpelant.deskclock.R$id: int seekBarPrefValue
 cz.mpelant.deskclock.R$id: int time
 cz.mpelant.deskclock.R$id: int timeDisplayHours
+cz.mpelant.deskclock.R$id: int timeDisplayHoursThin
 cz.mpelant.deskclock.R$id: int timeDisplayMinutes
 cz.mpelant.deskclock.R$id: int time_date
 cz.mpelant.deskclock.R$integer: int dim_animation_duration
+cz.mpelant.deskclock.R$layout: int brightness_preference
 cz.mpelant.deskclock.R$layout: int desk_clock_saver
 cz.mpelant.deskclock.R$layout: int desk_clock_time_date
 cz.mpelant.deskclock.R$layout: int main_clock_frame
@@ -165,10 +177,13 @@ cz.mpelant.deskclock.R$plurals: int alarm_delete_confirmation
 cz.mpelant.deskclock.R$plurals: int snooze_duration
 cz.mpelant.deskclock.R$plurals: int snooze_picker_label
 cz.mpelant.deskclock.R$plurals: int timers_num
+cz.mpelant.deskclock.R$string: int _ac_
+cz.mpelant.deskclock.R$string: int _usb_
 cz.mpelant.deskclock.R$string: int abbrev_wday_month_day_no_year
 cz.mpelant.deskclock.R$string: int about
 cz.mpelant.deskclock.R$string: int action_not_available_in_this_android
 cz.mpelant.deskclock.R$string: int add_alarm
+cz.mpelant.deskclock.R$string: int adjust_brightness
 cz.mpelant.deskclock.R$string: int alarm_alert_alert_silenced
 cz.mpelant.deskclock.R$string: int alarm_alert_dismiss_text
 cz.mpelant.deskclock.R$string: int alarm_alert_snooze_set
@@ -199,7 +214,11 @@ cz.mpelant.deskclock.R$string: int auto_silence_summary
 cz.mpelant.deskclock.R$string: int auto_silence_title
 cz.mpelant.deskclock.R$string: int automatic_home_clock
 cz.mpelant.deskclock.R$string: int automatic_home_clock_summary
+cz.mpelant.deskclock.R$string: int battery_charging
 cz.mpelant.deskclock.R$string: int battery_charging_level
+cz.mpelant.deskclock.R$string: int battery_full
+cz.mpelant.deskclock.R$string: int battery_status
+cz.mpelant.deskclock.R$string: int brightness
 cz.mpelant.deskclock.R$string: int button_alarms
 cz.mpelant.deskclock.R$string: int button_cities
 cz.mpelant.deskclock.R$string: int button_menu
@@ -283,6 +302,7 @@ cz.mpelant.deskclock.R$string: int seconds_label_description
 cz.mpelant.deskclock.R$string: int see_all
 cz.mpelant.deskclock.R$string: int set_alarm
 cz.mpelant.deskclock.R$string: int settings
+cz.mpelant.deskclock.R$string: int show_battery_status
 cz.mpelant.deskclock.R$string: int show_clock
 cz.mpelant.deskclock.R$string: int show_missed_calls_icon
 cz.mpelant.deskclock.R$string: int show_unread_gmail_icon
