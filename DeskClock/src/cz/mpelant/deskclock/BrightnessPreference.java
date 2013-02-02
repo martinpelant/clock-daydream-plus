@@ -132,6 +132,9 @@ public class BrightnessPreference extends Preference implements OnSeekBarChangeL
             mTitle = (TextView) view.findViewById(android.R.id.title);
             
             mStatusText.setText(String.valueOf(mCurrentValue));
+            if(mCurrentValue<ScreensaverSettingsActivity.BRIGHTNESS_NIGHT)
+                mStatusText.append(" (" + getContext().getString(R.string.night_mode_title)+")");
+            
             mStatusText.setMinimumWidth(30);
 
             mSeekBar.setProgress(mCurrentValue - mMinValue);
@@ -168,6 +171,8 @@ public class BrightnessPreference extends Preference implements OnSeekBarChangeL
         // change accepted, store it
         mCurrentValue = newValue;
         mStatusText.setText(String.valueOf(newValue));
+        if(mCurrentValue<ScreensaverSettingsActivity.BRIGHTNESS_NIGHT)
+            mStatusText.append(" (" + getContext().getString(R.string.night_mode_title)+")");
         Utils.dimView(mCurrentValue, mTitle);
         persistInt(newValue);
 

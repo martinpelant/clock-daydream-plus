@@ -82,5 +82,6 @@
     <string name="battery_">"Battery: "</string>
     <string name="show_battery_status">Show battery status</string>
     <string name="battery_status">Battery status</string>
+    <string name="night">(night)</string>
 
 </resources>

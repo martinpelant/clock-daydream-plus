@@ -38,7 +38,10 @@ import android.widget.Toast;
 public class ScreensaverSettingsActivity extends PreferenceActivity implements Preference.OnPreferenceChangeListener {
 
     static final String KEY_CLOCK_STYLE = "screensaver_clock_style";
-    static final String KEY_NIGHT_MODE = "screensaver_night_mode";
+//    static final String KEY_NIGHT_MODE = "screensaver_night_mode";
+    static final String KEY_BRIGHTNESS = "brightness";
+    static final int  BRIGHTNESS_DEFAULT = 192;
+    static final int  BRIGHTNESS_NIGHT = 96;
     static final String KEY_NOTIF_GMAIL = "notif_gmail";
     static final String KEY_NOTIF_SMS = "notif_sms";
     static final String KEY_NOTIF_MISSED_CALLS = "notif_missed_calls";
@@ -89,7 +92,7 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
         listPref.setSummary(listPref.getEntry());
         listPref.setOnPreferenceChangeListener(this);
 
-        Preference pref = findPreference(KEY_NIGHT_MODE);
+        Preference pref = findPreference(KEY_BRIGHTNESS);
         pref.setOnPreferenceChangeListener(this);
 
         pref = findPreference(KEY_NOTIF_GMAIL);

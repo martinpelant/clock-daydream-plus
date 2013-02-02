@@ -26,7 +26,7 @@
         android:title="@string/clock_style" />
 
     <cz.mpelant.deskclock.BrightnessPreference
-        android:defaultValue="80"
+        android:defaultValue="192"
         android:key="brightness"
         android:max="255"
         android:summary="Adjust brightness"
@@ -34,12 +34,6 @@
         clockns:min="1"
         clockns:unitsLeft=""
         clockns:unitsRight="" />
-
-    <CheckBoxPreference
-        android:defaultValue="false"
-        android:key="screensaver_night_mode"
-        android:summary="@string/night_mode_summary"
-        android:title="@string/night_mode_title" />
 
     <PreferenceCategory android:title="@string/notification_icons" >
         <CheckBoxPreference
