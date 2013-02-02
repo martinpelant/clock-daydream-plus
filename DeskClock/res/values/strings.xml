@@ -33,18 +33,20 @@
          Entries listed in the ListPreference when invoking the clock style
          preference.
     -->
-    <string-array name="clock_style_entries">
+    <string-array name="clock_style_entries2">
         <item>Analog</item>
         <item>Digital</item>
+        <item>Digital (old style)</item>
     </string-array>
 
     <!--
          Values that are retrieved from the ListPreference. These must match
          the clock_style_entries above.
     -->
-    <string-array name="clock_style_values" translatable="false">
+    <string-array name="clock_style_values2" translatable="false">
         <item>analog</item>
         <item>digital</item>
+        <item>digital2</item>
     </string-array>
 
     <string name="desk_clock_help_url" translatable="false"></string>

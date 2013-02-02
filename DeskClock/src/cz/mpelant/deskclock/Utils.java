@@ -66,6 +66,7 @@ public class Utils {
     public static final String ACTION_ON_QUARTER_HOUR = "cz.mpelant.deskclock.ON_QUARTER_HOUR";
 
     /** Types that may be used for clock displays. **/
+    public static final String CLOCK_TYPE_DIGITAL2 = "digital2";
     public static final String CLOCK_TYPE_DIGITAL = "digital";
     public static final String CLOCK_TYPE_ANALOG = "analog";
 
@@ -192,6 +193,14 @@ public class Utils {
             digitalClock.setVisibility(View.VISIBLE);
             analogClock.setVisibility(View.GONE);
             returnView = digitalClock;
+            
+            if(style.equals(CLOCK_TYPE_DIGITAL)){
+                digitalClock.findViewById(R.id.timeDisplayHoursThin).setVisibility(View.GONE);
+                digitalClock.findViewById(R.id.timeDisplayHours).setVisibility(View.VISIBLE);
+            }else {
+                digitalClock.findViewById(R.id.timeDisplayHoursThin).setVisibility(View.VISIBLE);
+                digitalClock.findViewById(R.id.timeDisplayHours).setVisibility(View.GONE);
+            }
         }
 
         return returnView;

@@ -78,4 +78,10 @@ public class ZeroTopPaddingTextView extends TextView {
         super.onLayout(changed, left, top, right, bottom);
         updatePadding();
     }
+    
+    @Override
+    protected void onAttachedToWindow() {
+        updatePadding();
+        super.onAttachedToWindow();
+    }
 }

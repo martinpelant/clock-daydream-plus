@@ -157,16 +157,18 @@ public class ScreensaverRunnable implements Runnable {
             Utils.setAlarmTextView(mDate.getContext(), mNextAlarm);
             Utils.setDateTextView(mDate.getContext(), mDate);
 
+            
+            if (isPrefEnabled(ScreensaverSettingsActivity.KEY_BATTERY, true)) {
+                mBatteryContainer.setVisibility(View.VISIBLE);
+                Utils.setBatteryStatus(mDate.getContext(), mBattery);
+            } else {
+                mBatteryContainer.setVisibility(View.GONE);
+            }
+            
+            
             new Thread() {
                 public void run() {
                     try {
-                        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_BATTERY, true)) {
-                            mBatteryContainer.setVisibility(View.VISIBLE);
-                            Utils.setBatteryStatus(mDate.getContext(), mBattery);
-                        } else {
-                            mBatteryContainer.setVisibility(View.GONE);
-                        }
-
                         if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_GMAIL, true))
                             checkGmail(mDate.getContext(), mNotifGmail);
                         if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true))

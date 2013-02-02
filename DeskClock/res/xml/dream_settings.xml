@@ -19,8 +19,8 @@
     <ListPreference
         android:defaultValue="@string/default_clock_style"
         android:dialogTitle="@string/clock_style"
-        android:entries="@array/clock_style_entries"
-        android:entryValues="@array/clock_style_values"
+        android:entries="@array/clock_style_entries2"
+        android:entryValues="@array/clock_style_values2"
         android:key="screensaver_clock_style"
         android:title="@string/clock_style" />
 
@@ -29,11 +29,6 @@
         android:key="screensaver_night_mode"
         android:summary="@string/night_mode_summary"
         android:title="@string/night_mode_title" />
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="battery"
-        android:summary="@string/show_battery_status"
-        android:title="@string/battery_status" />
 
     <PreferenceCategory android:title="@string/notification_icons" >
         <CheckBoxPreference
@@ -53,6 +48,11 @@
             android:title="@string/calls" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Misc" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="battery"
+            android:summary="@string/show_battery_status"
+            android:title="@string/battery_status" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="hide_activity"
