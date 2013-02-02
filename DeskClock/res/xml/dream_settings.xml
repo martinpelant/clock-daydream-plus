@@ -14,6 +14,7 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:clockns="http://martinpelant.com"
     android:title="@string/app_name" >
 
     <ListPreference
@@ -23,6 +24,16 @@
         android:entryValues="@array/clock_style_values2"
         android:key="screensaver_clock_style"
         android:title="@string/clock_style" />
+
+    <cz.mpelant.deskclock.BrightnessPreference
+        android:defaultValue="80"
+        android:key="brightness"
+        android:max="255"
+        android:summary="Adjust brightness"
+        android:title="Brightness"
+        clockns:min="1"
+        clockns:unitsLeft=""
+        clockns:unitsRight="" />
 
     <CheckBoxPreference
         android:defaultValue="false"

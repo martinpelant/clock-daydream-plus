@@ -215,6 +215,19 @@ public class Utils {
         paint.setColorFilter(new PorterDuffColorFilter((dim ? 0x60FFFFFF : 0xC0FFFFFF), PorterDuff.Mode.MULTIPLY));
         clockView.setLayerType(View.LAYER_TYPE_HARDWARE, paint);
     }
+    
+    
+    /**
+     * For screensavers to dim the lights if necessary.
+     */
+    public static void dimView(int dim, View view) {
+        Paint paint = new Paint();
+        paint.setColor(Color.WHITE);
+        dim=dim<<24;
+        dim|=0x00FFFFFF;
+        paint.setColorFilter(new PorterDuffColorFilter(dim, PorterDuff.Mode.MULTIPLY));
+        view.setLayerType(View.LAYER_TYPE_HARDWARE, paint);
+    }
 
     /** Clock views can call this to refresh their alarm to the next upcoming value. **/
     public static void refreshAlarm(Context context, View clock) {
