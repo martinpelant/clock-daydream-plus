@@ -33,6 +33,8 @@ public class ScreensaverRunnable implements Runnable {
 
     private View mContentView, mSaverView;
     private TextView mDate;
+    private TextView mBattery;
+    private View mBatteryContainer;
     private View mNotifGmail;
     private View mNotifMessage;
     private View mMissedCall;
@@ -54,6 +56,8 @@ public class ScreensaverRunnable implements Runnable {
     public void registerViews(View contentView, View saverView) {
         mContentView = contentView;
         mDate = (TextView) contentView.findViewById(R.id.date);
+        mBattery = (TextView) contentView.findViewById(R.id.battery);
+        mBatteryContainer = contentView.findViewById(R.id.batteryContainer);
         mNotifGmail = contentView.findViewById(R.id.gmail);
         mNotifMessage = contentView.findViewById(R.id.messages);
         mMissedCall = contentView.findViewById(R.id.missedCalls);
@@ -156,6 +160,13 @@ public class ScreensaverRunnable implements Runnable {
             new Thread() {
                 public void run() {
                     try {
+                        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_BATTERY, true)) {
+                            mBatteryContainer.setVisibility(View.VISIBLE);
+                            Utils.setBatteryStatus(mDate.getContext(), mBattery);
+                        } else {
+                            mBatteryContainer.setVisibility(View.GONE);
+                        }
+
                         if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_GMAIL, true))
                             checkGmail(mDate.getContext(), mNotifGmail);
                         if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true))

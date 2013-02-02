@@ -88,7 +88,7 @@ public class Screensaver extends DreamService {
     }
 
     private void layoutClockSaver() {
-        if (getWindow() == null)// fix for a weird fc
+        if (getWindow() == null || mSaverView == null || mMoveSaverRunnable == null || mHandler == null)// fix for a weird fc
             return;
         setContentView(R.layout.desk_clock_saver);
         mDigitalClock = findViewById(R.id.digital_clock);

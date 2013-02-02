@@ -24,6 +24,7 @@ import java.util.Locale;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -33,6 +34,7 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.net.Uri;
+import android.os.BatteryManager;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
@@ -236,7 +238,7 @@ public class Utils {
 
     public static void setAlarmTextView(Context context, TextView alarm) {
         String nextAlarm = Settings.System.getString(context.getContentResolver(), Settings.System.NEXT_ALARM_FORMATTED);
-        if (nextAlarm.isEmpty()) {
+        if (nextAlarm==null || nextAlarm.isEmpty()) {
             alarm.setVisibility(View.GONE);
         } else {
             alarm.setVisibility(View.VISIBLE);
@@ -246,6 +248,42 @@ public class Utils {
 
     public static void setDateTextView(Context context, TextView dateView) {
         dateView.setText(new SimpleDateFormat(context.getString(R.string.abbrev_wday_month_day_no_year)).format(new Date()));
+    }
+
+    public static void setBatteryStatus(Context context, TextView batteryView) {
+        IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        Intent batteryStatus = context.registerReceiver(null, ifilter);
+
+        // Are we charging / charged?
+        int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+        boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING || status == BatteryManager.BATTERY_STATUS_FULL;
+
+        // How are we charging?
+        int chargePlug = batteryStatus.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
+        boolean usbCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_USB;
+        boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
+
+        int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+        int scale = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+
+        float batteryPct = level / (float) scale*100;
+
+        String text = "";
+        if (status == BatteryManager.BATTERY_STATUS_FULL) {
+            text += context.getString(R.string.battery_full);
+        } else {
+            if (isCharging) {
+                text += context.getString(R.string.battery_charging);
+                if (usbCharge)
+                    text += context.getString(R.string._usb_);
+                if (acCharge)
+                    text += context.getString(R.string._ac_);
+                text += ", ";
+            }
+            text += (int)batteryPct + "%";
+        }
+        batteryView.setText(text);
+
     }
 
     public static Intent getAlarmPackage(Context context) {

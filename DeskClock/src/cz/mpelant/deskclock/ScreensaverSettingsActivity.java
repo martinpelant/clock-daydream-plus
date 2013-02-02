@@ -43,6 +43,7 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
     static final String KEY_NOTIF_SMS = "notif_sms";
     static final String KEY_NOTIF_MISSED_CALLS = "notif_missed_calls";
     static final String KEY_HIDE_ACTIVITY = "hide_activity";
+    static final String KEY_BATTERY = "battery";
     static final String KEY_ABOUT = "about";
     static final long TIP_DELAY = 1000 * 3600 * 24; // 24h
 
@@ -95,6 +96,9 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
         pref.setOnPreferenceChangeListener(this);
 
         pref = findPreference(KEY_NOTIF_SMS);
+        pref.setOnPreferenceChangeListener(this);
+        
+        pref = findPreference(KEY_BATTERY);
         pref.setOnPreferenceChangeListener(this);
 
         pref = findPreference(KEY_HIDE_ACTIVITY);
