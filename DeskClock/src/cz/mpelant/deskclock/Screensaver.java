@@ -23,6 +23,7 @@ import android.preference.PreferenceManager;
 import android.service.dreams.DreamService;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 
 @TargetApi(17)
 public class Screensaver extends DreamService {
@@ -84,7 +85,16 @@ public class Screensaver extends DreamService {
         mSaverView = findViewById(R.id.main_clock);
         int brightness = PreferenceManager.getDefaultSharedPreferences(this).getInt(ScreensaverSettingsActivity.KEY_BRIGHTNESS, ScreensaverSettingsActivity.BRIGHTNESS_DEFAULT);
         Utils.dimView(brightness, mSaverView);
-        setScreenBright(brightness>=ScreensaverSettingsActivity.BRIGHTNESS_NIGHT);
+
+        boolean dim = brightness < ScreensaverSettingsActivity.BRIGHTNESS_NIGHT;
+        if (dim) {
+            WindowManager.LayoutParams lp = getWindow().getAttributes();
+            lp.screenBrightness = 0;
+            getWindow().setAttributes(lp);
+        }
+        setScreenBright(!dim);
+       
+
     }
 
     private void layoutClockSaver() {
@@ -94,7 +104,7 @@ public class Screensaver extends DreamService {
         mDigitalClock = findViewById(R.id.digital_clock);
         mAnalogClock = findViewById(R.id.analog_clock);
         setClockStyle();
-        if(mSaverView==null)// fix for a weird fc
+        if (mSaverView == null)// fix for a weird fc
             return;
         mContentView = (View) mSaverView.getParent();
         mSaverView.setAlpha(0);

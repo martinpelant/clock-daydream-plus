@@ -83,6 +83,12 @@ public class ScreensaverActivity extends BaseScreenOnActivity {
         mSaverView = findViewById(R.id.main_clock);
         int brightness = PreferenceManager.getDefaultSharedPreferences(this).getInt(ScreensaverSettingsActivity.KEY_BRIGHTNESS, ScreensaverSettingsActivity.BRIGHTNESS_DEFAULT);
         Utils.dimView(brightness, mSaverView);
+        boolean dim = brightness < ScreensaverSettingsActivity.BRIGHTNESS_NIGHT;
+        if (dim) {
+            WindowManager.LayoutParams lp = getWindow().getAttributes();
+            lp.screenBrightness = 0;
+            getWindow().setAttributes(lp);
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
