@@ -931,11 +931,11 @@ cz.mpelant.deskclock.Screensaver -> cz.mpelant.deskclock.Screensaver:
     android.view.View mDigitalClock -> d
     android.os.Handler mHandler -> e
     cz.mpelant.deskclock.ScreensaverRunnable mMoveSaverRunnable -> f
-    49:50:void onCreate() -> onCreate
-    56:59:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
-    65:71:void onAttachedToWindow() -> onAttachedToWindow
-    77:80:void onDetachedFromWindow() -> onDetachedFromWindow
-    91:104:void layoutClockSaver() -> a
+    50:51:void onCreate() -> onCreate
+    57:60:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    66:72:void onAttachedToWindow() -> onAttachedToWindow
+    78:81:void onDetachedFromWindow() -> onDetachedFromWindow
+    101:114:void layoutClockSaver() -> a
 cz.mpelant.deskclock.ScreensaverActivity -> cz.mpelant.deskclock.ScreensaverActivity:
     android.view.View mContentView -> a
     android.view.View mSaverView -> b
@@ -949,9 +949,9 @@ cz.mpelant.deskclock.ScreensaverActivity -> cz.mpelant.deskclock.ScreensaverActi
     62:64:void onPause() -> onPause
     70:74:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
     78:79:void onUserInteraction() -> onUserInteraction
-    90:105:void layoutClockSaver() -> c
-    109:111:void updateViews() -> a
-    115:115:int getAdditionalFlags() -> b
+    96:111:void layoutClockSaver() -> c
+    115:117:void updateViews() -> a
+    121:121:int getAdditionalFlags() -> b
 cz.mpelant.deskclock.ScreensaverRunnable -> cz.mpelant.deskclock.o:
     android.view.View mContentView -> e
     android.view.View mSaverView -> f

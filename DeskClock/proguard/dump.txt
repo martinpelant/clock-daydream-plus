@@ -44189,7 +44189,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 132):
+Constant Pool (count = 148):
   + Integer [17]
   + Integer [2130968577]
   + Integer [2131427333]
@@ -44202,9 +44202,12 @@ Constant Pool (count = 132):
   + Class [android/preference/PreferenceManager]
   + Class [android/service/dreams/DreamService]
   + Class [android/view/View]
+  + Class [android/view/Window]
+  + Class [android/view/WindowManager$LayoutParams]
   + Class [cz/mpelant/deskclock/Screensaver]
   + Class [cz/mpelant/deskclock/o]
   + Class [cz/mpelant/deskclock/u]
+  + Fieldref [android/view/WindowManager$LayoutParams.screenBrightness F]
   + Fieldref [cz/mpelant/deskclock/Screensaver.a Landroid/view/View;]
   + Fieldref [cz/mpelant/deskclock/Screensaver.b Landroid/view/View;]
   + Fieldref [cz/mpelant/deskclock/Screensaver.c Landroid/view/View;]
@@ -44222,6 +44225,8 @@ Constant Pool (count = 132):
   + Methodref [android/service/dreams/DreamService.onDetachedFromWindow ()V]
   + Methodref [android/view/View.getParent ()Landroid/view/ViewParent;]
   + Methodref [android/view/View.setAlpha (F)V]
+  + Methodref [android/view/Window.getAttributes ()Landroid/view/WindowManager$LayoutParams;]
+  + Methodref [android/view/Window.setAttributes (Landroid/view/WindowManager$LayoutParams;)V]
   + Methodref [cz/mpelant/deskclock/Screensaver.a ()V]
   + Methodref [cz/mpelant/deskclock/Screensaver.findViewById (I)Landroid/view/View;]
   + Methodref [cz/mpelant/deskclock/Screensaver.getWindow ()Landroid/view/Window;]
@@ -44247,6 +44252,7 @@ Constant Pool (count = 132):
   + NameAndType [e Landroid/os/Handler;]
   + NameAndType [f Lcz/mpelant/deskclock/o;]
   + NameAndType [findViewById (I)Landroid/view/View;]
+  + NameAndType [getAttributes ()Landroid/view/WindowManager$LayoutParams;]
   + NameAndType [getDefaultSharedPreferences (Landroid/content/Context;)Landroid/content/SharedPreferences;]
   + NameAndType [getInt (Ljava/lang/String;I)I]
   + NameAndType [getParent ()Landroid/view/ViewParent;]
@@ -44257,13 +44263,16 @@ Constant Pool (count = 132):
   + NameAndType [onDetachedFromWindow ()V]
   + NameAndType [post (Ljava/lang/Runnable;)Z]
   + NameAndType [removeCallbacks (Ljava/lang/Runnable;)V]
+  + NameAndType [screenBrightness F]
   + NameAndType [setAlpha (F)V]
+  + NameAndType [setAttributes (Landroid/view/WindowManager$LayoutParams;)V]
   + NameAndType [setContentView (I)V]
   + NameAndType [setFullscreen (Z)V]
   + NameAndType [setInteractive (Z)V]
   + NameAndType [setScreenBright (Z)V]
   + Utf8 [()Landroid/view/ViewParent;]
   + Utf8 [()Landroid/view/Window;]
+  + Utf8 [()Landroid/view/WindowManager$LayoutParams;]
   + Utf8 [()V]
   + Utf8 [(F)V]
   + Utf8 [(I)Landroid/view/View;]
@@ -44274,12 +44283,14 @@ Constant Pool (count = 132):
   + Utf8 [(Landroid/content/res/Configuration;)V]
   + Utf8 [(Landroid/os/Handler;)V]
   + Utf8 [(Landroid/view/View;Landroid/view/View;)V]
+  + Utf8 [(Landroid/view/WindowManager$LayoutParams;)V]
   + Utf8 [(Ljava/lang/Runnable;)V]
   + Utf8 [(Ljava/lang/Runnable;)Z]
   + Utf8 [(Ljava/lang/String;I)I]
   + Utf8 [(Z)V]
   + Utf8 [<init>]
   + Utf8 [Code]
+  + Utf8 [F]
   + Utf8 [Landroid/annotation/TargetApi;]
   + Utf8 [Landroid/os/Handler;]
   + Utf8 [Landroid/view/View;]
@@ -44294,6 +44305,8 @@ Constant Pool (count = 132):
   + Utf8 [android/preference/PreferenceManager]
   + Utf8 [android/service/dreams/DreamService]
   + Utf8 [android/view/View]
+  + Utf8 [android/view/Window]
+  + Utf8 [android/view/WindowManager$LayoutParams]
   + Utf8 [b]
   + Utf8 [brightness]
   + Utf8 [c]
@@ -44304,6 +44317,7 @@ Constant Pool (count = 132):
   + Utf8 [e]
   + Utf8 [f]
   + Utf8 [findViewById]
+  + Utf8 [getAttributes]
   + Utf8 [getDefaultSharedPreferences]
   + Utf8 [getInt]
   + Utf8 [getParent]
@@ -44314,8 +44328,10 @@ Constant Pool (count = 132):
   + Utf8 [onDetachedFromWindow]
   + Utf8 [post]
   + Utf8 [removeCallbacks]
+  + Utf8 [screenBrightness]
   + Utf8 [screensaver_clock_style]
   + Utf8 [setAlpha]
+  + Utf8 [setAttributes]
   + Utf8 [setContentView]
   + Utf8 [setFullscreen]
   + Utf8 [setInteractive]
@@ -44349,49 +44365,49 @@ Methods (count = 6):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 31, locals = 1, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #26
+      [1] invokespecial #29
         + Methodref [android/service/dreams/DreamService.<init> ()V]
       [4] aload_0 v0
       [5] new #9
         + Class [android/os/Handler]
       [8] dup
-      [9] invokespecial #22
+      [9] invokespecial #25
         + Methodref [android/os/Handler.<init> ()V]
-      [12] putfield #20
+      [12] putfield #23
         + Fieldref [cz/mpelant/deskclock/Screensaver.e Landroid/os/Handler;]
       [15] aload_0 v0
-      [16] new #14
+      [16] new #16
         + Class [cz/mpelant/deskclock/o]
       [19] dup
       [20] aload_0 v0
-      [21] getfield #20
+      [21] getfield #23
         + Fieldref [cz/mpelant/deskclock/Screensaver.e Landroid/os/Handler;]
-      [24] invokespecial #40
+      [24] invokespecial #45
         + Methodref [cz/mpelant/deskclock/o.<init> (Landroid/os/Handler;)V]
-      [27] putfield #21
+      [27] putfield #24
         + Fieldref [cz/mpelant/deskclock/Screensaver.f Lcz/mpelant/deskclock/o;]
       [30] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 4)
-        [0] -> line 39
-        [4] -> line 35
-        [15] -> line 42
-        [30] -> line 43
+        [0] -> line 40
+        [4] -> line 36
+        [15] -> line 43
+        [30] -> line 44
   + Method:       onCreate()V
     Access flags: 0x1
       = public void onCreate()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #29
+      [1] invokespecial #32
         + Methodref [android/service/dreams/DreamService.onCreate ()V]
       [4] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 2)
-        [0] -> line 49
-        [4] -> line 50
+        [0] -> line 50
+        [4] -> line 51
   + Method:       onConfigurationChanged(Landroid/content/res/Configuration;)V
     Access flags: 0x1
       = public void onConfigurationChanged(android.content.res.Configuration)
@@ -44399,216 +44415,240 @@ Methods (count = 6):
     + Code attribute instructions (code length = 21, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #28
+      [2] invokespecial #31
         + Methodref [android/service/dreams/DreamService.onConfigurationChanged (Landroid/content/res/Configuration;)V]
       [5] aload_0 v0
-      [6] getfield #20
+      [6] getfield #23
         + Fieldref [cz/mpelant/deskclock/Screensaver.e Landroid/os/Handler;]
       [9] aload_0 v0
-      [10] getfield #21
+      [10] getfield #24
         + Fieldref [cz/mpelant/deskclock/Screensaver.f Lcz/mpelant/deskclock/o;]
-      [13] invokevirtual #24
+      [13] invokevirtual #27
         + Methodref [android/os/Handler.removeCallbacks (Ljava/lang/Runnable;)V]
       [16] aload_0 v0
-      [17] invokespecial #33
+      [17] invokespecial #38
         + Methodref [cz/mpelant/deskclock/Screensaver.a ()V]
       [20] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 4)
-        [0] -> line 56
-        [5] -> line 57
-        [16] -> line 58
-        [20] -> line 59
+        [0] -> line 57
+        [5] -> line 58
+        [16] -> line 59
+        [20] -> line 60
   + Method:       onAttachedToWindow()V
     Access flags: 0x1
       = public void onAttachedToWindow()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 19, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] invokespecial #27
+      [1] invokespecial #30
         + Methodref [android/service/dreams/DreamService.onAttachedToWindow ()V]
       [4] aload_0 v0
       [5] iconst_0
-      [6] invokevirtual #38
+      [6] invokevirtual #43
         + Methodref [cz/mpelant/deskclock/Screensaver.setInteractive (Z)V]
       [9] aload_0 v0
       [10] iconst_1
-      [11] invokevirtual #37
+      [11] invokevirtual #42
         + Methodref [cz/mpelant/deskclock/Screensaver.setFullscreen (Z)V]
       [14] aload_0 v0
-      [15] invokespecial #33
+      [15] invokespecial #38
         + Methodref [cz/mpelant/deskclock/Screensaver.a ()V]
       [18] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 5)
-        [0] -> line 65
-        [4] -> line 68
-        [9] -> line 69
-        [14] -> line 70
-        [18] -> line 71
+        [0] -> line 66
+        [4] -> line 69
+        [9] -> line 70
+        [14] -> line 71
+        [18] -> line 72
   + Method:       onDetachedFromWindow()V
     Access flags: 0x1
       = public void onDetachedFromWindow()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 16, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] invokespecial #30
+      [1] invokespecial #33
         + Methodref [android/service/dreams/DreamService.onDetachedFromWindow ()V]
       [4] aload_0 v0
-      [5] getfield #20
+      [5] getfield #23
         + Fieldref [cz/mpelant/deskclock/Screensaver.e Landroid/os/Handler;]
       [8] aload_0 v0
-      [9] getfield #21
+      [9] getfield #24
         + Fieldref [cz/mpelant/deskclock/Screensaver.f Lcz/mpelant/deskclock/o;]
-      [12] invokevirtual #24
+      [12] invokevirtual #27
         + Methodref [android/os/Handler.removeCallbacks (Ljava/lang/Runnable;)V]
       [15] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 3)
-        [0] -> line 77
-        [4] -> line 79
-        [15] -> line 80
+        [0] -> line 78
+        [4] -> line 80
+        [15] -> line 81
   + Method:       a()V
     Access flags: 0x2
       = private void a()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 157, locals = 3, stack = 4):
+    + Code attribute instructions (code length = 192, locals = 4, stack = 4):
       [0] aload_0 v0
-      [1] invokevirtual #35
+      [1] invokevirtual #40
         + Methodref [cz/mpelant/deskclock/Screensaver.getWindow ()Landroid/view/Window;]
       [4] ifnonnull +4 (target=8)
       [7] return
       [8] aload_0 v0
       [9] ldc #2
         + Integer [2130968577]
-      [11] invokevirtual #36
+      [11] invokevirtual #41
         + Methodref [cz/mpelant/deskclock/Screensaver.setContentView (I)V]
       [14] aload_0 v0
       [15] aload_0 v0
       [16] ldc #4
         + Integer [2131427346]
-      [18] invokevirtual #34
+      [18] invokevirtual #39
         + Methodref [cz/mpelant/deskclock/Screensaver.findViewById (I)Landroid/view/View;]
-      [21] putfield #19
+      [21] putfield #22
         + Fieldref [cz/mpelant/deskclock/Screensaver.d Landroid/view/View;]
       [24] aload_0 v0
       [25] aload_0 v0
       [26] ldc #5
         + Integer [2131427347]
-      [28] invokevirtual #34
+      [28] invokevirtual #39
         + Methodref [cz/mpelant/deskclock/Screensaver.findViewById (I)Landroid/view/View;]
-      [31] putfield #18
+      [31] putfield #21
         + Fieldref [cz/mpelant/deskclock/Screensaver.c Landroid/view/View;]
       [34] aload_0 v0
       [35] dup
       [36] dup
       [37] astore_1 v1
-      [38] getfield #19
+      [38] getfield #22
         + Fieldref [cz/mpelant/deskclock/Screensaver.d Landroid/view/View;]
       [41] aload_1 v1
-      [42] getfield #18
+      [42] getfield #21
         + Fieldref [cz/mpelant/deskclock/Screensaver.c Landroid/view/View;]
       [45] ldc #7
         + String [screensaver_clock_style]
-      [47] invokestatic #43
+      [47] invokestatic #48
         + Methodref [cz/mpelant/deskclock/u.a (Landroid/content/Context;Landroid/view/View;Landroid/view/View;Ljava/lang/String;)Landroid/view/View;]
       [50] pop
       [51] aload_1 v1
       [52] aload_1 v1
       [53] ldc #3
         + Integer [2131427333]
-      [55] invokevirtual #34
+      [55] invokevirtual #39
         + Methodref [cz/mpelant/deskclock/Screensaver.findViewById (I)Landroid/view/View;]
-      [58] putfield #17
+      [58] putfield #20
         + Fieldref [cz/mpelant/deskclock/Screensaver.b Landroid/view/View;]
       [61] aload_1 v1
-      [62] invokestatic #25
+      [62] invokestatic #28
         + Methodref [android/preference/PreferenceManager.getDefaultSharedPreferences (Landroid/content/Context;)Landroid/content/SharedPreferences;]
       [65] ldc #6
         + String [brightness]
       [67] sipush 192
-      [70] invokeinterface #44
+      [70] invokeinterface #49
         + InterfaceMethodref [android/content/SharedPreferences.getInt (Ljava/lang/String;I)I]
       [75] dup
       [76] istore_2 v2
       [77] aload_1 v1
-      [78] getfield #17
+      [78] getfield #20
         + Fieldref [cz/mpelant/deskclock/Screensaver.b Landroid/view/View;]
-      [81] invokestatic #42
+      [81] invokestatic #47
         + Methodref [cz/mpelant/deskclock/u.a (ILandroid/view/View;)V]
-      [84] aload_1 v1
-      [85] iload_2 v2
-      [86] bipush 96
-      [88] ificmplt +7 (target=95)
-      [91] iconst_1
-      [92] goto +4 (target=96)
-      [95] iconst_0
-      [96] invokevirtual #39
+      [84] iload_2 v2
+      [85] bipush 96
+      [87] ificmpge +7 (target=94)
+      [90] iconst_1
+      [91] goto +4 (target=95)
+      [94] iconst_0
+      [95] dup
+      [96] istore_2 v2
+      [97] ifeq +24 (target=121)
+      [100] aload_1 v1
+      [101] invokevirtual #40
+        + Methodref [cz/mpelant/deskclock/Screensaver.getWindow ()Landroid/view/Window;]
+      [104] invokevirtual #36
+        + Methodref [android/view/Window.getAttributes ()Landroid/view/WindowManager$LayoutParams;]
+      [107] dup
+      [108] astore_3 v3
+      [109] fconst_0
+      [110] putfield #18
+        + Fieldref [android/view/WindowManager$LayoutParams.screenBrightness F]
+      [113] aload_1 v1
+      [114] invokevirtual #40
+        + Methodref [cz/mpelant/deskclock/Screensaver.getWindow ()Landroid/view/Window;]
+      [117] aload_3 v3
+      [118] invokevirtual #37
+        + Methodref [android/view/Window.setAttributes (Landroid/view/WindowManager$LayoutParams;)V]
+      [121] aload_1 v1
+      [122] iload_2 v2
+      [123] ifeq +7 (target=130)
+      [126] iconst_0
+      [127] goto +4 (target=131)
+      [130] iconst_1
+      [131] invokevirtual #44
         + Methodref [cz/mpelant/deskclock/Screensaver.setScreenBright (Z)V]
-      [99] aload_0 v0
-      [100] getfield #17
+      [134] aload_0 v0
+      [135] getfield #20
         + Fieldref [cz/mpelant/deskclock/Screensaver.b Landroid/view/View;]
-      [103] ifnonnull +4 (target=107)
-      [106] return
-      [107] aload_0 v0
-      [108] aload_0 v0
-      [109] getfield #17
+      [138] ifnonnull +4 (target=142)
+      [141] return
+      [142] aload_0 v0
+      [143] aload_0 v0
+      [144] getfield #20
         + Fieldref [cz/mpelant/deskclock/Screensaver.b Landroid/view/View;]
-      [112] invokevirtual #31
+      [147] invokevirtual #34
         + Methodref [android/view/View.getParent ()Landroid/view/ViewParent;]
-      [115] checkcast #12
+      [150] checkcast #12
         + Class [android/view/View]
-      [118] putfield #16
+      [153] putfield #19
         + Fieldref [cz/mpelant/deskclock/Screensaver.a Landroid/view/View;]
-      [121] aload_0 v0
-      [122] getfield #17
+      [156] aload_0 v0
+      [157] getfield #20
         + Fieldref [cz/mpelant/deskclock/Screensaver.b Landroid/view/View;]
-      [125] fconst_0
-      [126] invokevirtual #32
+      [160] fconst_0
+      [161] invokevirtual #35
         + Methodref [android/view/View.setAlpha (F)V]
-      [129] aload_0 v0
-      [130] getfield #21
+      [164] aload_0 v0
+      [165] getfield #24
         + Fieldref [cz/mpelant/deskclock/Screensaver.f Lcz/mpelant/deskclock/o;]
-      [133] aload_0 v0
-      [134] getfield #16
+      [168] aload_0 v0
+      [169] getfield #19
         + Fieldref [cz/mpelant/deskclock/Screensaver.a Landroid/view/View;]
-      [137] aload_0 v0
-      [138] getfield #17
+      [172] aload_0 v0
+      [173] getfield #20
         + Fieldref [cz/mpelant/deskclock/Screensaver.b Landroid/view/View;]
-      [141] invokevirtual #41
+      [176] invokevirtual #46
         + Methodref [cz/mpelant/deskclock/o.a (Landroid/view/View;Landroid/view/View;)V]
-      [144] aload_0 v0
-      [145] getfield #20
+      [179] aload_0 v0
+      [180] getfield #23
         + Fieldref [cz/mpelant/deskclock/Screensaver.e Landroid/os/Handler;]
-      [148] aload_0 v0
-      [149] getfield #21
+      [183] aload_0 v0
+      [184] getfield #24
         + Fieldref [cz/mpelant/deskclock/Screensaver.f Lcz/mpelant/deskclock/o;]
-      [152] invokevirtual #23
+      [187] invokevirtual #26
         + Methodref [android/os/Handler.post (Ljava/lang/Runnable;)Z]
-      [155] pop
-      [156] return
+      [190] pop
+      [191] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 2):
       + Line number table attribute (count = 13)
-        [0] -> line 91
-        [7] -> line 92
-        [8] -> line 93
-        [14] -> line 94
-        [24] -> line 95
-        [34] -> line 96
-        [99] -> line 97
-        [106] -> line 98
-        [107] -> line 99
-        [121] -> line 100
-        [129] -> line 102
-        [144] -> line 103
-        [156] -> line 104
+        [0] -> line 101
+        [7] -> line 102
+        [8] -> line 103
+        [14] -> line 104
+        [24] -> line 105
+        [34] -> line 106
+        [134] -> line 107
+        [141] -> line 108
+        [142] -> line 109
+        [156] -> line 110
+        [164] -> line 112
+        [179] -> line 113
+        [191] -> line 114
       + Stack map table attribute (count = 2):
         - [8] Var: ..., Stack: (empty)
-        - [107] Var: ..., Stack: (empty)
+        - [142] Var: ..., Stack: (empty)
 
 Class file attributes (count = 2):
   + Runtime invisible annotations attribute:
@@ -44628,7 +44668,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 150):
+Constant Pool (count = 170):
   + Integer [16]
   + Integer [2130968577]
   + Integer [2131361792]
@@ -44642,11 +44682,14 @@ Constant Pool (count = 150):
   + Class [android/os/Handler]
   + Class [android/preference/PreferenceManager]
   + Class [android/view/View]
+  + Class [android/view/Window]
+  + Class [android/view/WindowManager$LayoutParams]
   + Class [cz/mpelant/deskclock/ScreensaverActivity]
   + Class [cz/mpelant/deskclock/c]
   + Class [cz/mpelant/deskclock/o]
   + Class [cz/mpelant/deskclock/u]
   + Long [250]
+  + Fieldref [android/view/WindowManager$LayoutParams.screenBrightness F]
   + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
   + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
   + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.c Landroid/view/View;]
@@ -44664,10 +44707,13 @@ Constant Pool (count = 150):
   + Methodref [android/view/View.getParent ()Landroid/view/ViewParent;]
   + Methodref [android/view/View.setAlpha (F)V]
   + Methodref [android/view/View.setSystemUiVisibility (I)V]
+  + Methodref [android/view/Window.getAttributes ()Landroid/view/WindowManager$LayoutParams;]
+  + Methodref [android/view/Window.setAttributes (Landroid/view/WindowManager$LayoutParams;)V]
   + Methodref [cz/mpelant/deskclock/ScreensaverActivity.c ()V]
   + Methodref [cz/mpelant/deskclock/ScreensaverActivity.findViewById (I)Landroid/view/View;]
   + Methodref [cz/mpelant/deskclock/ScreensaverActivity.finish ()V]
   + Methodref [cz/mpelant/deskclock/ScreensaverActivity.getString (I)Ljava/lang/String;]
+  + Methodref [cz/mpelant/deskclock/ScreensaverActivity.getWindow ()Landroid/view/Window;]
   + Methodref [cz/mpelant/deskclock/ScreensaverActivity.setContentView (I)V]
   + Methodref [cz/mpelant/deskclock/c.<init> ()V]
   + Methodref [cz/mpelant/deskclock/c.onConfigurationChanged (Landroid/content/res/Configuration;)V]
@@ -44698,10 +44744,12 @@ Constant Pool (count = 150):
   + NameAndType [finish ()V]
   + NameAndType [forceLayout ()V]
   + NameAndType [g Ljava/lang/String;]
+  + NameAndType [getAttributes ()Landroid/view/WindowManager$LayoutParams;]
   + NameAndType [getDefaultSharedPreferences (Landroid/content/Context;)Landroid/content/SharedPreferences;]
   + NameAndType [getInt (Ljava/lang/String;I)I]
   + NameAndType [getParent ()Landroid/view/ViewParent;]
   + NameAndType [getString (I)Ljava/lang/String;]
+  + NameAndType [getWindow ()Landroid/view/Window;]
   + NameAndType [h Ljava/lang/String;]
   + NameAndType [onConfigurationChanged (Landroid/content/res/Configuration;)V]
   + NameAndType [onPause ()V]
@@ -44709,11 +44757,15 @@ Constant Pool (count = 150):
   + NameAndType [post (Ljava/lang/Runnable;)Z]
   + NameAndType [postDelayed (Ljava/lang/Runnable;J)Z]
   + NameAndType [removeCallbacks (Ljava/lang/Runnable;)V]
+  + NameAndType [screenBrightness F]
   + NameAndType [setAlpha (F)V]
+  + NameAndType [setAttributes (Landroid/view/WindowManager$LayoutParams;)V]
   + NameAndType [setContentView (I)V]
   + NameAndType [setSystemUiVisibility (I)V]
   + Utf8 [()I]
   + Utf8 [()Landroid/view/ViewParent;]
+  + Utf8 [()Landroid/view/Window;]
+  + Utf8 [()Landroid/view/WindowManager$LayoutParams;]
   + Utf8 [()V]
   + Utf8 [(F)V]
   + Utf8 [(I)Landroid/view/View;]
@@ -44726,6 +44778,7 @@ Constant Pool (count = 150):
   + Utf8 [(Landroid/content/res/Configuration;)V]
   + Utf8 [(Landroid/os/Handler;)V]
   + Utf8 [(Landroid/view/View;Landroid/view/View;)V]
+  + Utf8 [(Landroid/view/WindowManager$LayoutParams;)V]
   + Utf8 [(Ljava/lang/Runnable;)V]
   + Utf8 [(Ljava/lang/Runnable;)Z]
   + Utf8 [(Ljava/lang/Runnable;J)Z]
@@ -44733,6 +44786,7 @@ Constant Pool (count = 150):
   + Utf8 [(Ljava/lang/String;Ljava/lang/String;Landroid/view/View;)V]
   + Utf8 [<init>]
   + Utf8 [Code]
+  + Utf8 [F]
   + Utf8 [Landroid/annotation/TargetApi;]
   + Utf8 [Landroid/os/Handler;]
   + Utf8 [Landroid/view/View;]
@@ -44746,6 +44800,8 @@ Constant Pool (count = 150):
   + Utf8 [android/os/Handler]
   + Utf8 [android/preference/PreferenceManager]
   + Utf8 [android/view/View]
+  + Utf8 [android/view/Window]
+  + Utf8 [android/view/WindowManager$LayoutParams]
   + Utf8 [b]
   + Utf8 [brightness]
   + Utf8 [c]
@@ -44760,10 +44816,12 @@ Constant Pool (count = 150):
   + Utf8 [finish]
   + Utf8 [forceLayout]
   + Utf8 [g]
+  + Utf8 [getAttributes]
   + Utf8 [getDefaultSharedPreferences]
   + Utf8 [getInt]
   + Utf8 [getParent]
   + Utf8 [getString]
+  + Utf8 [getWindow]
   + Utf8 [h]
   + Utf8 [onConfigurationChanged]
   + Utf8 [onPause]
@@ -44772,8 +44830,10 @@ Constant Pool (count = 150):
   + Utf8 [post]
   + Utf8 [postDelayed]
   + Utf8 [removeCallbacks]
+  + Utf8 [screenBrightness]
   + Utf8 [screensaver_clock_style]
   + Utf8 [setAlpha]
+  + Utf8 [setAttributes]
   + Utf8 [setContentView]
   + Utf8 [setSystemUiVisibility]
   + Utf8 [value]
@@ -44811,26 +44871,26 @@ Methods (count = 8):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 31, locals = 1, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #42
+      [1] invokespecial #48
         + Methodref [cz/mpelant/deskclock/c.<init> ()V]
       [4] aload_0 v0
       [5] new #11
         + Class [android/os/Handler]
       [8] dup
-      [9] invokespecial #28
+      [9] invokespecial #31
         + Methodref [android/os/Handler.<init> ()V]
-      [12] putfield #24
+      [12] putfield #27
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.e Landroid/os/Handler;]
       [15] aload_0 v0
-      [16] new #16
+      [16] new #18
         + Class [cz/mpelant/deskclock/o]
       [19] dup
       [20] aload_0 v0
-      [21] getfield #24
+      [21] getfield #27
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.e Landroid/os/Handler;]
-      [24] invokespecial #46
+      [24] invokespecial #52
         + Methodref [cz/mpelant/deskclock/o.<init> (Landroid/os/Handler;)V]
-      [27] putfield #25
+      [27] putfield #28
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.f Lcz/mpelant/deskclock/o;]
       [30] return
       Code attribute exceptions (count = 0):
@@ -44846,34 +44906,34 @@ Methods (count = 8):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 41, locals = 1, stack = 3):
       [0] aload_0 v0
-      [1] invokespecial #45
+      [1] invokespecial #51
         + Methodref [cz/mpelant/deskclock/c.onResume ()V]
       [4] aload_0 v0
       [5] aload_0 v0
       [6] ldc #3
         + Integer [2131361792]
-      [8] invokevirtual #40
+      [8] invokevirtual #45
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.getString (I)Ljava/lang/String;]
-      [11] putfield #26
+      [11] putfield #29
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.g Ljava/lang/String;]
       [14] aload_0 v0
       [15] aload_0 v0
       [16] ldc #4
         + Integer [2131361793]
-      [18] invokevirtual #40
+      [18] invokevirtual #45
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.getString (I)Ljava/lang/String;]
-      [21] putfield #27
+      [21] putfield #30
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.h Ljava/lang/String;]
       [24] aload_0 v0
-      [25] invokespecial #37
+      [25] invokespecial #42
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.c ()V]
       [28] aload_0 v0
-      [29] getfield #24
+      [29] getfield #27
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.e Landroid/os/Handler;]
       [32] aload_0 v0
-      [33] getfield #25
+      [33] getfield #28
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.f Lcz/mpelant/deskclock/o;]
-      [36] invokevirtual #29
+      [36] invokevirtual #32
         + Methodref [android/os/Handler.post (Ljava/lang/Runnable;)Z]
       [39] pop
       [40] return
@@ -44892,15 +44952,15 @@ Methods (count = 8):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 16, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] getfield #24
+      [1] getfield #27
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.e Landroid/os/Handler;]
       [4] aload_0 v0
-      [5] getfield #25
+      [5] getfield #28
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.f Lcz/mpelant/deskclock/o;]
-      [8] invokevirtual #31
+      [8] invokevirtual #34
         + Methodref [android/os/Handler.removeCallbacks (Ljava/lang/Runnable;)V]
       [11] aload_0 v0
-      [12] invokespecial #44
+      [12] invokespecial #50
         + Methodref [cz/mpelant/deskclock/c.onPause ()V]
       [15] return
       Code attribute exceptions (count = 0):
@@ -44916,28 +44976,28 @@ Methods (count = 8):
     + Code attribute instructions (code length = 36, locals = 2, stack = 4):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #43
+      [2] invokespecial #49
         + Methodref [cz/mpelant/deskclock/c.onConfigurationChanged (Landroid/content/res/Configuration;)V]
       [5] aload_0 v0
-      [6] getfield #24
+      [6] getfield #27
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.e Landroid/os/Handler;]
       [9] aload_0 v0
-      [10] getfield #25
+      [10] getfield #28
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.f Lcz/mpelant/deskclock/o;]
-      [13] invokevirtual #31
+      [13] invokevirtual #34
         + Methodref [android/os/Handler.removeCallbacks (Ljava/lang/Runnable;)V]
       [16] aload_0 v0
-      [17] invokespecial #37
+      [17] invokespecial #42
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.c ()V]
       [20] aload_0 v0
-      [21] getfield #24
+      [21] getfield #27
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.e Landroid/os/Handler;]
       [24] aload_0 v0
-      [25] getfield #25
+      [25] getfield #28
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.f Lcz/mpelant/deskclock/o;]
-      [28] ldc2_w #18
+      [28] ldc2_w #20
         + Long [250]
-      [31] invokevirtual #30
+      [31] invokevirtual #33
         + Methodref [android/os/Handler.postDelayed (Ljava/lang/Runnable;J)Z]
       [34] pop
       [35] return
@@ -44955,7 +45015,7 @@ Methods (count = 8):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokevirtual #39
+      [1] invokevirtual #44
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.finish ()V]
       [4] return
       Code attribute exceptions (count = 0):
@@ -44967,140 +45027,165 @@ Methods (count = 8):
     Access flags: 0x2
       = private void c()
     Class member attributes (count = 2):
-    + Code attribute instructions (code length = 159, locals = 2, stack = 4):
+    + Code attribute instructions (code length = 196, locals = 3, stack = 4):
       [0] aload_0 v0
       [1] ldc #2
         + Integer [2130968577]
-      [3] invokevirtual #41
+      [3] invokevirtual #47
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.setContentView (I)V]
       [6] aload_0 v0
       [7] aload_0 v0
       [8] ldc #6
         + Integer [2131427346]
-      [10] invokevirtual #38
+      [10] invokevirtual #43
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.findViewById (I)Landroid/view/View;]
-      [13] putfield #23
+      [13] putfield #26
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.d Landroid/view/View;]
       [16] aload_0 v0
       [17] aload_0 v0
       [18] ldc #7
         + Integer [2131427347]
-      [20] invokevirtual #38
+      [20] invokevirtual #43
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.findViewById (I)Landroid/view/View;]
-      [23] putfield #22
+      [23] putfield #25
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.c Landroid/view/View;]
       [26] aload_0 v0
       [27] dup
       [28] dup
       [29] astore_1 v1
-      [30] getfield #23
+      [30] getfield #26
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.d Landroid/view/View;]
       [33] aload_1 v1
-      [34] getfield #22
+      [34] getfield #25
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.c Landroid/view/View;]
       [37] ldc #9
         + String [screensaver_clock_style]
-      [39] invokestatic #50
+      [39] invokestatic #56
         + Methodref [cz/mpelant/deskclock/u.a (Landroid/content/Context;Landroid/view/View;Landroid/view/View;Ljava/lang/String;)Landroid/view/View;]
       [42] pop
       [43] aload_1 v1
       [44] aload_1 v1
       [45] ldc #5
         + Integer [2131427333]
-      [47] invokevirtual #38
+      [47] invokevirtual #43
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.findViewById (I)Landroid/view/View;]
-      [50] putfield #21
+      [50] putfield #24
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
       [53] aload_1 v1
-      [54] invokestatic #32
+      [54] invokestatic #35
         + Methodref [android/preference/PreferenceManager.getDefaultSharedPreferences (Landroid/content/Context;)Landroid/content/SharedPreferences;]
       [57] ldc #8
         + String [brightness]
       [59] sipush 192
-      [62] invokeinterface #52
+      [62] invokeinterface #58
         + InterfaceMethodref [android/content/SharedPreferences.getInt (Ljava/lang/String;I)I]
-      [67] aload_1 v1
-      [68] getfield #21
+      [67] dup
+      [68] istore_2 v2
+      [69] aload_1 v1
+      [70] getfield #24
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
-      [71] invokestatic #48
+      [73] invokestatic #54
         + Methodref [cz/mpelant/deskclock/u.a (ILandroid/view/View;)V]
-      [74] aload_0 v0
-      [75] aload_0 v0
-      [76] getfield #21
+      [76] iload_2 v2
+      [77] bipush 96
+      [79] ificmpge +7 (target=86)
+      [82] iconst_1
+      [83] goto +4 (target=87)
+      [86] iconst_0
+      [87] ifeq +24 (target=111)
+      [90] aload_1 v1
+      [91] invokevirtual #46
+        + Methodref [cz/mpelant/deskclock/ScreensaverActivity.getWindow ()Landroid/view/Window;]
+      [94] invokevirtual #40
+        + Methodref [android/view/Window.getAttributes ()Landroid/view/WindowManager$LayoutParams;]
+      [97] dup
+      [98] astore_2 v2
+      [99] fconst_0
+      [100] putfield #22
+        + Fieldref [android/view/WindowManager$LayoutParams.screenBrightness F]
+      [103] aload_1 v1
+      [104] invokevirtual #46
+        + Methodref [cz/mpelant/deskclock/ScreensaverActivity.getWindow ()Landroid/view/Window;]
+      [107] aload_2 v2
+      [108] invokevirtual #41
+        + Methodref [android/view/Window.setAttributes (Landroid/view/WindowManager$LayoutParams;)V]
+      [111] aload_0 v0
+      [112] aload_0 v0
+      [113] getfield #24
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
-      [79] invokevirtual #34
+      [116] invokevirtual #37
         + Methodref [android/view/View.getParent ()Landroid/view/ViewParent;]
-      [82] checkcast #13
+      [119] checkcast #13
         + Class [android/view/View]
-      [85] putfield #20
+      [122] putfield #23
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
-      [88] aload_0 v0
-      [89] getfield #20
-        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
-      [92] invokevirtual #33
-        + Methodref [android/view/View.forceLayout ()V]
-      [95] aload_0 v0
-      [96] getfield #21
-        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
-      [99] invokevirtual #33
-        + Methodref [android/view/View.forceLayout ()V]
-      [102] aload_0 v0
-      [103] getfield #21
-        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
-      [106] fconst_0
-      [107] invokevirtual #35
-        + Methodref [android/view/View.setAlpha (F)V]
-      [110] aload_0 v0
-      [111] getfield #25
-        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.f Lcz/mpelant/deskclock/o;]
-      [114] aload_0 v0
-      [115] getfield #20
-        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
-      [118] aload_0 v0
-      [119] getfield #21
-        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
-      [122] invokevirtual #47
-        + Methodref [cz/mpelant/deskclock/o.a (Landroid/view/View;Landroid/view/View;)V]
       [125] aload_0 v0
-      [126] getfield #20
+      [126] getfield #23
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
-      [129] sipush 1029
-      [132] invokevirtual #36
-        + Methodref [android/view/View.setSystemUiVisibility (I)V]
-      [135] aload_0 v0
-      [136] getfield #26
-        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.g Ljava/lang/String;]
+      [129] invokevirtual #36
+        + Methodref [android/view/View.forceLayout ()V]
+      [132] aload_0 v0
+      [133] getfield #24
+        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
+      [136] invokevirtual #36
+        + Methodref [android/view/View.forceLayout ()V]
       [139] aload_0 v0
-      [140] getfield #27
-        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.h Ljava/lang/String;]
-      [143] aload_0 v0
-      [144] getfield #20
-        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
-      [147] invokestatic #51
-        + Methodref [cz/mpelant/deskclock/u.a (Ljava/lang/String;Ljava/lang/String;Landroid/view/View;)V]
-      [150] aload_0 v0
+      [140] getfield #24
+        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
+      [143] fconst_0
+      [144] invokevirtual #38
+        + Methodref [android/view/View.setAlpha (F)V]
+      [147] aload_0 v0
+      [148] getfield #28
+        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.f Lcz/mpelant/deskclock/o;]
       [151] aload_0 v0
-      [152] getfield #20
+      [152] getfield #23
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
-      [155] invokestatic #49
+      [155] aload_0 v0
+      [156] getfield #24
+        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
+      [159] invokevirtual #53
+        + Methodref [cz/mpelant/deskclock/o.a (Landroid/view/View;Landroid/view/View;)V]
+      [162] aload_0 v0
+      [163] getfield #23
+        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
+      [166] sipush 1029
+      [169] invokevirtual #39
+        + Methodref [android/view/View.setSystemUiVisibility (I)V]
+      [172] aload_0 v0
+      [173] getfield #29
+        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.g Ljava/lang/String;]
+      [176] aload_0 v0
+      [177] getfield #30
+        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.h Ljava/lang/String;]
+      [180] aload_0 v0
+      [181] getfield #23
+        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
+      [184] invokestatic #57
+        + Methodref [cz/mpelant/deskclock/u.a (Ljava/lang/String;Ljava/lang/String;Landroid/view/View;)V]
+      [187] aload_0 v0
+      [188] aload_0 v0
+      [189] getfield #23
+        + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
+      [192] invokestatic #55
         + Methodref [cz/mpelant/deskclock/u.a (Landroid/content/Context;Landroid/view/View;)V]
-      [158] return
+      [195] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 13)
-        [0] -> line 90
-        [6] -> line 91
-        [16] -> line 92
-        [26] -> line 93
-        [74] -> line 94
-        [88] -> line 95
-        [95] -> line 96
-        [102] -> line 97
-        [110] -> line 99
+        [0] -> line 96
+        [6] -> line 97
+        [16] -> line 98
+        [26] -> line 99
+        [111] -> line 100
         [125] -> line 101
-        [135] -> line 103
-        [150] -> line 104
-        [158] -> line 105
+        [132] -> line 102
+        [139] -> line 103
+        [147] -> line 105
+        [162] -> line 107
+        [172] -> line 109
+        [187] -> line 110
+        [195] -> line 111
     + Runtime invisible annotations attribute:
       - Annotation [Landroid/annotation/TargetApi;]:
         - Constant element value [value '73']
@@ -45111,29 +45196,29 @@ Methods (count = 8):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 24, locals = 1, stack = 3):
       [0] aload_0 v0
-      [1] getfield #26
+      [1] getfield #29
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.g Ljava/lang/String;]
       [4] aload_0 v0
-      [5] getfield #27
+      [5] getfield #30
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.h Ljava/lang/String;]
       [8] aload_0 v0
-      [9] getfield #20
+      [9] getfield #23
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
-      [12] invokestatic #51
+      [12] invokestatic #57
         + Methodref [cz/mpelant/deskclock/u.a (Ljava/lang/String;Ljava/lang/String;Landroid/view/View;)V]
       [15] aload_0 v0
       [16] aload_0 v0
-      [17] getfield #20
+      [17] getfield #23
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
-      [20] invokestatic #49
+      [20] invokestatic #55
         + Methodref [cz/mpelant/deskclock/u.a (Landroid/content/Context;Landroid/view/View;)V]
       [23] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 3)
-        [0] -> line 109
-        [15] -> line 110
-        [23] -> line 111
+        [0] -> line 115
+        [15] -> line 116
+        [23] -> line 117
   + Method:       b()I
     Access flags: 0x14
       = protected final int b()
@@ -45144,7 +45229,7 @@ Methods (count = 8):
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 1)
-        [0] -> line 115
+        [0] -> line 121
 
 Class file attributes (count = 1):
   + Source file attribute:
