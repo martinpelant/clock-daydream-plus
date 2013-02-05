@@ -86,7 +86,7 @@ public class ScreensaverActivity extends BaseScreenOnActivity {
         boolean dim = brightness < ScreensaverSettingsActivity.BRIGHTNESS_NIGHT;
         if (dim) {
             WindowManager.LayoutParams lp = getWindow().getAttributes();
-            lp.screenBrightness = 0;
+            lp.screenBrightness = 0.01f;
             getWindow().setAttributes(lp);
         }
     }
