@@ -36,7 +36,14 @@ public class NotificationService extends AccessibilityService {
                 largeIcon = notification.largeIcon;
                 icon = notification.icon;
                 Log.d("contentView: " + notification.contentView);
-                extractImage(notification.contentView);
+                Log.d("tickerView: " + notification.tickerView);
+                try {
+                    extractImage(notification.tickerView);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    extractImage(notification.contentView);
+                }
+
 
                 Log.d("number: " + notification.number);
             }
