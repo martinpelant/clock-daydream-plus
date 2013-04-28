@@ -18,6 +18,7 @@ import android.provider.CallLog;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -38,6 +39,7 @@ public class ScreensaverRunnable implements Runnable {
     private View mNotifGmail;
     private View mNotifMessage;
     private View mMissedCall;
+    private View mTest;
     private TextView mNextAlarm;
     private final Handler mHandler;
 
@@ -61,6 +63,7 @@ public class ScreensaverRunnable implements Runnable {
         mNotifGmail = contentView.findViewById(R.id.gmail);
         mNotifMessage = contentView.findViewById(R.id.messages);
         mMissedCall = contentView.findViewById(R.id.missedCalls);
+        mTest = contentView.findViewById(R.id.test);
         mNextAlarm = (TextView) contentView.findViewById(R.id.nextAlarm);
         mSaverView = saverView;
         handleUpdate();
@@ -145,7 +148,7 @@ public class ScreensaverRunnable implements Runnable {
             long adjust = (now % MOVE_DELAY);
             delay = delay + (MOVE_DELAY - adjust) // minute aligned
                     - (SLIDE ? 0 : FADE_TIME) // start moving before the fade
-            ;
+                    ;
         }
 
         mHandler.removeCallbacks(this);
@@ -157,24 +160,27 @@ public class ScreensaverRunnable implements Runnable {
             Utils.setAlarmTextView(mDate.getContext(), mNextAlarm);
             Utils.setDateTextView(mDate.getContext(), mDate);
 
-            
             if (isPrefEnabled(ScreensaverSettingsActivity.KEY_BATTERY, true)) {
                 mBatteryContainer.setVisibility(View.VISIBLE);
                 Utils.setBatteryStatus(mDate.getContext(), mBattery);
             } else {
                 mBatteryContainer.setVisibility(View.GONE);
             }
-            
-            
+
             new Thread() {
+                @Override
                 public void run() {
                     try {
-                        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_GMAIL, true))
+                        checkOther(mDate.getContext(), mTest);
+                        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_GMAIL, true)) {
                             checkGmail(mDate.getContext(), mNotifGmail);
-                        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true))
+                        }
+                        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true)) {
                             checkSMS(mDate.getContext(), mNotifMessage);
-                        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_MISSED_CALLS, true))
+                        }
+                        if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_MISSED_CALLS, true)) {
                             checkMissedCalls(mDate.getContext(), mMissedCall);
+                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -203,7 +209,7 @@ public class ScreensaverRunnable implements Runnable {
         // Get the account list, and pick the first one
         final String ACCOUNT_TYPE_GOOGLE = "com.google";
         final String[] FEATURES_MAIL = {
-            "service_mail"
+                "service_mail"
         };
         AccountManager.get(context).getAccountsByTypeAndFeatures(ACCOUNT_TYPE_GOOGLE, FEATURES_MAIL, new AccountManagerCallback<Account[]>() {
             @Override
@@ -211,7 +217,7 @@ public class ScreensaverRunnable implements Runnable {
                 Account[] accounts = null;
                 try {
                     setViewVisibility(image, View.GONE);
-                    accounts = (Account[]) future.getResult();
+                    accounts = future.getResult();
                     if (accounts != null && accounts.length > 0) {
                         for (Account account : accounts) {
                             String selectedAccount = account.name;
@@ -249,6 +255,19 @@ public class ScreensaverRunnable implements Runnable {
                 view.setVisibility(visibility);
             }
         });
+    }
+
+    private void checkOther(Context context, View image) {
+        try {
+            if (NotificationService.drawable != null) {
+                Log.d("setting icon" + NotificationService.icon);
+                ((ImageView) image).setImageDrawable(NotificationService.drawable);
+                image.setVisibility(View.VISIBLE);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void checkSMS(Context context, View image) {
