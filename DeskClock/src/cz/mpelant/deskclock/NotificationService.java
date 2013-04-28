@@ -53,6 +53,7 @@ public class NotificationService extends AccessibilityService {
         }
     }
 
+
     private void extractImage(RemoteViews views) {
         LinearLayout ll = new LinearLayout(getApplicationContext());
         View view = views.apply(getApplicationContext(), ll);
