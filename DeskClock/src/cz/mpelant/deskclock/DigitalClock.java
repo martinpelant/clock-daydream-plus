@@ -47,32 +47,32 @@ public class DigitalClock extends LinearLayout {
 
     private Calendar mCalendar;
     private String mHoursFormat;
-    private TextView mTimeDisplayHours, mTimeDisplayHoursThin, mTimeDisplayMinutes;
+    private TextView mTimeDisplayHours, mTimeDisplayMinutes;
     private AmPm mAmPm;
     private ContentObserver mFormatChangeObserver;
     private boolean mLive = true;
     private boolean mAttached;
-    private Typeface mRobotoThin;
+    private final Typeface mRobotoThin;
     private String mTimeZoneId;
 
 
     /* called by system on minute ticks */
     private final Handler mHandler = new Handler();
     private final BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                if (mLive && intent.getAction().equals(
-                            Intent.ACTION_TIMEZONE_CHANGED)) {
-                    mCalendar = Calendar.getInstance();
-                }
-                // Post a runnable to avoid blocking the broadcast.
-                mHandler.post(new Runnable() {
-                        public void run() {
-                            updateTime();
-                        }
-                });
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (mLive && intent.getAction().equals(
+                    Intent.ACTION_TIMEZONE_CHANGED)) {
+                mCalendar = Calendar.getInstance();
             }
-        };
+            // Post a runnable to avoid blocking the broadcast.
+            mHandler.post(new Runnable() {
+                public void run() {
+                    updateTime();
+                }
+            });
+        }
+    };
 
     static class AmPm {
         private final TextView mAmPm;
@@ -103,6 +103,7 @@ public class DigitalClock extends LinearLayout {
         public FormatChangeObserver() {
             super(new Handler());
         }
+
         @Override
         public void onChange(boolean selfChange) {
             setDateFormat();
@@ -116,22 +117,16 @@ public class DigitalClock extends LinearLayout {
 
     public DigitalClock(Context context, AttributeSet attrs) {
         super(context, attrs);
-        if(isInEditMode())
-            return;
-        mRobotoThin = Typeface.createFromAsset(context.getAssets(),"fonts/Roboto-Thin.ttf");
+        mRobotoThin = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Thin.ttf");
     }
 
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        if(isInEditMode())
-            return;
 
-        mTimeDisplayHoursThin = (TextView)findViewById(R.id.timeDisplayHoursThin);
-        mTimeDisplayHours = (TextView)findViewById(R.id.timeDisplayHours);
-        mTimeDisplayMinutes = (TextView)findViewById(R.id.timeDisplayMinutes);
+        mTimeDisplayHours = (TextView) findViewById(R.id.timeDisplayHours);
+        mTimeDisplayMinutes = (TextView) findViewById(R.id.timeDisplayMinutes);
         mTimeDisplayMinutes.setTypeface(mRobotoThin);
-        mTimeDisplayHoursThin.setTypeface(mRobotoThin);
         mAmPm = new AmPm(this);
         mCalendar = Calendar.getInstance();
 
@@ -194,8 +189,6 @@ public class DigitalClock extends LinearLayout {
     }
 
     private void updateTime() {
-        if(isInEditMode())
-            return;
         if (mLive) {
             mCalendar.setTimeInMillis(System.currentTimeMillis());
         }
@@ -206,7 +199,6 @@ public class DigitalClock extends LinearLayout {
         StringBuilder fullTimeStr = new StringBuilder();
         CharSequence newTime = DateFormat.format(mHoursFormat, mCalendar);
         mTimeDisplayHours.setText(newTime);
-        mTimeDisplayHoursThin.setText(newTime);
         fullTimeStr.append(newTime);
         newTime = DateFormat.format(MINUTES, mCalendar);
         fullTimeStr.append(newTime);

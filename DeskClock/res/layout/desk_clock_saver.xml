@@ -27,11 +27,15 @@
 
     <LinearLayout
         android:id="@+id/main_clock"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/time_margin_bottom"
+        android:layout_marginLeft="@dimen/screensaver_margin"
+        android:layout_marginStart="@dimen/screensaver_margin"
+        android:layout_marginRight="@dimen/screensaver_margin"
+        android:layout_marginEnd="@dimen/screensaver_margin"
         android:layout_marginTop="@dimen/time_margin_top"
-        android:orientation="vertical" >
+        android:layout_marginBottom="@dimen/screensaver_margin">
 
         <include layout="@layout/main_clock_frame" />
 

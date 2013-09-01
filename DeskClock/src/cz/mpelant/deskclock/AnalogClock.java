@@ -44,13 +44,13 @@ import cz.mpelant.deskclock.R;
 public class AnalogClock extends View {
     private Time mCalendar;
 
-    private  Drawable mHourHand;
-    private  Drawable mMinuteHand;
-    private  Drawable mSecondHand;
-    private  Drawable mDial;
+    private final Drawable mHourHand;
+    private final Drawable mMinuteHand;
+    private final Drawable mSecondHand;
+    private final Drawable mDial;
 
-    private  int mDialWidth;
-    private  int mDialHeight;
+    private final int mDialWidth;
+    private final int mDialHeight;
 
     private boolean mAttached;
 
@@ -59,12 +59,12 @@ public class AnalogClock extends View {
     private float mMinutes;
     private float mHour;
     private boolean mChanged;
-    private  Context mContext;
+    private final Context mContext;
     private String mTimeZoneId;
     private boolean mNoSeconds = false;
 
-    private float mDotRadius;
-    private float mDotOffset;
+    private final float mDotRadius;
+    private final float mDotOffset;
     private Paint mDotPaint;
 
     public AnalogClock(Context context) {
@@ -78,16 +78,13 @@ public class AnalogClock extends View {
     public AnalogClock(Context context, AttributeSet attrs,
                        int defStyle) {
         super(context, attrs, defStyle);
-        if(isInEditMode())
-            return;
         mContext = context;
-        
         Resources r = mContext.getResources();
 
-        mDial = r.getDrawable(R.drawable.clock_analog_dial);
-        mHourHand = r.getDrawable(R.drawable.clock_analog_hour);
-        mMinuteHand = r.getDrawable(R.drawable.clock_analog_minute);
-        mSecondHand = r.getDrawable(R.drawable.clock_analog_second);
+        mDial = r.getDrawable(R.drawable.clock_analog_dial_mipmap);
+        mHourHand = r.getDrawable(R.drawable.clock_analog_hour_mipmap);
+        mMinuteHand = r.getDrawable(R.drawable.clock_analog_minute_mipmap);
+        mSecondHand = r.getDrawable(R.drawable.clock_analog_second_mipmap);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AnalogClock);
         mDotRadius = a.getDimension(R.styleable.AnalogClock_jewelRadius, 0);
@@ -177,8 +174,7 @@ public class AnalogClock extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if(isInEditMode())
-            return;
+
         boolean changed = mChanged;
         if (changed) {
             mChanged = false;
@@ -199,7 +195,7 @@ public class AnalogClock extends View {
         if (availableWidth < w || availableHeight < h) {
             scaled = true;
             float scale = Math.min((float) availableWidth / (float) w,
-                                   (float) availableHeight / (float) h);
+                    (float) availableHeight / (float) h);
             canvas.save();
             canvas.scale(scale, scale, x, y);
         }
@@ -213,45 +209,28 @@ public class AnalogClock extends View {
             canvas.drawCircle(x, y - (h / 2) + mDotOffset, mDotRadius, mDotPaint);
         }
 
-        canvas.save();
-        canvas.rotate(mHour / 12.0f * 360.0f, x, y);
-        final Drawable hourHand = mHourHand;
-        if (changed) {
-            w = hourHand.getIntrinsicWidth();
-            h = hourHand.getIntrinsicHeight();
-            hourHand.setBounds(x - (w / 2), y - (h / 2), x + (w / 2), y + (h / 2));
-        }
-        hourHand.draw(canvas);
-        canvas.restore();
-
+        drawHand(canvas, mHourHand, x, y, mHour / 12.0f * 360.0f, changed);
+        drawHand(canvas, mMinuteHand, x, y, mMinutes / 60.0f * 360.0f, changed);
         if (!mNoSeconds) {
-            canvas.save();
-            canvas.rotate(mSeconds / 60.0f * 360.0f, x, y);
-
-            final Drawable secondHand = mSecondHand;
-            if (changed) {
-                w = secondHand.getIntrinsicWidth();
-                h = secondHand.getIntrinsicHeight();
-                secondHand.setBounds(x - (w / 2), y - (h / 2), x + (w / 2), y + (h / 2));
-            }
-            secondHand.draw(canvas);
-            canvas.restore();
+            drawHand(canvas, mSecondHand, x, y, mSeconds / 60.0f * 360.0f, changed);
         }
-        canvas.save();
-        canvas.rotate(mMinutes / 60.0f * 360.0f, x, y);
-
-        final Drawable minuteHand = mMinuteHand;
-        if (changed) {
-            w = minuteHand.getIntrinsicWidth();
-            h = minuteHand.getIntrinsicHeight();
-            minuteHand.setBounds(x - (w / 2), y - (h / 2), x + (w / 2), y + (h / 2));
-        }
-        minuteHand.draw(canvas);
-        canvas.restore();
 
         if (scaled) {
             canvas.restore();
         }
+    }
+
+    private void drawHand(Canvas canvas, Drawable hand, int x, int y, float angle,
+                          boolean changed) {
+        canvas.save();
+        canvas.rotate(angle, x, y);
+        if (changed) {
+            final int w = hand.getIntrinsicWidth();
+            final int h = hand.getIntrinsicHeight();
+            hand.setBounds(x - (w / 2), y - (h / 2), x + (w / 2), y + (h / 2));
+        }
+        hand.draw(canvas);
+        canvas.restore();
     }
 
     private void onTimeChanged() {
@@ -264,7 +243,7 @@ public class AnalogClock extends View {
         int hour = mCalendar.hour;
         int minute = mCalendar.minute;
         int second = mCalendar.second;
-  //      long millis = System.currentTimeMillis() % 1000;
+        //      long millis = System.currentTimeMillis() % 1000;
 
         mSeconds = second;//(float) ((second * 1000 + millis) / 166.666);
         mMinutes = minute + second / 60.0f;
