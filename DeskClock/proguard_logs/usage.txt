@@ -43,8 +43,8 @@ cz.mpelant.deskclock.DigitalClock:
     private static final java.lang.String HOURS_24
     private static final java.lang.String HOURS
     private static final java.lang.String MINUTES
-    179:181:void updateTime(java.util.Calendar)
-    185:190:public void updateTime(int,int)
+    180:182:void updateTime(java.util.Calendar)
+    186:191:public void updateTime(int,int)
 cz.mpelant.deskclock.DontPressWithParentLayout
 cz.mpelant.deskclock.GmailContract:
     public static final java.lang.String PERMISSION
