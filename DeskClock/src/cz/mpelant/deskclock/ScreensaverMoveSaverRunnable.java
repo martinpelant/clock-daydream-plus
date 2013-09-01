@@ -22,6 +22,8 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
+import cz.mpelant.deskclock.notification.Notification;
+import cz.mpelant.deskclock.notification.NotificationLayout;
 
 import java.util.List;
 
@@ -43,6 +45,7 @@ public class ScreensaverMoveSaverRunnable implements Runnable {
     private View mNotifGmail;
     private View mNotifMessage;
     private View mMissedCall;
+    private NotificationLayout mNotifLayout;
     private View mTest;
     private TextView mNextAlarm;
     private final Handler mHandler;
@@ -65,6 +68,7 @@ public class ScreensaverMoveSaverRunnable implements Runnable {
         mDate = (TextView) contentView.findViewById(R.id.date);
         mBattery = (TextView) contentView.findViewById(R.id.battery);
         mBatteryContainer = contentView.findViewById(R.id.batteryContainer);
+        mNotifLayout = (NotificationLayout) contentView.findViewById(R.id.notifLayout);
         mNotifGmail = contentView.findViewById(R.id.gmail);
         mNotifMessage = contentView.findViewById(R.id.messages);
         mMissedCall = contentView.findViewById(R.id.missedCalls);
@@ -185,7 +189,15 @@ public class ScreensaverMoveSaverRunnable implements Runnable {
     }
 
     private void notifChange() {
-
+        if (NotificationListener.instance != null) {
+            Log.d("notif listener is running");
+            List<Drawable> icons = NotificationListener.instance.getIcons();
+            Log.d("got " + icons.size() + " icons");
+            for (Drawable icon : icons) {
+                mNotifLayout.addNotification(new Notification(icon));
+            }
+            mNotifLayout.notifyDatasetChanged();
+        }
     }
 
     private void compatNotifCheck() {
@@ -218,29 +230,6 @@ public class ScreensaverMoveSaverRunnable implements Runnable {
 
     public boolean isPrefEnabled(String prefName, boolean defValue) {
         return PreferenceManager.getDefaultSharedPreferences(mDate.getContext()).getBoolean(prefName, defValue);
-    }
-
-
-    private void checkOther(Context context, final View image) {
-        try {
-            if (NotificationListener.instance != null) {
-                Log.d("notif listener is running");
-                final List<Drawable> icons = NotificationListener.instance.getIcons();
-                Log.d("got " + icons.size() + " icons");
-                if (!icons.isEmpty()) {
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            ((ImageView) image).setImageDrawable(icons.get(0));
-                        }
-                    });
-
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
 
