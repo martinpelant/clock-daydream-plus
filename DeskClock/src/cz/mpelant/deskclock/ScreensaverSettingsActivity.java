@@ -18,6 +18,7 @@ package cz.mpelant.deskclock;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -38,10 +39,11 @@ import android.widget.Toast;
 public class ScreensaverSettingsActivity extends PreferenceActivity implements Preference.OnPreferenceChangeListener {
 
     static final String KEY_CLOCK_STYLE = "screensaver_clock_style";
-//    static final String KEY_NIGHT_MODE = "screensaver_night_mode";
+    //    static final String KEY_NIGHT_MODE = "screensaver_night_mode";
     static final String KEY_BRIGHTNESS = "brightness";
-    static final int  BRIGHTNESS_DEFAULT = 192;
-    static final int  BRIGHTNESS_NIGHT = 96;
+    static final int BRIGHTNESS_DEFAULT = 192;
+    static final int BRIGHTNESS_NIGHT = 96;
+    static final String KEY_NOTIF_LISTENER = "notif_listener";
     static final String KEY_NOTIF_GMAIL = "notif_gmail";
     static final String KEY_NOTIF_SMS = "notif_sms";
     static final String KEY_NOTIF_MISSED_CALLS = "notif_missed_calls";
@@ -49,6 +51,7 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
     static final String KEY_BATTERY = "battery";
     static final String KEY_ABOUT = "about";
     static final long TIP_DELAY = 1000 * 3600 * 24; // 24h
+    public static final int REQUEST_CODE_NOTIF = 1;
 
     @SuppressWarnings("deprecation")
     @Override
@@ -58,7 +61,7 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         if (System.currentTimeMillis() - sp.getLong("tip", 0) > TIP_DELAY) {
             sp.edit().putLong("tip", System.currentTimeMillis()).commit();
-            Toast.makeText(this, R.string.tip_unread_gmail, Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, R.string.tip_unread_gmail, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -96,11 +99,33 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
         pref.setOnPreferenceChangeListener(this);
 
         pref = findPreference(KEY_NOTIF_GMAIL);
-        pref.setOnPreferenceChangeListener(this);
+        if (pref != null)
+            pref.setOnPreferenceChangeListener(this);
 
         pref = findPreference(KEY_NOTIF_SMS);
-        pref.setOnPreferenceChangeListener(this);
-        
+        if (pref != null)
+            pref.setOnPreferenceChangeListener(this);
+
+
+        pref = findPreference(KEY_NOTIF_MISSED_CALLS);
+        if (pref != null)
+            pref.setOnPreferenceChangeListener(this);
+
+
+        pref = findPreference(KEY_NOTIF_LISTENER);
+        if (pref != null) {
+            ((CheckBoxPreference) pref).setChecked(NotificationListener.instance != null);
+            pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    Intent i = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
+                    startActivityForResult(i, REQUEST_CODE_NOTIF);
+                    Toast.makeText(ScreensaverSettingsActivity.this, getString(R.string.enable_loc_listener_tip), Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+            });
+        }
+
         pref = findPreference(KEY_BATTERY);
         pref.setOnPreferenceChangeListener(this);
 
@@ -120,9 +145,17 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
         pref.setSummary("Version" + " " + versionName + " (" + String.valueOf(versionNumber) + ")");
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_NOTIF) {
+            refresh();
+        }
+    }
+
     /**
      * Gets version code of given application.
-     * 
+     *
      * @param context
      * @return
      */
@@ -140,7 +173,7 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
 
     /**
      * Gets version name of given application.
-     * 
+     *
      * @param context
      * @return
      */

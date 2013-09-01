@@ -84,5 +84,9 @@
     <string name="battery_status">Battery status</string>
     <string name="adjust_brightness">Adjust brightness</string>
     <string name="brightness">Brightness</string>
+    <string name="show_notif_summary">Show system notification</string>
+    <string name="show_notif">System notifications</string>
+    <string name="enable_loc_listener_tip">Check Clock Plus app if you want to see notifications in the daydream.
+    </string>
 
 </resources>
