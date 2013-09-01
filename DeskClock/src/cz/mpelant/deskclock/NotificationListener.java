@@ -2,6 +2,7 @@ package cz.mpelant.deskclock;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.Notification;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -50,7 +51,9 @@ public class NotificationListener extends NotificationListenerService {
         for (StatusBarNotification notif : notifs) {
 
             try {
-                notifications.add(new NotificationInfo(this, notif.getPackageName(), notif.getNotification()));
+                if (notif.getNotification().priority > Notification.PRIORITY_MIN) {
+                    notifications.add(new NotificationInfo(this, notif.getPackageName(), notif.getNotification()));
+                }
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             } catch (IconNotFoundException e) {

@@ -34,9 +34,6 @@ public class ScreensaverMoveSaverRunnable implements Runnable {
     private TextView mDate;
     private TextView mBattery;
     private View mBatteryContainer;
-    private View mNotifGmail;
-    private View mNotifMessage;
-    private View mMissedCall;
     private NotificationLayout mNotifLayout;
     private View mTest;
     private TextView mNextAlarm;
@@ -61,10 +58,6 @@ public class ScreensaverMoveSaverRunnable implements Runnable {
         mBattery = (TextView) contentView.findViewById(R.id.battery);
         mBatteryContainer = contentView.findViewById(R.id.batteryContainer);
         mNotifLayout = (NotificationLayout) contentView.findViewById(R.id.notifLayout);
-        mNotifGmail = contentView.findViewById(R.id.gmail);
-        mNotifMessage = contentView.findViewById(R.id.messages);
-        mMissedCall = contentView.findViewById(R.id.missedCalls);
-        mTest = contentView.findViewById(R.id.test);
         mNextAlarm = (TextView) contentView.findViewById(R.id.nextAlarm);
         mSaverView = saverView;
         handleUpdate();
@@ -198,19 +191,27 @@ public class ScreensaverMoveSaverRunnable implements Runnable {
             mNotifCompact = new NotifCompact();
         }
 
+        mNotifLayout.clear();
+
         new Thread() {
             @Override
             public void run() {
                 try {
                     if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_GMAIL, true)) {
-                        mNotifCompact.checkGmail(mDate.getContext(), mNotifGmail);
+                        mNotifLayout.addNotification(mNotifCompact.checkGmail(mDate.getContext()));
                     }
                     if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_SMS, true)) {
-                        mNotifCompact.checkSMS(mDate.getContext(), mNotifMessage);
+                        mNotifLayout.addNotification(mNotifCompact.checkSMS(mDate.getContext()));
                     }
                     if (isPrefEnabled(ScreensaverSettingsActivity.KEY_NOTIF_MISSED_CALLS, true)) {
-                        mNotifCompact.checkMissedCalls(mDate.getContext(), mMissedCall);
+                        mNotifLayout.addNotification(mNotifCompact.checkMissedCalls(mDate.getContext()));
                     }
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            mNotifLayout.notifyDatasetChanged();
+                        }
+                    });
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

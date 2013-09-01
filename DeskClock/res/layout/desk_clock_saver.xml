@@ -17,92 +17,59 @@
 
 <!-- Special "screen saver mode" with just the time/date on black. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:dc="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FF000000"
-    android:orientation="vertical" >
+              xmlns:dc="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#FF000000"
+              android:orientation="vertical">
 
     <!-- Extra layout to let the clock float in the window -->
 
     <LinearLayout
-        android:id="@+id/main_clock"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/screensaver_margin"
-        android:layout_marginStart="@dimen/screensaver_margin"
-        android:layout_marginRight="@dimen/screensaver_margin"
-        android:layout_marginEnd="@dimen/screensaver_margin"
-        android:layout_marginTop="@dimen/time_margin_top"
-        android:layout_marginBottom="@dimen/screensaver_margin">
-
-        <include layout="@layout/main_clock_frame" />
-
-        <LinearLayout
-            android:id="@+id/batteryContainer"
+            android:id="@+id/main_clock"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" >
+            android:layout_marginLeft="@dimen/screensaver_margin"
+            android:layout_marginStart="@dimen/screensaver_margin"
+            android:layout_marginRight="@dimen/screensaver_margin"
+            android:layout_marginEnd="@dimen/screensaver_margin"
+            android:layout_marginTop="@dimen/time_margin_top"
+            android:layout_marginBottom="@dimen/screensaver_margin">
 
-            <TextView
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:text=" " />
+        <include layout="@layout/main_clock_frame"/>
 
-            <TextView
-                android:id="@+id/battery"
+        <LinearLayout
+                android:id="@+id/batteryContainer"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+            <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:text=" "/>
+
+            <TextView
+                    android:id="@+id/battery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" >
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center">
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="34dp" />
 
             <cz.mpelant.deskclock.notification.NotificationLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:id="@+id/notifLayout"
                     />
 
-
-
-            <ImageView
-                android:id="@+id/gmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:src="@drawable/stat_notify_gmail"
-                android:visibility="gone" />
-
-            <ImageView
-                android:id="@+id/messages"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:src="@drawable/stat_notify_messages"
-                android:visibility="gone" />
-
-            <ImageView
-                android:id="@+id/missedCalls"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:src="@drawable/stat_notify_missed_call"
-                android:visibility="gone" />
-            
-            <ImageView
-                android:id="@+id/test"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                 />
         </LinearLayout>
     </LinearLayout>
 

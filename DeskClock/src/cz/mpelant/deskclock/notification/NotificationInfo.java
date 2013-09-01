@@ -29,6 +29,10 @@ public class NotificationInfo {
         }
         mId=pkg;
     }
+    public NotificationInfo(Context ctx, int iconResId){
+        mId="notificationInternal"+iconResId;
+        mDrawable=ctx.getResources().getDrawable(iconResId);
+    }
 
     public Drawable getDrawable() {
         return mDrawable;

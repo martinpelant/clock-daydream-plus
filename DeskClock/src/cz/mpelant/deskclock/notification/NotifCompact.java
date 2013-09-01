@@ -12,6 +12,7 @@ import android.provider.CallLog;
 import android.view.View;
 import cz.mpelant.deskclock.GmailContract;
 import cz.mpelant.deskclock.Log;
+import cz.mpelant.deskclock.R;
 
 /**
  * NotifCompact.java
@@ -35,46 +36,44 @@ public class NotifCompact {
         public static final String NUM_UNREAD_CONVERSATIONS = "numUnreadConversations";
     }
 
-    public void checkGmail(final Context context, final View image) {
+    public NotificationInfo checkGmail(final Context context) {
         // Get the account list, and pick the first one
         final String ACCOUNT_TYPE_GOOGLE = "com.google";
         final String[] FEATURES_MAIL = {
                 "service_mail"
         };
-        AccountManager.get(context).getAccountsByTypeAndFeatures(ACCOUNT_TYPE_GOOGLE, FEATURES_MAIL, new AccountManagerCallback<Account[]>() {
-            @Override
-            public void run(AccountManagerFuture<Account[]> future) {
-                Account[] accounts = null;
-                try {
-                    setViewVisibility(image, View.GONE);
-                    accounts = future.getResult();
-                    if (accounts != null && accounts.length > 0) {
-                        for (Account account : accounts) {
-                            String selectedAccount = account.name;
-                            queryLabels(selectedAccount, context);
-                        }
-                    }
+        AccountManagerFuture<Account[]> future = AccountManager.get(context).getAccountsByTypeAndFeatures(ACCOUNT_TYPE_GOOGLE, FEATURES_MAIL, null, null);
 
-                } catch (Exception e) {
-                    e.printStackTrace();
+        Account[] accounts = null;
+        try {
+            accounts = future.getResult();
+            if (accounts != null && accounts.length > 0) {
+                for (Account account : accounts) {
+                    String selectedAccount = account.name;
+                    return queryLabels(selectedAccount, context);
                 }
             }
 
-            private void queryLabels(String selectedAccount, Context context) {
-                Log.d("Gmail - " + selectedAccount);
-                Cursor labelsCursor = context.getContentResolver().query(GmailContract.Labels.getLabelsUri(selectedAccount), null, null, null, null);
-                labelsCursor.moveToFirst();
-                do {
-                    String name = labelsCursor.getString(labelsCursor.getColumnIndex(GmailContract.Labels.CANONICAL_NAME));
-                    int unread = labelsCursor.getInt(labelsCursor.getColumnIndex(GmailContract.Labels.NUM_UNREAD_CONVERSATIONS));// here's the value you need
-                    if (name.equals(GmailContract.Labels.LabelCanonicalNames.CANONICAL_NAME_INBOX) && unread > 0) {
-                        Log.d("Gmail - " + name + "-" + unread);
-                        setViewVisibility(image, View.VISIBLE);
-                        return;
-                    }
-                } while (labelsCursor.moveToNext());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
+    private NotificationInfo queryLabels(String selectedAccount, Context context) {
+        Log.d("Gmail - " + selectedAccount);
+        Cursor labelsCursor = context.getContentResolver().query(GmailContract.Labels.getLabelsUri(selectedAccount), null, null, null, null);
+        labelsCursor.moveToFirst();
+        do {
+            String name = labelsCursor.getString(labelsCursor.getColumnIndex(GmailContract.Labels.CANONICAL_NAME));
+            int unread = labelsCursor.getInt(labelsCursor.getColumnIndex(GmailContract.Labels.NUM_UNREAD_CONVERSATIONS));// here's the value you need
+            if (name.equals(GmailContract.Labels.LabelCanonicalNames.CANONICAL_NAME_INBOX) && unread > 0) {
+                Log.d("Gmail - " + name + "-" + unread);
+                return new NotificationInfo(context, R.drawable.stat_notify_gmail);
             }
-        }, null /* handler */);
+        } while (labelsCursor.moveToNext());
+        return null;
     }
 
 
@@ -88,24 +87,28 @@ public class NotifCompact {
         });
     }
 
-    public void checkSMS(Context context, View image) {
+    public NotificationInfo checkSMS(Context context) {
+        Cursor cur = null;
         try {
             Uri uriSMSURI = Uri.parse("content://sms/inbox");
-            Cursor cur = context.getContentResolver().query(uriSMSURI, null, "read = 0", null, null);
+            cur = context.getContentResolver().query(uriSMSURI, null, "read = 0", null, null);
             Log.d("SMS - " + cur.getCount());
             if (cur.getCount() > 0) {
-                setViewVisibility(image, View.VISIBLE);
-            } else {
-                setViewVisibility(image, View.GONE);
+                return new NotificationInfo(context, R.drawable.stat_notify_messages);
             }
-            cur.close();
+
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (cur != null) {
+                cur.close();
+            }
         }
+        return null;
 
     }
 
-    public void checkMissedCalls(Context context, View image) {
+    public NotificationInfo checkMissedCalls(Context context) {
         final String[] projection = null;
         final String selection = CallLog.Calls.TYPE + "=" + CallLog.Calls.MISSED_TYPE + " AND " + CallLog.Calls.IS_READ + "=0";
         final String[] selectionArgs = null;
@@ -114,14 +117,14 @@ public class NotifCompact {
         try {
             cursor = context.getContentResolver().query(CallLog.Calls.CONTENT_URI, projection, selection, selectionArgs, sortOrder);
             if (cursor.getCount() > 0) {
-                setViewVisibility(image, View.VISIBLE);
-            } else {
-                setViewVisibility(image, View.GONE);
+                return new NotificationInfo(context, R.drawable.stat_notify_missed_call);
             }
         } catch (Exception ex) {
             Log.e("ERROR: " + ex.toString());
         } finally {
             cursor.close();
         }
+
+        return null;
     }
 }
