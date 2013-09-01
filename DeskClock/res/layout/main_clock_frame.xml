@@ -58,7 +58,7 @@
                   android:textColor="@color/clock_white"
                   style="@style/label"
                   android:gravity="center"
-                  android:visibility="gone"
+                  android:visibility="visible"
                 />
         <TextView android:id="@+id/nextAlarm"
                   android:layout_width="wrap_content"
