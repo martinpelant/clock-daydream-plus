@@ -19,8 +19,6 @@ cz.mpelant.deskclock.DigitalClock: void setTimeZone(java.lang.String)
 cz.mpelant.deskclock.DontPressWithParentLayout: void setPressed(boolean)
 cz.mpelant.deskclock.NotificationListener
 cz.mpelant.deskclock.NotificationListener: NotificationListener()
-cz.mpelant.deskclock.NotificationService
-cz.mpelant.deskclock.NotificationService: NotificationService()
 cz.mpelant.deskclock.R$anim: int dim
 cz.mpelant.deskclock.R$anim: int undim
 cz.mpelant.deskclock.R$array: int alarm_set

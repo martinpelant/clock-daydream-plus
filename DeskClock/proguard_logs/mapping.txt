@@ -166,15 +166,6 @@ cz.mpelant.deskclock.NotificationListener -> cz.mpelant.deskclock.NotificationLi
     46:46:void onNotificationRemoved(android.service.notification.StatusBarNotification) -> onNotificationRemoved
     49:64:java.util.List getNotifications() -> a
     69:71:void onDestroy() -> onDestroy
-cz.mpelant.deskclock.NotificationService -> cz.mpelant.deskclock.NotificationService:
-    int icon -> a
-    android.graphics.Bitmap largeIcon -> b
-    android.graphics.drawable.Drawable drawable -> c
-    28:54:void onAccessibilityEvent(android.view.accessibility.AccessibilityEvent) -> onAccessibilityEvent
-    58:62:void extractImage(android.widget.RemoteViews) -> a
-    65:78:android.graphics.drawable.Drawable searchForBitmap(android.view.View) -> a
-    129:135:void onServiceConnected() -> onServiceConnected
-    139:140:void onInterrupt() -> onInterrupt
 cz.mpelant.deskclock.R -> cz.mpelant.deskclock.q:
 cz.mpelant.deskclock.R$styleable -> cz.mpelant.deskclock.r:
     int[] AnalogClock -> AnalogClock
@@ -222,10 +213,10 @@ cz.mpelant.deskclock.ScreensaverActivity -> cz.mpelant.deskclock.ScreensaverActi
     62:64:void onPause() -> onPause
     70:74:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
     78:79:void onUserInteraction() -> onUserInteraction
-    82:92:void setClockStyle() -> c
-    96:111:void layoutClockSaver() -> d
-    115:117:void updateViews() -> a
-    121:121:int getAdditionalFlags() -> b
+    82:93:void setClockStyle() -> c
+    97:112:void layoutClockSaver() -> d
+    116:118:void updateViews() -> a
+    122:122:int getAdditionalFlags() -> b
 cz.mpelant.deskclock.ScreensaverMoveSaverRunnable -> cz.mpelant.deskclock.s:
     android.view.View mContentView -> a
     android.view.View mSaverView -> b

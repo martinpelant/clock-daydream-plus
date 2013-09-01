@@ -74,8 +74,6 @@ cz.mpelant.deskclock.Log:
     50:51:public static void e(java.lang.String,java.lang.Exception)
     54:55:public static void w(java.lang.String)
     62:62:public static java.lang.String formatTime(long)
-cz.mpelant.deskclock.NotificationService:
-    82:125:private void extractImage2(android.widget.RemoteViews)
 cz.mpelant.deskclock.R:
     10:687:public R()
 cz.mpelant.deskclock.R$anim

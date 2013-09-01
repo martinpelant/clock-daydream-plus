@@ -46,8 +46,6 @@
                 android:id="@+id/timeDisplayHoursThin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="@dimen/time_margin_right"
-                android:paddingEnd="@dimen/time_margin_right"
                 style="@style/big_thin"
                 android:singleLine="true"
                 android:ellipsize="none"

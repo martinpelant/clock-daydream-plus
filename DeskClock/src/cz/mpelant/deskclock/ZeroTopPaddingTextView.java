@@ -38,8 +38,7 @@ public class ZeroTopPaddingTextView extends TextView {
     private static final Typeface SAN_SERIF__CONDENSED_BOLD =
             Typeface.create("sans-serif-condensed", Typeface.BOLD);
 
-    private static final Typeface SAN_SERIF_THIN = Typeface.create("san-serif", Typeface.NORMAL);
-    private static final Typeface SAN_SERIF__CONDENSED_THIN =
+    private static final Typeface SAN_SERIF_THIN =
             Typeface.create("sans-serif-thin", Typeface.NORMAL);
 
     private int mPaddingRight = 0;
@@ -58,14 +57,14 @@ public class ZeroTopPaddingTextView extends TextView {
             return;
         if (Build.VERSION.SDK_INT >= 16)
             setIncludeFontPadding(false);
-        updatePadding();//TODO: comment if buggy
+//        updatePadding();//TODO: comment if buggy
     }
 
     public void updatePadding() {
         float paddingRatio = NORMAL_FONT_PADDING_RATIO;
         float bottomPaddingRatio = NORMAL_FONT_BOTTOM_PADDING_RATIO;
         if (getTypeface() != null && (getTypeface().equals(SAN_SERIF_BOLD) ||
-                getTypeface().equals(SAN_SERIF__CONDENSED_BOLD)) || (getId()==R.id.timeDisplayHoursThin && Build.VERSION.SDK_INT>=18)) {
+                getTypeface().equals(SAN_SERIF__CONDENSED_BOLD) )) {
             paddingRatio = BOLD_FONT_PADDING_RATIO;
             bottomPaddingRatio = BOLD_FONT_BOTTOM_PADDING_RATIO;
         }
@@ -73,6 +72,7 @@ public class ZeroTopPaddingTextView extends TextView {
         // height in px
         setPadding(0, (int) (-paddingRatio * getTextSize()), mPaddingRight,
                 (int) (-bottomPaddingRatio * getTextSize()));
+        //
     }
 
     public void setPaddingRight(int padding) {

@@ -6650,622 +6650,6 @@ Class file attributes (count = 2):
     + Utf8 [SourceFile]
 
 _____________________________________________________________________
-+ Program class: cz/mpelant/deskclock/NotificationService
-  Superclass:    android/accessibilityservice/AccessibilityService
-  Major version: 0x33
-  Minor version: 0x0
-  Access flags:  0x21
-    = public class cz.mpelant.deskclock.NotificationService extends android.accessibilityservice.AccessibilityService
-
-Interfaces (count = 0):
-
-Constant Pool (count = 172):
-  + String [Drawable: ]
-  + String [contentView: ]
-  + String [icon: ]
-  + String [largeIcon: ]
-  + String [notification: ]
-  + String [number: ]
-  + String [onAccessibilityEvent]
-  + String [onInterrupt]
-  + String [onServiceConnected]
-  + String [package name: ]
-  + String [ticker: ]
-  + String [tickerView: ]
-  + Class [android/accessibilityservice/AccessibilityService]
-  + Class [android/accessibilityservice/AccessibilityServiceInfo]
-  + Class [android/app/Notification]
-  + Class [android/view/ViewGroup]
-  + Class [android/view/accessibility/AccessibilityEvent]
-  + Class [android/widget/ImageView]
-  + Class [android/widget/LinearLayout]
-  + Class [android/widget/RemoteViews]
-  + Class [cz/mpelant/deskclock/NotificationService]
-  + Class [cz/mpelant/deskclock/p]
-  + Class [java/lang/Exception]
-  + Class [java/lang/StringBuilder]
-  + Long [100]
-  + Fieldref [android/accessibilityservice/AccessibilityServiceInfo.eventTypes I]
-  + Fieldref [android/accessibilityservice/AccessibilityServiceInfo.feedbackType I]
-  + Fieldref [android/accessibilityservice/AccessibilityServiceInfo.notificationTimeout J]
-  + Fieldref [android/app/Notification.contentView Landroid/widget/RemoteViews;]
-  + Fieldref [android/app/Notification.icon I]
-  + Fieldref [android/app/Notification.largeIcon Landroid/graphics/Bitmap;]
-  + Fieldref [android/app/Notification.number I]
-  + Fieldref [android/app/Notification.tickerText Ljava/lang/CharSequence;]
-  + Fieldref [android/app/Notification.tickerView Landroid/widget/RemoteViews;]
-  + Fieldref [cz/mpelant/deskclock/NotificationService.a I]
-  + Fieldref [cz/mpelant/deskclock/NotificationService.b Landroid/graphics/Bitmap;]
-  + Fieldref [cz/mpelant/deskclock/NotificationService.c Landroid/graphics/drawable/Drawable;]
-  + Methodref [android/accessibilityservice/AccessibilityService.<init> ()V]
-  + Methodref [android/accessibilityservice/AccessibilityServiceInfo.<init> ()V]
-  + Methodref [android/view/ViewGroup.getChildAt (I)Landroid/view/View;]
-  + Methodref [android/view/ViewGroup.getChildCount ()I]
-  + Methodref [android/view/accessibility/AccessibilityEvent.getEventType ()I]
-  + Methodref [android/view/accessibility/AccessibilityEvent.getPackageName ()Ljava/lang/CharSequence;]
-  + Methodref [android/view/accessibility/AccessibilityEvent.getParcelableData ()Landroid/os/Parcelable;]
-  + Methodref [android/view/accessibility/AccessibilityEvent.getText ()Ljava/util/List;]
-  + Methodref [android/widget/ImageView.getDrawable ()Landroid/graphics/drawable/Drawable;]
-  + Methodref [android/widget/LinearLayout.<init> (Landroid/content/Context;)V]
-  + Methodref [android/widget/RemoteViews.apply (Landroid/content/Context;Landroid/view/ViewGroup;)Landroid/view/View;]
-  + Methodref [cz/mpelant/deskclock/NotificationService.a (Landroid/view/View;)Landroid/graphics/drawable/Drawable;]
-  + Methodref [cz/mpelant/deskclock/NotificationService.a (Landroid/widget/RemoteViews;)V]
-  + Methodref [cz/mpelant/deskclock/NotificationService.getApplicationContext ()Landroid/content/Context;]
-  + Methodref [cz/mpelant/deskclock/NotificationService.setServiceInfo (Landroid/accessibilityservice/AccessibilityServiceInfo;)V]
-  + Methodref [cz/mpelant/deskclock/p.c (Ljava/lang/String;)V]
-  + Methodref [java/lang/Exception.printStackTrace ()V]
-  + Methodref [java/lang/StringBuilder.<init> ()V]
-  + Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
-  + Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-  + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-  + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-  + NameAndType [<init> ()V]
-  + NameAndType [<init> (Landroid/content/Context;)V]
-  + NameAndType [a (Landroid/view/View;)Landroid/graphics/drawable/Drawable;]
-  + NameAndType [a (Landroid/widget/RemoteViews;)V]
-  + NameAndType [a I]
-  + NameAndType [append (I)Ljava/lang/StringBuilder;]
-  + NameAndType [append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-  + NameAndType [append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-  + NameAndType [apply (Landroid/content/Context;Landroid/view/ViewGroup;)Landroid/view/View;]
-  + NameAndType [b Landroid/graphics/Bitmap;]
-  + NameAndType [c (Ljava/lang/String;)V]
-  + NameAndType [c Landroid/graphics/drawable/Drawable;]
-  + NameAndType [contentView Landroid/widget/RemoteViews;]
-  + NameAndType [eventTypes I]
-  + NameAndType [feedbackType I]
-  + NameAndType [getApplicationContext ()Landroid/content/Context;]
-  + NameAndType [getChildAt (I)Landroid/view/View;]
-  + NameAndType [getChildCount ()I]
-  + NameAndType [getDrawable ()Landroid/graphics/drawable/Drawable;]
-  + NameAndType [getEventType ()I]
-  + NameAndType [getPackageName ()Ljava/lang/CharSequence;]
-  + NameAndType [getParcelableData ()Landroid/os/Parcelable;]
-  + NameAndType [getText ()Ljava/util/List;]
-  + NameAndType [icon I]
-  + NameAndType [largeIcon Landroid/graphics/Bitmap;]
-  + NameAndType [notificationTimeout J]
-  + NameAndType [number I]
-  + NameAndType [printStackTrace ()V]
-  + NameAndType [setServiceInfo (Landroid/accessibilityservice/AccessibilityServiceInfo;)V]
-  + NameAndType [tickerText Ljava/lang/CharSequence;]
-  + NameAndType [tickerView Landroid/widget/RemoteViews;]
-  + NameAndType [toString ()Ljava/lang/String;]
-  + Utf8 [()I]
-  + Utf8 [()Landroid/content/Context;]
-  + Utf8 [()Landroid/graphics/drawable/Drawable;]
-  + Utf8 [()Landroid/os/Parcelable;]
-  + Utf8 [()Ljava/lang/CharSequence;]
-  + Utf8 [()Ljava/lang/String;]
-  + Utf8 [()Ljava/util/List;]
-  + Utf8 [()V]
-  + Utf8 [(I)Landroid/view/View;]
-  + Utf8 [(I)Ljava/lang/StringBuilder;]
-  + Utf8 [(Landroid/accessibilityservice/AccessibilityServiceInfo;)V]
-  + Utf8 [(Landroid/content/Context;)V]
-  + Utf8 [(Landroid/content/Context;Landroid/view/ViewGroup;)Landroid/view/View;]
-  + Utf8 [(Landroid/view/View;)Landroid/graphics/drawable/Drawable;]
-  + Utf8 [(Landroid/view/accessibility/AccessibilityEvent;)V]
-  + Utf8 [(Landroid/widget/RemoteViews;)V]
-  + Utf8 [(Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-  + Utf8 [(Ljava/lang/String;)Ljava/lang/StringBuilder;]
-  + Utf8 [(Ljava/lang/String;)V]
-  + Utf8 [<init>]
-  + Utf8 [Code]
-  + Utf8 [Drawable: ]
-  + Utf8 [I]
-  + Utf8 [J]
-  + Utf8 [Landroid/graphics/Bitmap;]
-  + Utf8 [Landroid/graphics/drawable/Drawable;]
-  + Utf8 [Landroid/widget/RemoteViews;]
-  + Utf8 [LineNumberTable]
-  + Utf8 [Ljava/lang/CharSequence;]
-  + Utf8 [SourceFile]
-  + Utf8 [StackMapTable]
-  + Utf8 [a]
-  + Utf8 [android/accessibilityservice/AccessibilityService]
-  + Utf8 [android/accessibilityservice/AccessibilityServiceInfo]
-  + Utf8 [android/app/Notification]
-  + Utf8 [android/view/ViewGroup]
-  + Utf8 [android/view/accessibility/AccessibilityEvent]
-  + Utf8 [android/widget/ImageView]
-  + Utf8 [android/widget/LinearLayout]
-  + Utf8 [android/widget/RemoteViews]
-  + Utf8 [append]
-  + Utf8 [apply]
-  + Utf8 [b]
-  + Utf8 [c]
-  + Utf8 [contentView]
-  + Utf8 [contentView: ]
-  + Utf8 [cz/mpelant/deskclock/NotificationService]
-  + Utf8 [cz/mpelant/deskclock/p]
-  + Utf8 [eventTypes]
-  + Utf8 [feedbackType]
-  + Utf8 [getApplicationContext]
-  + Utf8 [getChildAt]
-  + Utf8 [getChildCount]
-  + Utf8 [getDrawable]
-  + Utf8 [getEventType]
-  + Utf8 [getPackageName]
-  + Utf8 [getParcelableData]
-  + Utf8 [getText]
-  + Utf8 [icon]
-  + Utf8 [icon: ]
-  + Utf8 [java/lang/Exception]
-  + Utf8 [java/lang/StringBuilder]
-  + Utf8 [largeIcon]
-  + Utf8 [largeIcon: ]
-  + Utf8 [notification: ]
-  + Utf8 [notificationTimeout]
-  + Utf8 [number]
-  + Utf8 [number: ]
-  + Utf8 [onAccessibilityEvent]
-  + Utf8 [onInterrupt]
-  + Utf8 [onServiceConnected]
-  + Utf8 [package name: ]
-  + Utf8 [printStackTrace]
-  + Utf8 [setServiceInfo]
-  + Utf8 [ticker: ]
-  + Utf8 [tickerText]
-  + Utf8 [tickerView]
-  + Utf8 [tickerView: ]
-  + Utf8 [toString]
-
-Fields (count = 3):
-  + Field:        a I
-    Access flags: 0x9
-      = public static int a
-  + Field:        b Landroid/graphics/Bitmap;
-    Access flags: 0x9
-      = public static android.graphics.Bitmap b
-  + Field:        c Landroid/graphics/drawable/Drawable;
-    Access flags: 0x9
-      = public static android.graphics.drawable.Drawable c
-
-Methods (count = 6):
-  - Method:       <init>()V
-    Access flags: 0x1
-      = public NotificationService()
-    Class member attributes (count = 1):
-    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
-      [0] aload_0 v0
-      [1] invokespecial #39
-        + Methodref [android/accessibilityservice/AccessibilityService.<init> ()V]
-      [4] return
-      Code attribute exceptions (count = 0):
-      Code attribute attributes (attribute count = 1):
-      + Line number table attribute (count = 1)
-        [0] -> line 21
-  + Method:       onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    Access flags: 0x1
-      = public void onAccessibilityEvent(android.view.accessibility.AccessibilityEvent)
-    Class member attributes (count = 1):
-    + Code attribute instructions (code length = 271, locals = 4, stack = 2):
-      [0] ldc #7
-        + String [onAccessibilityEvent]
-      [2] invokestatic #54
-        + Methodref [cz/mpelant/deskclock/p.c (Ljava/lang/String;)V]
-      [5] aload_1 v1
-      [6] invokevirtual #43
-        + Methodref [android/view/accessibility/AccessibilityEvent.getEventType ()I]
-      [9] bipush 64
-      [11] ificmpne +259 (target=270)
-      [14] aload_1 v1
-      [15] invokevirtual #45
-        + Methodref [android/view/accessibility/AccessibilityEvent.getParcelableData ()Landroid/os/Parcelable;]
-      [18] instanceof #15
-        + Class [android/app/Notification]
-      [21] ifeq +199 (target=220)
-      [24] aload_1 v1
-      [25] invokevirtual #45
-        + Methodref [android/view/accessibility/AccessibilityEvent.getParcelableData ()Landroid/os/Parcelable;]
-      [28] checkcast #15
-        + Class [android/app/Notification]
-      [31] astore_2 v2
-      [32] new #24
-        + Class [java/lang/StringBuilder]
-      [35] dup
-      [36] invokespecial #56
-        + Methodref [java/lang/StringBuilder.<init> ()V]
-      [39] ldc #11
-        + String [ticker: ]
-      [41] invokevirtual #59
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [44] aload_2 v2
-      [45] getfield #34
-        + Fieldref [android/app/Notification.tickerText Ljava/lang/CharSequence;]
-      [48] invokevirtual #58
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-      [51] invokevirtual #60
-        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [54] invokestatic #54
-        + Methodref [cz/mpelant/deskclock/p.c (Ljava/lang/String;)V]
-      [57] new #24
-        + Class [java/lang/StringBuilder]
-      [60] dup
-      [61] invokespecial #56
-        + Methodref [java/lang/StringBuilder.<init> ()V]
-      [64] ldc #3
-        + String [icon: ]
-      [66] invokevirtual #59
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [69] aload_2 v2
-      [70] getfield #31
-        + Fieldref [android/app/Notification.icon I]
-      [73] invokevirtual #57
-        + Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
-      [76] invokevirtual #60
-        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [79] invokestatic #54
-        + Methodref [cz/mpelant/deskclock/p.c (Ljava/lang/String;)V]
-      [82] new #24
-        + Class [java/lang/StringBuilder]
-      [85] dup
-      [86] invokespecial #56
-        + Methodref [java/lang/StringBuilder.<init> ()V]
-      [89] ldc #4
-        + String [largeIcon: ]
-      [91] invokevirtual #59
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [94] aload_2 v2
-      [95] getfield #32
-        + Fieldref [android/app/Notification.largeIcon Landroid/graphics/Bitmap;]
-      [98] invokevirtual #58
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-      [101] invokevirtual #60
-        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [104] invokestatic #54
-        + Methodref [cz/mpelant/deskclock/p.c (Ljava/lang/String;)V]
-      [107] aload_2 v2
-      [108] getfield #32
-        + Fieldref [android/app/Notification.largeIcon Landroid/graphics/Bitmap;]
-      [111] putstatic #37
-        + Fieldref [cz/mpelant/deskclock/NotificationService.b Landroid/graphics/Bitmap;]
-      [114] aload_2 v2
-      [115] getfield #31
-        + Fieldref [android/app/Notification.icon I]
-      [118] putstatic #36
-        + Fieldref [cz/mpelant/deskclock/NotificationService.a I]
-      [121] new #24
-        + Class [java/lang/StringBuilder]
-      [124] dup
-      [125] invokespecial #56
-        + Methodref [java/lang/StringBuilder.<init> ()V]
-      [128] ldc #2
-        + String [contentView: ]
-      [130] invokevirtual #59
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [133] aload_2 v2
-      [134] getfield #30
-        + Fieldref [android/app/Notification.contentView Landroid/widget/RemoteViews;]
-      [137] invokevirtual #58
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-      [140] invokevirtual #60
-        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [143] invokestatic #54
-        + Methodref [cz/mpelant/deskclock/p.c (Ljava/lang/String;)V]
-      [146] new #24
-        + Class [java/lang/StringBuilder]
-      [149] dup
-      [150] invokespecial #56
-        + Methodref [java/lang/StringBuilder.<init> ()V]
-      [153] ldc #12
-        + String [tickerView: ]
-      [155] invokevirtual #59
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [158] aload_2 v2
-      [159] getfield #35
-        + Fieldref [android/app/Notification.tickerView Landroid/widget/RemoteViews;]
-      [162] invokevirtual #58
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-      [165] invokevirtual #60
-        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [168] invokestatic #54
-        + Methodref [cz/mpelant/deskclock/p.c (Ljava/lang/String;)V]
-      [171] aload_0 v0
-      [172] aload_2 v2
-      [173] getfield #35
-        + Fieldref [android/app/Notification.tickerView Landroid/widget/RemoteViews;]
-      [176] invokespecial #51
-        + Methodref [cz/mpelant/deskclock/NotificationService.a (Landroid/widget/RemoteViews;)V]
-      [179] goto +16 (target=195)
-      [182] astore_3 v3
-      [183] aload_3 v3
-      [184] invokevirtual #55
-        + Methodref [java/lang/Exception.printStackTrace ()V]
-      [187] aload_0 v0
-      [188] aload_2 v2
-      [189] getfield #30
-        + Fieldref [android/app/Notification.contentView Landroid/widget/RemoteViews;]
-      [192] invokespecial #51
-        + Methodref [cz/mpelant/deskclock/NotificationService.a (Landroid/widget/RemoteViews;)V]
-      [195] new #24
-        + Class [java/lang/StringBuilder]
-      [198] dup
-      [199] invokespecial #56
-        + Methodref [java/lang/StringBuilder.<init> ()V]
-      [202] ldc #6
-        + String [number: ]
-      [204] invokevirtual #59
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [207] aload_2 v2
-      [208] getfield #33
-        + Fieldref [android/app/Notification.number I]
-      [211] invokevirtual #57
-        + Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
-      [214] invokevirtual #60
-        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [217] invokestatic #54
-        + Methodref [cz/mpelant/deskclock/p.c (Ljava/lang/String;)V]
-      [220] new #24
-        + Class [java/lang/StringBuilder]
-      [223] dup
-      [224] invokespecial #56
-        + Methodref [java/lang/StringBuilder.<init> ()V]
-      [227] ldc #5
-        + String [notification: ]
-      [229] invokevirtual #59
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [232] aload_1 v1
-      [233] invokevirtual #46
-        + Methodref [android/view/accessibility/AccessibilityEvent.getText ()Ljava/util/List;]
-      [236] invokevirtual #58
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-      [239] invokevirtual #60
-        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [242] invokestatic #54
-        + Methodref [cz/mpelant/deskclock/p.c (Ljava/lang/String;)V]
-      [245] new #24
-        + Class [java/lang/StringBuilder]
-      [248] dup
-      [249] invokespecial #56
-        + Methodref [java/lang/StringBuilder.<init> ()V]
-      [252] ldc #10
-        + String [package name: ]
-      [254] invokevirtual #59
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [257] aload_1 v1
-      [258] invokevirtual #44
-        + Methodref [android/view/accessibility/AccessibilityEvent.getPackageName ()Ljava/lang/CharSequence;]
-      [261] invokevirtual #58
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-      [264] invokevirtual #60
-        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [267] invokestatic #54
-        + Methodref [cz/mpelant/deskclock/p.c (Ljava/lang/String;)V]
-      [270] return
-      Code attribute exceptions (count = 1):
-      - ExceptionInfo (171 -> 179: 182):
-      + Class [java/lang/Exception]
-      Code attribute attributes (attribute count = 2):
-      + Line number table attribute (count = 20)
-        [0] -> line 28
-        [5] -> line 29
-        [14] -> line 30
-        [24] -> line 31
-        [32] -> line 33
-        [57] -> line 34
-        [82] -> line 35
-        [107] -> line 36
-        [114] -> line 37
-        [121] -> line 38
-        [146] -> line 39
-        [171] -> line 41
-        [179] -> line 45
-        [182] -> line 42
-        [183] -> line 43
-        [187] -> line 44
-        [195] -> line 48
-        [220] -> line 51
-        [245] -> line 52
-        [270] -> line 54
-      + Stack map table attribute (count = 4):
-        - [182] Var: [a:cz/mpelant/deskclock/NotificationService][a:android/view/accessibility/AccessibilityEvent][a:android/app/Notification], Stack: [a:java/lang/Exception]
-        - [195] Var: ..., Stack: (empty)
-        - [220] Var: -1, Stack: (empty)
-        - [270] Var: ..., Stack: (empty)
-  + Method:       a(Landroid/widget/RemoteViews;)V
-    Access flags: 0x2
-      = private void a(android.widget.RemoteViews)
-    Class member attributes (count = 1):
-    + Code attribute instructions (code length = 55, locals = 4, stack = 3):
-      [0] new #19
-        + Class [android/widget/LinearLayout]
-      [3] dup
-      [4] aload_0 v0
-      [5] invokevirtual #52
-        + Methodref [cz/mpelant/deskclock/NotificationService.getApplicationContext ()Landroid/content/Context;]
-      [8] invokespecial #48
-        + Methodref [android/widget/LinearLayout.<init> (Landroid/content/Context;)V]
-      [11] astore_2 v2
-      [12] aload_1 v1
-      [13] aload_0 v0
-      [14] invokevirtual #52
-        + Methodref [cz/mpelant/deskclock/NotificationService.getApplicationContext ()Landroid/content/Context;]
-      [17] aload_2 v2
-      [18] invokevirtual #49
-        + Methodref [android/widget/RemoteViews.apply (Landroid/content/Context;Landroid/view/ViewGroup;)Landroid/view/View;]
-      [21] astore_3 v3
-      [22] aload_0 v0
-      [23] aload_3 v3
-      [24] invokespecial #50
-        + Methodref [cz/mpelant/deskclock/NotificationService.a (Landroid/view/View;)Landroid/graphics/drawable/Drawable;]
-      [27] putstatic #38
-        + Fieldref [cz/mpelant/deskclock/NotificationService.c Landroid/graphics/drawable/Drawable;]
-      [30] new #24
-        + Class [java/lang/StringBuilder]
-      [33] dup
-      [34] invokespecial #56
-        + Methodref [java/lang/StringBuilder.<init> ()V]
-      [37] ldc #1
-        + String [Drawable: ]
-      [39] invokevirtual #59
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [42] getstatic #38
-        + Fieldref [cz/mpelant/deskclock/NotificationService.c Landroid/graphics/drawable/Drawable;]
-      [45] invokevirtual #58
-        + Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-      [48] invokevirtual #60
-        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [51] invokestatic #54
-        + Methodref [cz/mpelant/deskclock/p.c (Ljava/lang/String;)V]
-      [54] return
-      Code attribute exceptions (count = 0):
-      Code attribute attributes (attribute count = 1):
-      + Line number table attribute (count = 5)
-        [0] -> line 58
-        [12] -> line 59
-        [22] -> line 60
-        [30] -> line 61
-        [54] -> line 62
-  + Method:       a(Landroid/view/View;)Landroid/graphics/drawable/Drawable;
-    Access flags: 0x2
-      = private android.graphics.drawable.Drawable a(android.view.View)
-    Class member attributes (count = 1):
-    + Code attribute instructions (code length = 64, locals = 5, stack = 3):
-      [0] aload_1 v1
-      [1] instanceof #18
-        + Class [android/widget/ImageView]
-      [4] ifeq +11 (target=15)
-      [7] aload_1 v1
-      [8] checkcast #18
-        + Class [android/widget/ImageView]
-      [11] invokevirtual #47
-        + Methodref [android/widget/ImageView.getDrawable ()Landroid/graphics/drawable/Drawable;]
-      [14] areturn
-      [15] aload_1 v1
-      [16] instanceof #16
-        + Class [android/view/ViewGroup]
-      [19] ifeq +43 (target=62)
-      [22] aload_1 v1
-      [23] checkcast #16
-        + Class [android/view/ViewGroup]
-      [26] astore_2 v2
-      [27] iconst_0
-      [28] istore_3 v3
-      [29] iload_3 v3
-      [30] aload_2 v2
-      [31] invokevirtual #42
-        + Methodref [android/view/ViewGroup.getChildCount ()I]
-      [34] ificmpge +28 (target=62)
-      [37] aload_0 v0
-      [38] aload_2 v2
-      [39] iload_3 v3
-      [40] invokevirtual #41
-        + Methodref [android/view/ViewGroup.getChildAt (I)Landroid/view/View;]
-      [43] invokespecial #50
-        + Methodref [cz/mpelant/deskclock/NotificationService.a (Landroid/view/View;)Landroid/graphics/drawable/Drawable;]
-      [46] astore v4
-      [48] aload v4
-      [50] ifnull +6 (target=56)
-      [53] aload v4
-      [55] areturn
-      [56] iinc v3, 1
-      [59] goto -30 (target=29)
-      [62] aconst_null
-      [63] areturn
-      Code attribute exceptions (count = 0):
-      Code attribute attributes (attribute count = 2):
-      + Line number table attribute (count = 10)
-        [0] -> line 65
-        [7] -> line 66
-        [15] -> line 69
-        [22] -> line 70
-        [27] -> line 71
-        [37] -> line 72
-        [48] -> line 73
-        [53] -> line 74
-        [56] -> line 71
-        [62] -> line 78
-      + Stack map table attribute (count = 4):
-        - [15] Var: ..., Stack: (empty)
-        - [29] Var: ...[a:android/view/ViewGroup][i], Stack: (empty)
-        - [56] Var: ..., Stack: (empty)
-        - [62] Var: -2, Stack: (empty)
-  + Method:       onServiceConnected()V
-    Access flags: 0x4
-      = protected void onServiceConnected()
-    Class member attributes (count = 1):
-    + Code attribute instructions (code length = 37, locals = 2, stack = 3):
-      [0] ldc #9
-        + String [onServiceConnected]
-      [2] invokestatic #54
-        + Methodref [cz/mpelant/deskclock/p.c (Ljava/lang/String;)V]
-      [5] new #14
-        + Class [android/accessibilityservice/AccessibilityServiceInfo]
-      [8] dup
-      [9] invokespecial #40
-        + Methodref [android/accessibilityservice/AccessibilityServiceInfo.<init> ()V]
-      [12] astore_1 v1
-      [13] aload_1 v1
-      [14] bipush 64
-      [16] putfield #27
-        + Fieldref [android/accessibilityservice/AccessibilityServiceInfo.eventTypes I]
-      [19] aload_1 v1
-      [20] ldc2_w #25
-        + Long [100]
-      [23] putfield #29
-        + Fieldref [android/accessibilityservice/AccessibilityServiceInfo.notificationTimeout J]
-      [26] aload_1 v1
-      [27] iconst_m1
-      [28] putfield #28
-        + Fieldref [android/accessibilityservice/AccessibilityServiceInfo.feedbackType I]
-      [31] aload_0 v0
-      [32] aload_1 v1
-      [33] invokevirtual #53
-        + Methodref [cz/mpelant/deskclock/NotificationService.setServiceInfo (Landroid/accessibilityservice/AccessibilityServiceInfo;)V]
-      [36] return
-      Code attribute exceptions (count = 0):
-      Code attribute attributes (attribute count = 1):
-      + Line number table attribute (count = 7)
-        [0] -> line 129
-        [5] -> line 130
-        [13] -> line 131
-        [19] -> line 132
-        [26] -> line 133
-        [31] -> line 134
-        [36] -> line 135
-  + Method:       onInterrupt()V
-    Access flags: 0x1
-      = public void onInterrupt()
-    Class member attributes (count = 1):
-    + Code attribute instructions (code length = 6, locals = 1, stack = 1):
-      [0] ldc #8
-        + String [onInterrupt]
-      [2] invokestatic #54
-        + Methodref [cz/mpelant/deskclock/p.c (Ljava/lang/String;)V]
-      [5] return
-      Code attribute exceptions (count = 0):
-      Code attribute attributes (attribute count = 1):
-      + Line number table attribute (count = 2)
-        [0] -> line 139
-        [5] -> line 140
-
-Class file attributes (count = 1):
-  + Source file attribute:
-    + Utf8 [SourceFile]
-
-_____________________________________________________________________
 + Program class: cz/mpelant/deskclock/q
   Superclass:    java/lang/Object
   Major version: 0x33
@@ -8108,7 +7492,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 174):
+Constant Pool (count = 177):
   + Integer [16]
   + Integer [2130968577]
   + Integer [2131361792]
@@ -8130,6 +7514,7 @@ Constant Pool (count = 174):
   + Class [cz/mpelant/deskclock/s]
   + Class [cz/mpelant/deskclock/y]
   + Long [250]
+  + Fieldref [android/view/WindowManager$LayoutParams.buttonBrightness F]
   + Fieldref [android/view/WindowManager$LayoutParams.screenBrightness F]
   + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
   + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
@@ -8177,6 +7562,7 @@ Constant Pool (count = 174):
   + NameAndType [a (Ljava/lang/String;Ljava/lang/String;Landroid/view/View;)V]
   + NameAndType [a Landroid/view/View;]
   + NameAndType [b Landroid/view/View;]
+  + NameAndType [buttonBrightness F]
   + NameAndType [c ()V]
   + NameAndType [c Landroid/view/View;]
   + NameAndType [d ()V]
@@ -8248,6 +7634,7 @@ Constant Pool (count = 174):
   + Utf8 [android/view/WindowManager$LayoutParams]
   + Utf8 [b]
   + Utf8 [brightness]
+  + Utf8 [buttonBrightness]
   + Utf8 [c]
   + Utf8 [cz/mpelant/deskclock/ScreensaverActivity]
   + Utf8 [cz/mpelant/deskclock/d]
@@ -8315,26 +7702,26 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 31, locals = 1, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #50
+      [1] invokespecial #51
         + Methodref [cz/mpelant/deskclock/d.<init> ()V]
       [4] aload_0 v0
       [5] new #12
         + Class [android/os/Handler]
       [8] dup
-      [9] invokespecial #32
+      [9] invokespecial #33
         + Methodref [android/os/Handler.<init> ()V]
-      [12] putfield #28
+      [12] putfield #29
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.e Landroid/os/Handler;]
       [15] aload_0 v0
       [16] new #19
         + Class [cz/mpelant/deskclock/s]
       [19] dup
       [20] aload_0 v0
-      [21] getfield #28
+      [21] getfield #29
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.e Landroid/os/Handler;]
-      [24] invokespecial #54
+      [24] invokespecial #55
         + Methodref [cz/mpelant/deskclock/s.<init> (Landroid/os/Handler;)V]
-      [27] putfield #29
+      [27] putfield #30
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.f Lcz/mpelant/deskclock/s;]
       [30] return
       Code attribute exceptions (count = 0):
@@ -8350,34 +7737,34 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 41, locals = 1, stack = 3):
       [0] aload_0 v0
-      [1] invokespecial #53
+      [1] invokespecial #54
         + Methodref [cz/mpelant/deskclock/d.onResume ()V]
       [4] aload_0 v0
       [5] aload_0 v0
       [6] ldc #3
         + Integer [2131361792]
-      [8] invokevirtual #47
+      [8] invokevirtual #48
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.getString (I)Ljava/lang/String;]
-      [11] putfield #30
+      [11] putfield #31
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.g Ljava/lang/String;]
       [14] aload_0 v0
       [15] aload_0 v0
       [16] ldc #4
         + Integer [2131361793]
-      [18] invokevirtual #47
+      [18] invokevirtual #48
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.getString (I)Ljava/lang/String;]
-      [21] putfield #31
+      [21] putfield #32
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.h Ljava/lang/String;]
       [24] aload_0 v0
-      [25] invokespecial #44
+      [25] invokespecial #45
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.d ()V]
       [28] aload_0 v0
-      [29] getfield #28
+      [29] getfield #29
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.e Landroid/os/Handler;]
       [32] aload_0 v0
-      [33] getfield #29
+      [33] getfield #30
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.f Lcz/mpelant/deskclock/s;]
-      [36] invokevirtual #33
+      [36] invokevirtual #34
         + Methodref [android/os/Handler.post (Ljava/lang/Runnable;)Z]
       [39] pop
       [40] return
@@ -8396,15 +7783,15 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 16, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] getfield #28
+      [1] getfield #29
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.e Landroid/os/Handler;]
       [4] aload_0 v0
-      [5] getfield #29
+      [5] getfield #30
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.f Lcz/mpelant/deskclock/s;]
-      [8] invokevirtual #35
+      [8] invokevirtual #36
         + Methodref [android/os/Handler.removeCallbacks (Ljava/lang/Runnable;)V]
       [11] aload_0 v0
-      [12] invokespecial #52
+      [12] invokespecial #53
         + Methodref [cz/mpelant/deskclock/d.onPause ()V]
       [15] return
       Code attribute exceptions (count = 0):
@@ -8420,28 +7807,28 @@ Methods (count = 9):
     + Code attribute instructions (code length = 36, locals = 2, stack = 4):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #51
+      [2] invokespecial #52
         + Methodref [cz/mpelant/deskclock/d.onConfigurationChanged (Landroid/content/res/Configuration;)V]
       [5] aload_0 v0
-      [6] getfield #28
+      [6] getfield #29
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.e Landroid/os/Handler;]
       [9] aload_0 v0
-      [10] getfield #29
+      [10] getfield #30
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.f Lcz/mpelant/deskclock/s;]
-      [13] invokevirtual #35
+      [13] invokevirtual #36
         + Methodref [android/os/Handler.removeCallbacks (Ljava/lang/Runnable;)V]
       [16] aload_0 v0
-      [17] invokespecial #44
+      [17] invokespecial #45
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.d ()V]
       [20] aload_0 v0
-      [21] getfield #28
+      [21] getfield #29
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.e Landroid/os/Handler;]
       [24] aload_0 v0
-      [25] getfield #29
+      [25] getfield #30
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.f Lcz/mpelant/deskclock/s;]
       [28] ldc2_w #21
         + Long [250]
-      [31] invokevirtual #34
+      [31] invokevirtual #35
         + Methodref [android/os/Handler.postDelayed (Ljava/lang/Runnable;J)Z]
       [34] pop
       [35] return
@@ -8459,7 +7846,7 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokevirtual #46
+      [1] invokevirtual #47
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.finish ()V]
       [4] return
       Code attribute exceptions (count = 0):
@@ -8471,41 +7858,41 @@ Methods (count = 9):
     Access flags: 0x2
       = private void c()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 87, locals = 4, stack = 4):
+    + Code attribute instructions (code length = 92, locals = 4, stack = 4):
       [0] aload_0 v0
       [1] aload_0 v0
-      [2] getfield #27
+      [2] getfield #28
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.d Landroid/view/View;]
       [5] aload_0 v0
-      [6] getfield #26
+      [6] getfield #27
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.c Landroid/view/View;]
       [9] ldc #10
         + String [screensaver_clock_style]
-      [11] invokestatic #58
+      [11] invokestatic #59
         + Methodref [cz/mpelant/deskclock/y.a (Landroid/content/Context;Landroid/view/View;Landroid/view/View;Ljava/lang/String;)Landroid/view/View;]
       [14] pop
       [15] aload_0 v0
       [16] aload_0 v0
       [17] ldc #5
         + Integer [2131427333]
-      [19] invokevirtual #45
+      [19] invokevirtual #46
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.findViewById (I)Landroid/view/View;]
-      [22] putfield #25
+      [22] putfield #26
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
       [25] aload_0 v0
-      [26] invokestatic #36
+      [26] invokestatic #37
         + Methodref [android/preference/PreferenceManager.getDefaultSharedPreferences (Landroid/content/Context;)Landroid/content/SharedPreferences;]
       [29] ldc #9
         + String [brightness]
       [31] sipush 192
-      [34] invokeinterface #60
+      [34] invokeinterface #61
         + InterfaceMethodref [android/content/SharedPreferences.getInt (Ljava/lang/String;I)I]
       [39] istore_1 v1
       [40] iload_1 v1
       [41] aload_0 v0
-      [42] getfield #25
+      [42] getfield #26
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
-      [45] invokestatic #56
+      [45] invokestatic #57
         + Methodref [cz/mpelant/deskclock/y.a (ILandroid/view/View;)V]
       [48] iload_1 v1
       [49] bipush 96
@@ -8515,28 +7902,32 @@ Methods (count = 9):
       [58] iconst_0
       [59] istore_2 v2
       [60] iload_2 v2
-      [61] ifeq +25 (target=86)
+      [61] ifeq +30 (target=91)
       [64] aload_0 v0
-      [65] invokevirtual #48
+      [65] invokevirtual #49
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.getWindow ()Landroid/view/Window;]
-      [68] invokevirtual #41
+      [68] invokevirtual #42
         + Methodref [android/view/Window.getAttributes ()Landroid/view/WindowManager$LayoutParams;]
       [71] astore_3 v3
       [72] aload_3 v3
-      [73] ldc #8
+      [73] fconst_0
+      [74] putfield #23
+        + Fieldref [android/view/WindowManager$LayoutParams.buttonBrightness F]
+      [77] aload_3 v3
+      [78] ldc #8
         + Float [0.01]
-      [75] putfield #23
+      [80] putfield #24
         + Fieldref [android/view/WindowManager$LayoutParams.screenBrightness F]
-      [78] aload_0 v0
-      [79] invokevirtual #48
+      [83] aload_0 v0
+      [84] invokevirtual #49
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.getWindow ()Landroid/view/Window;]
-      [82] aload_3 v3
-      [83] invokevirtual #42
+      [87] aload_3 v3
+      [88] invokevirtual #43
         + Methodref [android/view/Window.setAttributes (Landroid/view/WindowManager$LayoutParams;)V]
-      [86] return
+      [91] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 2):
-      + Line number table attribute (count = 10)
+      + Line number table attribute (count = 11)
         [0] -> line 82
         [15] -> line 83
         [25] -> line 84
@@ -8545,12 +7936,13 @@ Methods (count = 9):
         [60] -> line 87
         [64] -> line 88
         [72] -> line 89
-        [78] -> line 90
-        [86] -> line 92
+        [77] -> line 90
+        [83] -> line 91
+        [91] -> line 93
       + Stack map table attribute (count = 3):
         - [58] Var: ...[i], Stack: (empty)
         - [59] Var: ..., Stack: [i]
-        - [86] Var: ...[i], Stack: (empty)
+        - [91] Var: ...[i], Stack: (empty)
   + Method:       d()V
     Access flags: 0x2
       = private void d()
@@ -8559,104 +7951,104 @@ Methods (count = 9):
       [0] aload_0 v0
       [1] ldc #2
         + Integer [2130968577]
-      [3] invokevirtual #49
+      [3] invokevirtual #50
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.setContentView (I)V]
       [6] aload_0 v0
       [7] aload_0 v0
       [8] ldc #6
         + Integer [2131427344]
-      [10] invokevirtual #45
+      [10] invokevirtual #46
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.findViewById (I)Landroid/view/View;]
-      [13] putfield #27
+      [13] putfield #28
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.d Landroid/view/View;]
       [16] aload_0 v0
       [17] aload_0 v0
       [18] ldc #7
         + Integer [2131427345]
-      [20] invokevirtual #45
+      [20] invokevirtual #46
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.findViewById (I)Landroid/view/View;]
-      [23] putfield #26
+      [23] putfield #27
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.c Landroid/view/View;]
       [26] aload_0 v0
-      [27] invokespecial #43
+      [27] invokespecial #44
         + Methodref [cz/mpelant/deskclock/ScreensaverActivity.c ()V]
       [30] aload_0 v0
       [31] aload_0 v0
-      [32] getfield #25
+      [32] getfield #26
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
-      [35] invokevirtual #38
+      [35] invokevirtual #39
         + Methodref [android/view/View.getParent ()Landroid/view/ViewParent;]
       [38] checkcast #14
         + Class [android/view/View]
-      [41] putfield #24
+      [41] putfield #25
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
       [44] aload_0 v0
-      [45] getfield #24
+      [45] getfield #25
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
-      [48] invokevirtual #37
+      [48] invokevirtual #38
         + Methodref [android/view/View.forceLayout ()V]
       [51] aload_0 v0
-      [52] getfield #25
+      [52] getfield #26
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
-      [55] invokevirtual #37
+      [55] invokevirtual #38
         + Methodref [android/view/View.forceLayout ()V]
       [58] aload_0 v0
-      [59] getfield #25
+      [59] getfield #26
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
       [62] fconst_0
-      [63] invokevirtual #39
+      [63] invokevirtual #40
         + Methodref [android/view/View.setAlpha (F)V]
       [66] aload_0 v0
-      [67] getfield #29
+      [67] getfield #30
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.f Lcz/mpelant/deskclock/s;]
       [70] aload_0 v0
-      [71] getfield #24
+      [71] getfield #25
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
       [74] aload_0 v0
-      [75] getfield #25
+      [75] getfield #26
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.b Landroid/view/View;]
-      [78] invokevirtual #55
+      [78] invokevirtual #56
         + Methodref [cz/mpelant/deskclock/s.a (Landroid/view/View;Landroid/view/View;)V]
       [81] aload_0 v0
-      [82] getfield #24
+      [82] getfield #25
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
       [85] sipush 1029
-      [88] invokevirtual #40
+      [88] invokevirtual #41
         + Methodref [android/view/View.setSystemUiVisibility (I)V]
       [91] aload_0 v0
-      [92] getfield #30
+      [92] getfield #31
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.g Ljava/lang/String;]
       [95] aload_0 v0
-      [96] getfield #31
+      [96] getfield #32
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.h Ljava/lang/String;]
       [99] aload_0 v0
-      [100] getfield #24
+      [100] getfield #25
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
-      [103] invokestatic #59
+      [103] invokestatic #60
         + Methodref [cz/mpelant/deskclock/y.a (Ljava/lang/String;Ljava/lang/String;Landroid/view/View;)V]
       [106] aload_0 v0
       [107] aload_0 v0
-      [108] getfield #24
+      [108] getfield #25
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
-      [111] invokestatic #57
+      [111] invokestatic #58
         + Methodref [cz/mpelant/deskclock/y.a (Landroid/content/Context;Landroid/view/View;)V]
       [114] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 13)
-        [0] -> line 96
-        [6] -> line 97
-        [16] -> line 98
-        [26] -> line 99
-        [30] -> line 100
-        [44] -> line 101
-        [51] -> line 102
-        [58] -> line 103
-        [66] -> line 105
-        [81] -> line 107
-        [91] -> line 109
-        [106] -> line 110
-        [114] -> line 111
+        [0] -> line 97
+        [6] -> line 98
+        [16] -> line 99
+        [26] -> line 100
+        [30] -> line 101
+        [44] -> line 102
+        [51] -> line 103
+        [58] -> line 104
+        [66] -> line 106
+        [81] -> line 108
+        [91] -> line 110
+        [106] -> line 111
+        [114] -> line 112
     + Runtime invisible annotations attribute:
       - Annotation [Landroid/annotation/TargetApi;]:
         - Constant element value [value '73']
@@ -8667,29 +8059,29 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 24, locals = 1, stack = 3):
       [0] aload_0 v0
-      [1] getfield #30
+      [1] getfield #31
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.g Ljava/lang/String;]
       [4] aload_0 v0
-      [5] getfield #31
+      [5] getfield #32
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.h Ljava/lang/String;]
       [8] aload_0 v0
-      [9] getfield #24
+      [9] getfield #25
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
-      [12] invokestatic #59
+      [12] invokestatic #60
         + Methodref [cz/mpelant/deskclock/y.a (Ljava/lang/String;Ljava/lang/String;Landroid/view/View;)V]
       [15] aload_0 v0
       [16] aload_0 v0
-      [17] getfield #24
+      [17] getfield #25
         + Fieldref [cz/mpelant/deskclock/ScreensaverActivity.a Landroid/view/View;]
-      [20] invokestatic #57
+      [20] invokestatic #58
         + Methodref [cz/mpelant/deskclock/y.a (Landroid/content/Context;Landroid/view/View;)V]
       [23] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 3)
-        [0] -> line 115
-        [15] -> line 116
-        [23] -> line 117
+        [0] -> line 116
+        [15] -> line 117
+        [23] -> line 118
   + Method:       b()I
     Access flags: 0x4
       = protected int b()
@@ -8700,7 +8092,7 @@ Methods (count = 9):
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Line number table attribute (count = 1)
-        [0] -> line 121
+        [0] -> line 122
 
 Class file attributes (count = 1):
   + Source file attribute:
