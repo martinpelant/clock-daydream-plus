@@ -284,7 +284,7 @@
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
     </style>
 
-    <!-- Notification content styles -->
+    <!-- NotificationInfo content styles -->
     <style name="TextAppearance.StatusBar.EventContent">
         <item name="android:textSize">@dimen/notification_text_size</item>
         <item name="android:textColor">#999999</item>

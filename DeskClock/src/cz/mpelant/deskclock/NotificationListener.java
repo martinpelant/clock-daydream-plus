@@ -9,6 +9,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
+import cz.mpelant.deskclock.notification.IconNotFoundException;
+import cz.mpelant.deskclock.notification.NotificationInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,23 +44,21 @@ public class NotificationListener extends NotificationListenerService {
 
     }
 
-    public List<Drawable> getIcons() {
-        List<Drawable> icons = new ArrayList<Drawable>();
+    public List<NotificationInfo> getNotifications() {
+        List<NotificationInfo> notifications = new ArrayList<NotificationInfo>();
         StatusBarNotification[] notifs = getActiveNotifications();
         for (StatusBarNotification notif : notifs) {
 
             try {
-                Context ctx = createPackageContext(notif.getPackageName(), 0);
-                Drawable d = ctx.getResources().getDrawable(notif.getNotification().icon);
-                if (d != null) {
-                    icons.add(d);
-                }
+                notifications.add(new NotificationInfo(this, notif.getPackageName(), notif.getNotification()));
             } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            } catch (IconNotFoundException e) {
                 e.printStackTrace();
             }
 
         }
-        return icons;
+        return notifications;
     }
 
     @Override

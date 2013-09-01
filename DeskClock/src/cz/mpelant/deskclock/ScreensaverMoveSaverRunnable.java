@@ -1,28 +1,20 @@
 
 package cz.mpelant.deskclock;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AccountManagerCallback;
-import android.accounts.AccountManagerFuture;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
-import android.content.Context;
-import android.database.Cursor;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.provider.CallLog;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.ImageView;
 import android.widget.TextView;
-import cz.mpelant.deskclock.notification.Notification;
+import cz.mpelant.deskclock.notification.NotifCompact;
+import cz.mpelant.deskclock.notification.NotificationInfo;
 import cz.mpelant.deskclock.notification.NotificationLayout;
 
 import java.util.List;
@@ -191,10 +183,11 @@ public class ScreensaverMoveSaverRunnable implements Runnable {
     private void notifChange() {
         if (NotificationListener.instance != null) {
             Log.d("notif listener is running");
-            List<Drawable> icons = NotificationListener.instance.getIcons();
-            Log.d("got " + icons.size() + " icons");
-            for (Drawable icon : icons) {
-                mNotifLayout.addNotification(new Notification(icon));
+            List<NotificationInfo> notifications = NotificationListener.instance.getNotifications();
+            Log.d("got " + notifications.size() + " icons");
+            mNotifLayout.clear();
+            for (NotificationInfo notificationInfo : notifications) {
+                mNotifLayout.addNotification(notificationInfo);
             }
             mNotifLayout.notifyDatasetChanged();
         }

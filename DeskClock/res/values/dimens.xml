@@ -50,6 +50,8 @@
     <dimen name="tablet_dialpad_font_size_ampm">30sp</dimen>
     <dimen name="screensaver_margin">16dip</dimen>
     <dimen name="digital_margin_bottom">24dip</dimen>
+    <dimen name="notif_size">24dp</dimen>
+    <dimen name="notif_margin">5dp</dimen>
 
     <!-- Size of notification text (see TextAppearance.StatusBar.EventContent) -->
     <dimen name="notification_text_size">14dp</dimen>

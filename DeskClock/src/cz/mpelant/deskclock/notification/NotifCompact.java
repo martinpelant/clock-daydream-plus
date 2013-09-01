@@ -1,4 +1,4 @@
-package cz.mpelant.deskclock;
+package cz.mpelant.deskclock.notification;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -10,6 +10,8 @@ import android.net.Uri;
 import android.os.Handler;
 import android.provider.CallLog;
 import android.view.View;
+import cz.mpelant.deskclock.GmailContract;
+import cz.mpelant.deskclock.Log;
 
 /**
  * NotifCompact.java
