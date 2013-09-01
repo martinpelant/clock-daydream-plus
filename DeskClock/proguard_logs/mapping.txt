@@ -1,0 +1,316 @@
+cz.mpelant.deskclock.Alarms -> cz.mpelant.deskclock.a:
+    118:118:boolean get24HourMode(android.content.Context) -> a
+cz.mpelant.deskclock.AnalogClock -> cz.mpelant.deskclock.AnalogClock:
+    android.text.format.Time mCalendar -> a
+    android.graphics.drawable.Drawable mHourHand -> b
+    android.graphics.drawable.Drawable mMinuteHand -> c
+    android.graphics.drawable.Drawable mSecondHand -> d
+    android.graphics.drawable.Drawable mDial -> e
+    int mDialWidth -> f
+    int mDialHeight -> g
+    boolean mAttached -> h
+    android.os.Handler mHandler -> i
+    float mSeconds -> j
+    float mMinutes -> k
+    float mHour -> l
+    boolean mChanged -> m
+    android.content.Context mContext -> n
+    java.lang.String mTimeZoneId -> o
+    boolean mNoSeconds -> p
+    float mDotRadius -> q
+    float mDotOffset -> r
+    android.graphics.Paint mDotPaint -> s
+    android.content.BroadcastReceiver mIntentReceiver -> t
+    java.lang.Runnable mClockTick -> u
+    106:131:void onAttachedToWindow() -> onAttachedToWindow
+    135:141:void onDetachedFromWindow() -> onDetachedFromWindow
+    146:166:void onMeasure(int,int) -> onMeasure
+    170:172:void onSizeChanged(int,int,int,int) -> onSizeChanged
+    176:221:void onDraw(android.graphics.Canvas) -> onDraw
+    225:234:void drawHand(android.graphics.Canvas,android.graphics.drawable.Drawable,int,int,float,boolean) -> a
+    237:254:void onTimeChanged() -> a
+    279:283:void updateContentDescription(android.text.format.Time) -> a
+    286:288:void setTimeZone(java.lang.String) -> setTimeZone
+    44:44:android.text.format.Time access$002(cz.mpelant.deskclock.AnalogClock,android.text.format.Time) -> a
+    44:44:void access$100(cz.mpelant.deskclock.AnalogClock) -> a
+    44:44:java.lang.Runnable access$200(cz.mpelant.deskclock.AnalogClock) -> b
+cz.mpelant.deskclock.AnalogClock$1 -> cz.mpelant.deskclock.b:
+    cz.mpelant.deskclock.AnalogClock this$0 -> a
+    259:265:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+cz.mpelant.deskclock.AnalogClock$2 -> cz.mpelant.deskclock.c:
+    cz.mpelant.deskclock.AnalogClock this$0 -> a
+    272:275:void run() -> run
+cz.mpelant.deskclock.App -> cz.mpelant.deskclock.App:
+cz.mpelant.deskclock.BaseScreenOnActivity -> cz.mpelant.deskclock.d:
+    android.app.PendingIntent mQuarterlyIntent -> a
+    boolean mPluggedIn -> b
+    int mFlags -> c
+    android.content.BroadcastReceiver mIntentReceiver -> d
+    void updateViews() -> a
+    65:74:void onStart() -> onStart
+    78:88:void onResume() -> onResume
+    92:94:void onPause() -> onPause
+    98:100:void onStop() -> onStop
+    103:111:void setWakeLock() -> c
+    114:114:int getAdditionalFlags() -> b
+    30:30:boolean access$002(cz.mpelant.deskclock.BaseScreenOnActivity,boolean) -> a
+    30:30:void access$100(cz.mpelant.deskclock.BaseScreenOnActivity) -> a
+cz.mpelant.deskclock.BaseScreenOnActivity$1 -> cz.mpelant.deskclock.e:
+    cz.mpelant.deskclock.BaseScreenOnActivity this$0 -> a
+    41:58:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+cz.mpelant.deskclock.BrightnessPreference -> cz.mpelant.deskclock.BrightnessPreference:
+    java.lang.String TAG -> a
+    int mMaxValue -> b
+    int mMinValue -> c
+    int mInterval -> d
+    int mCurrentValue -> e
+    java.lang.String mUnitsLeft -> f
+    java.lang.String mUnitsRight -> g
+    android.widget.SeekBar mSeekBar -> h
+    android.widget.TextView mStatusText -> i
+    android.view.View mTitle -> j
+    47:51:void initPreference(android.content.Context,android.util.AttributeSet) -> a
+    54:69:void setValuesFromXml(android.util.AttributeSet) -> a
+    72:76:java.lang.String getAttributeStringValue(android.util.AttributeSet,java.lang.String,java.lang.String,java.lang.String) -> a
+    82:92:android.view.View onCreateView(android.view.ViewGroup) -> onCreateView
+    98:119:void onBindView(android.view.View) -> onBindView
+    127:152:void updateView(android.view.View) -> a
+    156:179:void onProgressChanged(android.widget.SeekBar,int,boolean) -> onProgressChanged
+    183:183:void onStartTrackingTouch(android.widget.SeekBar) -> onStartTrackingTouch
+    187:188:void onStopTrackingTouch(android.widget.SeekBar) -> onStopTrackingTouch
+    193:194:java.lang.Object onGetDefaultValue(android.content.res.TypedArray,int) -> onGetDefaultValue
+    201:215:void onSetInitialValue(boolean,java.lang.Object) -> onSetInitialValue
+cz.mpelant.deskclock.ClockActivity -> cz.mpelant.deskclock.ClockActivity:
+    android.view.View mDigitalClock -> a
+    android.view.View mAnalogClock -> b
+    android.widget.TextView mDate -> c
+    android.widget.TextView mNextAlarm -> d
+    android.os.Handler mHandler -> e
+    java.lang.Runnable startScreenSaverRunnable -> f
+    33:48:void onCreate(android.os.Bundle) -> onCreate
+    52:53:void setClockStyle() -> c
+    57:61:void onResume() -> onResume
+    65:67:void onPause() -> onPause
+    71:74:void onUserInteraction() -> onUserInteraction
+    78:80:void updateViews() -> a
+    86:110:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    14:14:java.lang.Runnable access$000(cz.mpelant.deskclock.ClockActivity) -> a
+cz.mpelant.deskclock.ClockActivity$1 -> cz.mpelant.deskclock.f:
+    cz.mpelant.deskclock.ClockActivity this$0 -> a
+    26:28:void run() -> run
+cz.mpelant.deskclock.ClockActivity$2 -> cz.mpelant.deskclock.g:
+    cz.mpelant.deskclock.ClockActivity this$0 -> a
+    41:42:boolean onLongClick(android.view.View) -> onLongClick
+cz.mpelant.deskclock.ClockActivity$3 -> cz.mpelant.deskclock.h:
+    android.content.Intent val$alarmIntent -> a
+    cz.mpelant.deskclock.ClockActivity this$0 -> b
+    94:95:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
+cz.mpelant.deskclock.ClockActivity$4 -> cz.mpelant.deskclock.i:
+    cz.mpelant.deskclock.ClockActivity this$0 -> a
+    106:107:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
+cz.mpelant.deskclock.DigitalClock -> cz.mpelant.deskclock.DigitalClock:
+    java.util.Calendar mCalendar -> a
+    java.lang.String mHoursFormat -> b
+    android.widget.TextView mTimeDisplayHours -> c
+    android.widget.TextView mTimeDisplayHoursThin -> d
+    android.widget.TextView mTimeDisplayMinutes -> e
+    cz.mpelant.deskclock.DigitalClock$AmPm mAmPm -> f
+    android.database.ContentObserver mFormatChangeObserver -> g
+    boolean mLive -> h
+    boolean mAttached -> i
+    android.graphics.Typeface mRobotoThin -> j
+    java.lang.String mTimeZoneId -> k
+    android.os.Handler mHandler -> l
+    android.content.BroadcastReceiver mIntentReceiver -> m
+    125:135:void onFinishInflate() -> onFinishInflate
+    139:161:void onAttachedToWindow() -> onAttachedToWindow
+    165:175:void onDetachedFromWindow() -> onDetachedFromWindow
+    193:217:void updateTime() -> a
+    220:222:void setDateFormat() -> b
+    225:226:void setLive(boolean) -> setLive
+    229:231:void setTimeZone(java.lang.String) -> setTimeZone
+    42:42:boolean access$000(cz.mpelant.deskclock.DigitalClock) -> a
+    42:42:java.util.Calendar access$102(cz.mpelant.deskclock.DigitalClock,java.util.Calendar) -> a
+    42:42:void access$200(cz.mpelant.deskclock.DigitalClock) -> b
+    42:42:android.os.Handler access$300(cz.mpelant.deskclock.DigitalClock) -> c
+    42:42:void access$400(cz.mpelant.deskclock.DigitalClock) -> d
+cz.mpelant.deskclock.DigitalClock$1 -> cz.mpelant.deskclock.j:
+    cz.mpelant.deskclock.DigitalClock this$0 -> a
+    64:74:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+cz.mpelant.deskclock.DigitalClock$1$1 -> cz.mpelant.deskclock.k:
+    cz.mpelant.deskclock.DigitalClock$1 this$1 -> a
+    71:72:void run() -> run
+cz.mpelant.deskclock.DigitalClock$AmPm -> cz.mpelant.deskclock.l:
+    android.widget.TextView mAmPm -> a
+    java.lang.String mAmString -> b
+    java.lang.String mPmString -> c
+    90:91:void setShowAmPm(boolean) -> a
+    94:95:void setIsMorning(boolean) -> b
+    98:98:java.lang.CharSequence getAmPmText() -> a
+cz.mpelant.deskclock.DigitalClock$FormatChangeObserver -> cz.mpelant.deskclock.m:
+    cz.mpelant.deskclock.DigitalClock this$0 -> a
+    109:111:void onChange(boolean) -> onChange
+cz.mpelant.deskclock.GmailContract -> cz.mpelant.deskclock.n:
+cz.mpelant.deskclock.GmailContract$Labels -> cz.mpelant.deskclock.o:
+    240:240:android.net.Uri getLabelsUri(java.lang.String) -> a
+cz.mpelant.deskclock.Log -> cz.mpelant.deskclock.p:
+    34:35:void v(java.lang.String) -> a
+    38:39:void i(java.lang.String) -> b
+    42:43:void d(java.lang.String) -> c
+    46:47:void e(java.lang.String) -> d
+    58:59:void wtf(java.lang.String) -> e
+cz.mpelant.deskclock.NotificationListener -> cz.mpelant.deskclock.NotificationListener:
+    cz.mpelant.deskclock.NotificationListener instance -> a
+    33:35:void onCreate() -> onCreate
+    40:40:void onNotificationPosted(android.service.notification.StatusBarNotification) -> onNotificationPosted
+    46:46:void onNotificationRemoved(android.service.notification.StatusBarNotification) -> onNotificationRemoved
+    49:64:java.util.List getNotifications() -> a
+    69:71:void onDestroy() -> onDestroy
+cz.mpelant.deskclock.NotificationService -> cz.mpelant.deskclock.NotificationService:
+    int icon -> a
+    android.graphics.Bitmap largeIcon -> b
+    android.graphics.drawable.Drawable drawable -> c
+    28:54:void onAccessibilityEvent(android.view.accessibility.AccessibilityEvent) -> onAccessibilityEvent
+    58:62:void extractImage(android.widget.RemoteViews) -> a
+    65:78:android.graphics.drawable.Drawable searchForBitmap(android.view.View) -> a
+    129:135:void onServiceConnected() -> onServiceConnected
+    139:140:void onInterrupt() -> onInterrupt
+cz.mpelant.deskclock.R -> cz.mpelant.deskclock.q:
+cz.mpelant.deskclock.R$styleable -> cz.mpelant.deskclock.r:
+    int[] AnalogClock -> AnalogClock
+    int AnalogClock_jewelColor -> AnalogClock_jewelColor
+    int AnalogClock_jewelOffset -> AnalogClock_jewelOffset
+    int AnalogClock_jewelRadius -> AnalogClock_jewelRadius
+    int[] GlowPadView -> GlowPadView
+    int GlowPadView_alwaysTrackFinger -> GlowPadView_alwaysTrackFinger
+    int GlowPadView_android_gravity -> GlowPadView_android_gravity
+    int GlowPadView_directionDescriptions -> GlowPadView_directionDescriptions
+    int GlowPadView_feedbackCount -> GlowPadView_feedbackCount
+    int GlowPadView_glowRadius -> GlowPadView_glowRadius
+    int GlowPadView_handleDrawable -> GlowPadView_handleDrawable
+    int GlowPadView_innerRadius -> GlowPadView_innerRadius
+    int GlowPadView_outerRadius -> GlowPadView_outerRadius
+    int GlowPadView_outerRingDrawable -> GlowPadView_outerRingDrawable
+    int GlowPadView_pointDrawable -> GlowPadView_pointDrawable
+    int GlowPadView_snapMargin -> GlowPadView_snapMargin
+    int GlowPadView_targetDescriptions -> GlowPadView_targetDescriptions
+    int GlowPadView_targetDrawables -> GlowPadView_targetDrawables
+    int GlowPadView_vibrationDuration -> GlowPadView_vibrationDuration
+cz.mpelant.deskclock.Screensaver -> cz.mpelant.deskclock.Screensaver:
+    android.view.View mContentView -> a
+    android.view.View mSaverView -> b
+    android.view.View mAnalogClock -> c
+    android.view.View mDigitalClock -> d
+    android.os.Handler mHandler -> e
+    cz.mpelant.deskclock.ScreensaverMoveSaverRunnable mMoveSaverRunnable -> f
+    50:51:void onCreate() -> onCreate
+    57:60:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    66:72:void onAttachedToWindow() -> onAttachedToWindow
+    78:81:void onDetachedFromWindow() -> onDetachedFromWindow
+    84:98:void setClockStyle() -> a
+    101:114:void layoutClockSaver() -> b
+cz.mpelant.deskclock.ScreensaverActivity -> cz.mpelant.deskclock.ScreensaverActivity:
+    android.view.View mContentView -> a
+    android.view.View mSaverView -> b
+    android.view.View mAnalogClock -> c
+    android.view.View mDigitalClock -> d
+    android.os.Handler mHandler -> e
+    cz.mpelant.deskclock.ScreensaverMoveSaverRunnable mMoveSaverRunnable -> f
+    java.lang.String mDateFormat -> g
+    java.lang.String mDateFormatForAccessibility -> h
+    50:58:void onResume() -> onResume
+    62:64:void onPause() -> onPause
+    70:74:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    78:79:void onUserInteraction() -> onUserInteraction
+    82:92:void setClockStyle() -> c
+    96:111:void layoutClockSaver() -> d
+    115:117:void updateViews() -> a
+    121:121:int getAdditionalFlags() -> b
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable -> cz.mpelant.deskclock.s:
+    android.view.View mContentView -> a
+    android.view.View mSaverView -> b
+    android.widget.TextView mDate -> c
+    android.widget.TextView mBattery -> d
+    android.view.View mBatteryContainer -> e
+    cz.mpelant.deskclock.notification.NotificationLayout mNotifLayout -> f
+    android.widget.TextView mNextAlarm -> g
+    android.os.Handler mHandler -> h
+    cz.mpelant.deskclock.notification.NotifCompact mNotifCompact -> i
+    android.animation.TimeInterpolator mSlowStartWithBrakes -> j
+    56:64:void registerViews(android.view.View,android.view.View) -> a
+    68:150:void run() -> run
+    154:174:void handleUpdate() -> a
+    177:187:void notifChange() -> b
+    190:223:void compatNotifCheck() -> c
+    226:226:boolean isPrefEnabled(java.lang.String,boolean) -> a
+    26:26:void access$000(cz.mpelant.deskclock.ScreensaverMoveSaverRunnable) -> a
+    26:26:android.widget.TextView access$100(cz.mpelant.deskclock.ScreensaverMoveSaverRunnable) -> b
+    26:26:cz.mpelant.deskclock.notification.NotifCompact access$200(cz.mpelant.deskclock.ScreensaverMoveSaverRunnable) -> c
+    26:26:cz.mpelant.deskclock.notification.NotificationLayout access$300(cz.mpelant.deskclock.ScreensaverMoveSaverRunnable) -> d
+    26:26:android.os.Handler access$400(cz.mpelant.deskclock.ScreensaverMoveSaverRunnable) -> e
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable$1 -> cz.mpelant.deskclock.t:
+    cz.mpelant.deskclock.ScreensaverMoveSaverRunnable this$0 -> a
+    50:50:float getInterpolation(float) -> getInterpolation
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable$2 -> cz.mpelant.deskclock.u:
+    cz.mpelant.deskclock.ScreensaverMoveSaverRunnable this$0 -> a
+    131:132:void run() -> run
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable$3 -> cz.mpelant.deskclock.v:
+    cz.mpelant.deskclock.ScreensaverMoveSaverRunnable this$0 -> a
+    200:219:void run() -> run
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable$3$1 -> cz.mpelant.deskclock.w:
+    cz.mpelant.deskclock.ScreensaverMoveSaverRunnable$3 this$1 -> a
+    212:213:void run() -> run
+cz.mpelant.deskclock.ScreensaverSettingsActivity -> cz.mpelant.deskclock.ScreensaverSettingsActivity:
+    59:66:void onCreate(android.os.Bundle) -> onCreate
+    70:72:void onResume() -> onResume
+    76:89:boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
+    94:146:void refresh() -> a
+    150:154:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    165:171:int getVersionCode(android.content.Context) -> a
+    183:189:java.lang.String getVersionName(android.content.Context) -> b
+cz.mpelant.deskclock.ScreensaverSettingsActivity$1 -> cz.mpelant.deskclock.x:
+    cz.mpelant.deskclock.ScreensaverSettingsActivity this$0 -> a
+    121:124:boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+cz.mpelant.deskclock.Utils -> cz.mpelant.deskclock.y:
+    java.lang.String TAG -> a
+    java.lang.String sCachedVersionCode -> b
+    169:178:long getAlarmOnQuarterHour() -> a
+    216:238:android.view.View setClockStyle(android.content.Context,android.view.View,android.view.View,java.lang.String) -> a
+    256:262:void dimView(int,android.view.View) -> a
+    266:276:void refreshAlarm(android.content.Context,android.view.View) -> a
+    280:291:void updateDate(java.lang.String,java.lang.String,android.view.View) -> a
+    294:301:void setAlarmTextView(android.content.Context,android.widget.TextView) -> a
+    304:305:void setDateTextView(android.content.Context,android.widget.TextView) -> b
+    308:341:void setBatteryStatus(android.content.Context,android.widget.TextView) -> c
+    345:376:android.content.Intent getAlarmPackage(android.content.Context) -> a
+cz.mpelant.deskclock.ZeroTopPaddingTextView -> cz.mpelant.deskclock.ZeroTopPaddingTextView:
+    android.graphics.Typeface SAN_SERIF_BOLD -> a
+    android.graphics.Typeface SAN_SERIF__CONDENSED_BOLD -> b
+    android.graphics.Typeface SAN_SERIF_THIN -> c
+    android.graphics.Typeface SAN_SERIF__CONDENSED_THIN -> d
+    int mPaddingRight -> e
+    65:76:void updatePadding() -> a
+    79:81:void setPaddingRight(int) -> setPaddingRight
+    85:87:void onLayout(boolean,int,int,int,int) -> onLayout
+    91:93:void onAttachedToWindow() -> onAttachedToWindow
+cz.mpelant.deskclock.notification.IconNotFoundException -> cz.mpelant.deskclock.notification.a:
+cz.mpelant.deskclock.notification.NotifCompact -> cz.mpelant.deskclock.notification.b:
+    android.os.Handler mHandler -> a
+    41:60:cz.mpelant.deskclock.notification.NotificationInfo checkGmail(android.content.Context) -> a
+    65:76:cz.mpelant.deskclock.notification.NotificationInfo queryLabels(java.lang.String,android.content.Context) -> a
+    91:107:cz.mpelant.deskclock.notification.NotificationInfo checkSMS(android.content.Context) -> b
+    112:128:cz.mpelant.deskclock.notification.NotificationInfo checkMissedCalls(android.content.Context) -> c
+cz.mpelant.deskclock.notification.NotificationInfo -> cz.mpelant.deskclock.notification.c:
+    android.graphics.drawable.Drawable mDrawable -> a
+    java.lang.String mId -> b
+    38:38:android.graphics.drawable.Drawable getDrawable() -> a
+    46:48:android.view.View generateView(android.content.Context) -> a
+    53:60:boolean equals(java.lang.Object) -> equals
+    65:65:int hashCode() -> hashCode
+cz.mpelant.deskclock.notification.NotificationLayout -> cz.mpelant.deskclock.notification.NotificationLayout:
+    java.util.Set mNotificationInfos -> a
+    java.util.Set mTmpNotificationInfos -> b
+    44:48:void init() -> c
+    56:57:void clear() -> a
+    67:71:void addNotification(cz.mpelant.deskclock.notification.NotificationInfo) -> a
+    77:101:void notifyDatasetChanged() -> b

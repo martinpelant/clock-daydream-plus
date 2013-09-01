@@ -1,0 +1,156 @@
+cz.mpelant.deskclock.Alarms:
+    static final java.lang.String PREFERENCES
+    public static final java.lang.String ALARM_ALERT_ACTION
+    public static final java.lang.String ALARM_DONE_ACTION
+    public static final java.lang.String ALARM_SNOOZE_ACTION
+    public static final java.lang.String ALARM_DISMISS_ACTION
+    public static final java.lang.String ALARM_SNOOZE_CANCELLED
+    public static final java.lang.String NEXT_ALARM_TIME_SET
+    public static final java.lang.String ALARM_KILLED
+    public static final java.lang.String ALARM_KILLED_TIMEOUT
+    public static final java.lang.String ALARM_ALERT_SILENT
+    public static final java.lang.String CANCEL_SNOOZE
+    public static final java.lang.String ALARM_INTENT_EXTRA
+    public static final java.lang.String ALARM_RAW_DATA
+    private static final java.lang.String PREF_SNOOZE_IDS
+    private static final java.lang.String PREF_SNOOZE_TIME
+    private static final java.lang.String DM12
+    private static final java.lang.String DM24
+    private static final java.lang.String M12
+    static final java.lang.String M24
+    static final int INVALID_ALARM_ID
+    28:28:public Alarms()
+    94:95:static java.lang.String formatTime(android.content.Context,java.util.Calendar)
+    102:103:private static java.lang.String formatDayAndTime(android.content.Context,java.util.Calendar)
+    111:112:static void saveNextAlarm(android.content.Context,java.lang.String)
+cz.mpelant.deskclock.AnalogClock:
+    291:292:public void enableSeconds(boolean)
+cz.mpelant.deskclock.AndroidClockTextView
+cz.mpelant.deskclock.App:
+    public static final java.lang.String TAG
+cz.mpelant.deskclock.BaseScreenOnActivity:
+    static final boolean DEBUG
+    static final java.lang.String TAG
+cz.mpelant.deskclock.BrightnessPreference:
+    private static final java.lang.String ANDROIDNS
+    private static final java.lang.String CLOCKNS
+    private static final int DEFAULT_VALUE
+cz.mpelant.deskclock.BuildConfig
+cz.mpelant.deskclock.ClockActivity:
+    private static final int SCREENSAVER_DELAY
+    public static final java.lang.String TAG
+cz.mpelant.deskclock.DigitalClock:
+    private static final java.lang.String HOURS_24
+    private static final java.lang.String HOURS
+    private static final java.lang.String MINUTES
+    179:181:void updateTime(java.util.Calendar)
+    185:190:public void updateTime(int,int)
+cz.mpelant.deskclock.DontPressWithParentLayout
+cz.mpelant.deskclock.GmailContract:
+    public static final java.lang.String PERMISSION
+    public static final java.lang.String AUTHORITY
+    static final java.lang.String LABELS_PARAM
+    static final java.lang.String LABEL_PARAM
+    static final java.lang.String BASE_URI_STRING
+    static final java.lang.String PACKAGE
+    55:55:private GmailContract()
+    81:109:public static boolean canReadLabels(android.content.Context)
+cz.mpelant.deskclock.GmailContract$Labels:
+    public static final java.lang.String CONTENT_TYPE
+    public static final java.lang.String CONTENT_ITEM_TYPE
+    public static final java.lang.String CANONICAL_NAME
+    public static final java.lang.String NAME
+    public static final java.lang.String NUM_CONVERSATIONS
+    public static final java.lang.String NUM_UNREAD_CONVERSATIONS
+    public static final java.lang.String TEXT_COLOR
+    public static final java.lang.String BACKGROUND_COLOR
+    public static final java.lang.String URI
+    243:243:private GmailContract$Labels()
+cz.mpelant.deskclock.GmailContract$Labels$LabelCanonicalNames
+cz.mpelant.deskclock.Log:
+    public static final java.lang.String LOGTAG
+    static final boolean LOGV
+    26:26:public Log()
+    50:51:public static void e(java.lang.String,java.lang.Exception)
+    54:55:public static void w(java.lang.String)
+    62:62:public static java.lang.String formatTime(long)
+cz.mpelant.deskclock.NotificationService:
+    82:125:private void extractImage2(android.widget.RemoteViews)
+cz.mpelant.deskclock.R:
+    10:687:public R()
+cz.mpelant.deskclock.R$anim
+cz.mpelant.deskclock.R$array
+cz.mpelant.deskclock.R$attr
+cz.mpelant.deskclock.R$color
+cz.mpelant.deskclock.R$dimen
+cz.mpelant.deskclock.R$drawable
+cz.mpelant.deskclock.R$id
+cz.mpelant.deskclock.R$integer
+cz.mpelant.deskclock.R$layout
+cz.mpelant.deskclock.R$mipmap
+cz.mpelant.deskclock.R$plurals
+cz.mpelant.deskclock.R$string
+cz.mpelant.deskclock.R$style
+cz.mpelant.deskclock.R$styleable:
+    687:687:public R$styleable()
+cz.mpelant.deskclock.R$xml
+cz.mpelant.deskclock.Screensaver:
+    static final boolean DEBUG
+    static final java.lang.String TAG
+cz.mpelant.deskclock.ScreensaverActivity:
+    static final boolean DEBUG
+    static final java.lang.String TAG
+    static final java.lang.String DEFAULT_CLOCK_STYLE
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable:
+    static final long MOVE_DELAY
+    static final long SLIDE_TIME
+    static final long FADE_TIME
+    static final boolean SLIDE
+    private android.view.View mTest
+cz.mpelant.deskclock.ScreensaverSettingsActivity:
+    static final java.lang.String KEY_CLOCK_STYLE
+    static final java.lang.String KEY_BRIGHTNESS
+    static final int BRIGHTNESS_DEFAULT
+    static final int BRIGHTNESS_NIGHT
+    static final java.lang.String KEY_NOTIF_LISTENER
+    static final java.lang.String KEY_NOTIF_GMAIL
+    static final java.lang.String KEY_NOTIF_SMS
+    static final java.lang.String KEY_NOTIF_MISSED_CALLS
+    static final java.lang.String KEY_HIDE_ACTIVITY
+    static final java.lang.String KEY_BATTERY
+    static final java.lang.String KEY_ABOUT
+    static final long TIP_DELAY
+    public static final int REQUEST_CODE_NOTIF
+cz.mpelant.deskclock.Utils:
+    private static final java.lang.String PARAM_LANGUAGE_CODE
+    private static final java.lang.String PARAM_VERSION
+    public static final java.lang.String ACTION_ON_QUARTER_HOUR
+    public static final java.lang.String CLOCK_TYPE_DIGITAL2
+    public static final java.lang.String CLOCK_TYPE_DIGITAL
+    public static final java.lang.String CLOCK_TYPE_ANALOG
+    public static final java.lang.String HOURS_24
+    public static final java.lang.String HOURS
+    public static final java.lang.String MINUTES
+    83:102:public static void prepareHelpMenuItem(android.content.Context,android.view.MenuItem)
+    111:136:private static android.net.Uri uriWithAddedParameters(android.content.Context,android.net.Uri)
+    140:140:public static long getTimeNow()
+    148:148:public static float calculateRadiusOffset(float,float,float)
+    156:156:public static int getPressedColorId()
+    164:164:public static int getGrayColorId()
+    183:187:public static void cancelAlarmOnQuarterHour(android.content.Context,android.app.PendingIntent)
+    194:202:public static android.app.PendingIntent startAlarmOnQuarterHour(android.content.Context)
+    208:209:public static android.app.PendingIntent refreshAlarmOnQuarterHour(android.content.Context,android.app.PendingIntent)
+    245:249:public static void dimClockView(boolean,android.view.View)
+cz.mpelant.deskclock.ZeroTopPaddingTextView:
+    private static final float NORMAL_FONT_PADDING_RATIO
+    private static final float BOLD_FONT_PADDING_RATIO
+    private static final float NORMAL_FONT_BOTTOM_PADDING_RATIO
+    private static final float BOLD_FONT_BOTTOM_PADDING_RATIO
+cz.mpelant.deskclock.notification.NotifCompact:
+    81:88:private void setViewVisibility(android.view.View,int)
+cz.mpelant.deskclock.notification.NotifCompact$1
+cz.mpelant.deskclock.notification.NotifCompact$LabelColumns
+cz.mpelant.deskclock.notification.NotificationInfo:
+    42:42:public java.lang.String getId()
+cz.mpelant.deskclock.notification.NotificationLayout:
+    private static final int MAX_ICONS_PER_ROW
