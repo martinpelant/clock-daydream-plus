@@ -11,6 +11,10 @@
 # generated files
 bin/
 gen/
+out/
+.out/
+out/
+.idea/workspace.xml
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -24,6 +28,10 @@ local.properties
 
 # mac files
 .DS_Store
+
+# eclipse settings files
+.settings/
+
 
 Thumbs.db
 
