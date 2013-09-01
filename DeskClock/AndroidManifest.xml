@@ -41,6 +41,14 @@
                 android:resource="@xml/dream_info" />
         </service>
 
+        <service android:name=".NotificationListener"
+                 android:label="Notification listener"
+                 android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
         <!-- Settings activity for screensaver -->
         <activity
             android:name="ScreensaverSettingsActivity"

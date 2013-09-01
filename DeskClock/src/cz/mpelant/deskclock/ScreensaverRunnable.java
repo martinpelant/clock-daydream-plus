@@ -11,6 +11,7 @@ import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -20,6 +21,8 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.List;
 
 /**
  * Runnable for use with screensaver and dream, to move the clock every minute.
@@ -148,7 +151,7 @@ public class ScreensaverRunnable implements Runnable {
             long adjust = (now % MOVE_DELAY);
             delay = delay + (MOVE_DELAY - adjust) // minute aligned
                     - (SLIDE ? 0 : FADE_TIME) // start moving before the fade
-                    ;
+            ;
         }
 
         mHandler.removeCallbacks(this);
@@ -185,7 +188,9 @@ public class ScreensaverRunnable implements Runnable {
                         e.printStackTrace();
                     }
 
-                };
+                }
+
+                ;
             }.start();
 
         } catch (Exception e) {
@@ -257,12 +262,21 @@ public class ScreensaverRunnable implements Runnable {
         });
     }
 
-    private void checkOther(Context context, View image) {
+    private void checkOther(Context context, final View image) {
         try {
-            if (NotificationService.drawable != null) {
-                Log.d("setting icon" + NotificationService.icon);
-                ((ImageView) image).setImageDrawable(NotificationService.drawable);
-                image.setVisibility(View.VISIBLE);
+            if (NotificationListener.instance != null) {
+                Log.d("notif listener is running");
+                final List<Drawable> icons = NotificationListener.instance.getIcons();
+                Log.d("got " + icons.size() + " icons");
+                if (!icons.isEmpty()) {
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            ((ImageView) image).setImageDrawable(icons.get(0));
+                        }
+                    });
+
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
