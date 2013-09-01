@@ -787,12 +787,12 @@ cz.mpelant.deskclock.ScreensaverActivity:
     static final boolean DEBUG
     static final java.lang.String TAG
     static final java.lang.String DEFAULT_CLOCK_STYLE
-cz.mpelant.deskclock.ScreensaverRunnable:
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable:
     static final long MOVE_DELAY
     static final long SLIDE_TIME
     static final long FADE_TIME
     static final boolean SLIDE
-cz.mpelant.deskclock.ScreensaverRunnable$LabelColumns
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable$LabelColumns
 cz.mpelant.deskclock.ScreensaverSettingsActivity:
     static final java.lang.String KEY_CLOCK_STYLE
     static final java.lang.String KEY_BRIGHTNESS

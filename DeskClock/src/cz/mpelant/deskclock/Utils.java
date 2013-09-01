@@ -21,6 +21,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -176,6 +178,36 @@ public class Utils {
         return alarmOnQuarterHour;
     }
 
+
+    public static void cancelAlarmOnQuarterHour(Context context, PendingIntent quarterlyIntent) {
+        if (quarterlyIntent != null && context != null) {
+            ((AlarmManager) context.getSystemService(Context.ALARM_SERVICE)).cancel(
+                    quarterlyIntent);
+        }
+    }
+
+
+    /**
+     * Setup alarm refresh when the quarter-hour changes *
+     */
+    public static PendingIntent startAlarmOnQuarterHour(Context context) {
+        if (context != null) {
+            PendingIntent quarterlyIntent = PendingIntent.getBroadcast(
+                    context, 0, new Intent(Utils.ACTION_ON_QUARTER_HOUR), 0);
+            ((AlarmManager) context.getSystemService(Context.ALARM_SERVICE)).setRepeating(
+                    AlarmManager.RTC, getAlarmOnQuarterHour(),
+                    AlarmManager.INTERVAL_FIFTEEN_MINUTES, quarterlyIntent);
+            return quarterlyIntent;
+        } else {
+            return null;
+        }
+    }
+
+    public static PendingIntent refreshAlarmOnQuarterHour(
+            Context context, PendingIntent quarterlyIntent) {
+        cancelAlarmOnQuarterHour(context, quarterlyIntent);
+        return startAlarmOnQuarterHour(context);
+    }
     /**
      * For screensavers to set whether the digital or analog clock should be displayed.
      * Returns the view to be displayed.

@@ -44,13 +44,13 @@
 
         <cz.mpelant.deskclock.ZeroTopPaddingTextView
                 android:id="@+id/timeDisplayHoursThin"
-                android:paddingRight="@dimen/time_margin_right"
-                style="@style/big_thin"
-                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="none"
+                android:paddingRight="@dimen/time_margin_right"
+                android:paddingEnd="@dimen/time_margin_right"
+                style="@style/big_thin"
                 android:singleLine="true"
+                android:ellipsize="none"
                 android:textColor="@color/clock_white"
                 />
 

@@ -47,7 +47,7 @@ public class DigitalClock extends LinearLayout {
 
     private Calendar mCalendar;
     private String mHoursFormat;
-    private TextView mTimeDisplayHours, mTimeDisplayMinutes;
+    private TextView mTimeDisplayHours, mTimeDisplayHoursThin, mTimeDisplayMinutes;
     private AmPm mAmPm;
     private ContentObserver mFormatChangeObserver;
     private boolean mLive = true;
@@ -124,6 +124,7 @@ public class DigitalClock extends LinearLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
+        mTimeDisplayHoursThin= (TextView) findViewById(R.id.timeDisplayHoursThin);
         mTimeDisplayHours = (TextView) findViewById(R.id.timeDisplayHours);
         mTimeDisplayMinutes = (TextView) findViewById(R.id.timeDisplayMinutes);
         mTimeDisplayMinutes.setTypeface(mRobotoThin);
@@ -199,6 +200,7 @@ public class DigitalClock extends LinearLayout {
         StringBuilder fullTimeStr = new StringBuilder();
         CharSequence newTime = DateFormat.format(mHoursFormat, mCalendar);
         mTimeDisplayHours.setText(newTime);
+        mTimeDisplayHoursThin.setText(newTime);
         fullTimeStr.append(newTime);
         newTime = DateFormat.format(MINUTES, mCalendar);
         fullTimeStr.append(newTime);

@@ -35,12 +35,12 @@ public class Screensaver extends DreamService {
 
     private final Handler mHandler = new Handler();
 
-    private final ScreensaverRunnable mMoveSaverRunnable;
+    private final ScreensaverMoveSaverRunnable mMoveSaverRunnable;
 
     public Screensaver() {
         if (DEBUG)
             Log.d(TAG, "Screensaver allocated");
-        mMoveSaverRunnable = new ScreensaverRunnable(mHandler);
+        mMoveSaverRunnable = new ScreensaverMoveSaverRunnable(mHandler);
     }
 
     @Override

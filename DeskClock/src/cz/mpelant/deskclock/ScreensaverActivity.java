@@ -37,12 +37,12 @@ public class ScreensaverActivity extends BaseScreenOnActivity {
     private View mAnalogClock, mDigitalClock;
 
     private final Handler mHandler = new Handler();
-    private final ScreensaverRunnable mMoveSaverRunnable;
+    private final ScreensaverMoveSaverRunnable mMoveSaverRunnable;
     private String mDateFormat;
     private String mDateFormatForAccessibility;
 
     public ScreensaverActivity() {
-        mMoveSaverRunnable = new ScreensaverRunnable(mHandler);
+        mMoveSaverRunnable = new ScreensaverMoveSaverRunnable(mHandler);
     }
 
     @Override

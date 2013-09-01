@@ -930,7 +930,7 @@ cz.mpelant.deskclock.Screensaver -> cz.mpelant.deskclock.Screensaver:
     android.view.View mAnalogClock -> c
     android.view.View mDigitalClock -> d
     android.os.Handler mHandler -> e
-    cz.mpelant.deskclock.ScreensaverRunnable mMoveSaverRunnable -> f
+    cz.mpelant.deskclock.ScreensaverMoveSaverRunnable mMoveSaverRunnable -> f
     50:51:void onCreate() -> onCreate
     57:60:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
     66:72:void onAttachedToWindow() -> onAttachedToWindow
@@ -942,7 +942,7 @@ cz.mpelant.deskclock.ScreensaverActivity -> cz.mpelant.deskclock.ScreensaverActi
     android.view.View mAnalogClock -> c
     android.view.View mDigitalClock -> d
     android.os.Handler mHandler -> e
-    cz.mpelant.deskclock.ScreensaverRunnable mMoveSaverRunnable -> f
+    cz.mpelant.deskclock.ScreensaverMoveSaverRunnable mMoveSaverRunnable -> f
     java.lang.String mDateFormat -> g
     java.lang.String mDateFormatForAccessibility -> h
     50:58:void onResume() -> onResume
@@ -952,7 +952,7 @@ cz.mpelant.deskclock.ScreensaverActivity -> cz.mpelant.deskclock.ScreensaverActi
     96:111:void layoutClockSaver() -> c
     115:117:void updateViews() -> a
     121:121:int getAdditionalFlags() -> b
-cz.mpelant.deskclock.ScreensaverRunnable -> cz.mpelant.deskclock.o:
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable -> cz.mpelant.deskclock.o:
     android.view.View mContentView -> e
     android.view.View mSaverView -> f
     android.widget.TextView mDate -> a
@@ -969,23 +969,23 @@ cz.mpelant.deskclock.ScreensaverRunnable -> cz.mpelant.deskclock.o:
     157:189:void handleUpdate() -> a
     192:192:boolean isPrefEnabled$505cbf47(java.lang.String) -> a
     245:252:void setViewVisibility(android.view.View,int) -> a
-    244:244:void access$8(cz.mpelant.deskclock.ScreensaverRunnable,android.view.View,int) -> a
-cz.mpelant.deskclock.ScreensaverRunnable$1 -> cz.mpelant.deskclock.p:
-    cz.mpelant.deskclock.ScreensaverRunnable this$0 -> a
+    244:244:void access$8(cz.mpelant.deskclock.ScreensaverMoveSaverRunnable,android.view.View,int) -> a
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable$1 -> cz.mpelant.deskclock.p:
+    cz.mpelant.deskclock.ScreensaverMoveSaverRunnable this$0 -> a
     51:51:float getInterpolation(float) -> getInterpolation
-cz.mpelant.deskclock.ScreensaverRunnable$2 -> cz.mpelant.deskclock.q:
-    cz.mpelant.deskclock.ScreensaverRunnable this$0 -> a
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable$2 -> cz.mpelant.deskclock.q:
+    cz.mpelant.deskclock.ScreensaverMoveSaverRunnable this$0 -> a
     134:135:void run() -> run
-cz.mpelant.deskclock.ScreensaverRunnable$3 -> cz.mpelant.deskclock.r:
-    cz.mpelant.deskclock.ScreensaverRunnable this$0 -> a
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable$3 -> cz.mpelant.deskclock.r:
+    cz.mpelant.deskclock.ScreensaverMoveSaverRunnable this$0 -> a
     172:182:void run() -> run
-cz.mpelant.deskclock.ScreensaverRunnable$4 -> cz.mpelant.deskclock.s:
-    cz.mpelant.deskclock.ScreensaverRunnable this$0 -> a
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable$4 -> cz.mpelant.deskclock.s:
+    cz.mpelant.deskclock.ScreensaverMoveSaverRunnable this$0 -> a
     android.view.View val$image -> b
     android.content.Context val$context -> c
     211:225:void run(android.accounts.AccountManagerFuture) -> run
-cz.mpelant.deskclock.ScreensaverRunnable$5 -> cz.mpelant.deskclock.t:
-    cz.mpelant.deskclock.ScreensaverRunnable this$0 -> a
+cz.mpelant.deskclock.ScreensaverMoveSaverRunnable$5 -> cz.mpelant.deskclock.t:
+    cz.mpelant.deskclock.ScreensaverMoveSaverRunnable this$0 -> a
     android.view.View val$view -> b
     int val$visibility -> c
     249:250:void run() -> run
