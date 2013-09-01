@@ -114,16 +114,21 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
 
         pref = findPreference(KEY_NOTIF_LISTENER);
         if (pref != null) {
-            ((CheckBoxPreference) pref).setChecked(NotificationListener.instance != null);
-            pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    Intent i = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
-                    startActivityForResult(i, REQUEST_CODE_NOTIF);
-                    Toast.makeText(ScreensaverSettingsActivity.this, getString(R.string.enable_loc_listener_tip), Toast.LENGTH_SHORT).show();
-                    return true;
-                }
-            });
+            try {
+                ((CheckBoxPreference) pref).setChecked(NotificationListener.instance != null);
+                pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                    @Override
+                    public boolean onPreferenceClick(Preference preference) {
+                        Intent i = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
+                        startActivityForResult(i, REQUEST_CODE_NOTIF);
+                        Toast.makeText(ScreensaverSettingsActivity.this, getString(R.string.enable_loc_listener_tip), Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                });
+            }catch (NoClassDefFoundError error){//weird SGSIII error - pref should be null because it is only in xml-v18
+                error.printStackTrace();
+            }
+
         }
 
         pref = findPreference(KEY_BATTERY);
