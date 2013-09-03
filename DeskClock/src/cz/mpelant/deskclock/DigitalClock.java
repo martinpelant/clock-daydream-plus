@@ -34,8 +34,6 @@ import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-import cz.mpelant.deskclock.R;
-
 /**
  * Displays the time
  */
@@ -52,7 +50,7 @@ public class DigitalClock extends LinearLayout {
     private ContentObserver mFormatChangeObserver;
     private boolean mLive = true;
     private boolean mAttached;
-    private final Typeface mRobotoThin;
+    private final Typeface mRobotoThin, mRobotoBold, mRobotoCondensed;
     private String mTimeZoneId;
 
 
@@ -78,8 +76,9 @@ public class DigitalClock extends LinearLayout {
         private final TextView mAmPm;
         private final String mAmString, mPmString;
 
-        AmPm(View parent) {
+        AmPm(View parent, Typeface typeface) {
             mAmPm = (TextView) parent.findViewById(R.id.am_pm);
+            mAmPm.setTypeface(typeface);
 
             String[] ampm = new DateFormatSymbols().getAmPmStrings();
             mAmString = ampm[0];
@@ -118,6 +117,8 @@ public class DigitalClock extends LinearLayout {
     public DigitalClock(Context context, AttributeSet attrs) {
         super(context, attrs);
         mRobotoThin = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Thin.ttf");
+        mRobotoBold = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Bold.ttf");
+        mRobotoCondensed = Typeface.createFromAsset(context.getAssets(), "fonts/RobotoCondensed-Bold.ttf");
     }
 
     @Override
@@ -127,9 +128,10 @@ public class DigitalClock extends LinearLayout {
         mTimeDisplayHoursThin= (TextView) findViewById(R.id.timeDisplayHoursThin);
         mTimeDisplayHours = (TextView) findViewById(R.id.timeDisplayHours);
         mTimeDisplayMinutes = (TextView) findViewById(R.id.timeDisplayMinutes);
+        mTimeDisplayHours.setTypeface(mRobotoBold);
         mTimeDisplayHoursThin.setTypeface(mRobotoThin);
         mTimeDisplayMinutes.setTypeface(mRobotoThin);
-        mAmPm = new AmPm(this);
+        mAmPm = new AmPm(this, mRobotoCondensed);
         mCalendar = Calendar.getInstance();
 
         setDateFormat();
