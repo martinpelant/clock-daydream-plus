@@ -46,6 +46,11 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="Misc">
         <CheckBoxPreference
+                android:defaultValue="false"
+                android:key="orientation"
+                android:summary="@string/force_rotation_summary"
+                android:title="@string/force_rotation" />
+        <CheckBoxPreference
                 android:defaultValue="true"
                 android:key="battery"
                 android:summary="@string/show_battery_status"

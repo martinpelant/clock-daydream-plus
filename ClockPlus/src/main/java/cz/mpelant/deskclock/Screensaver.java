@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.service.dreams.DreamService;
 import android.util.Log;
@@ -55,7 +56,7 @@ public class Screensaver extends DreamService {
     }
 
     private boolean isAutoOrientationForced() {
-        return false;
+        return PreferenceManager.getDefaultSharedPreferences(this).getBoolean(ScreensaverSettingsActivity.KEY_ORIENTATION, false);
     }
 
     @Override

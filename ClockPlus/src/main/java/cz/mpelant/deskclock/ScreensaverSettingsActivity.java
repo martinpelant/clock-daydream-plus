@@ -42,6 +42,7 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
     static final String KEY_NOTIF_LISTENER = "notif_listener";
     static final String KEY_NOTIF_GMAIL = "notif_gmail";
     static final String KEY_NOTIF_SMS = "notif_sms";
+    static final String KEY_ORIENTATION = "orientation";
     static final String KEY_NOTIF_MISSED_CALLS = "notif_missed_calls";
     static final String KEY_HIDE_ACTIVITY = "hide_activity";
     static final String KEY_BATTERY = "battery";
@@ -128,6 +129,9 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
         }
 
         pref = findPreference(KEY_BATTERY);
+        pref.setOnPreferenceChangeListener(this);
+
+        pref = findPreference(KEY_ORIENTATION);
         pref.setOnPreferenceChangeListener(this);
 
         pref = findPreference(KEY_HIDE_ACTIVITY);
