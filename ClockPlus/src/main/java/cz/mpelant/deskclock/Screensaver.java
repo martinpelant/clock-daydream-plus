@@ -17,17 +17,21 @@
 package cz.mpelant.deskclock;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.service.dreams.DreamService;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 
 @TargetApi(17)
 public class Screensaver extends DreamService {
-    static final boolean DEBUG = false;
+    static final boolean DEBUG = BuildConfig.DEBUG;
     static final String TAG = "DeskClock/Screensaver";
 
     private View mContentView, mSaverView;
@@ -50,13 +54,19 @@ public class Screensaver extends DreamService {
         super.onCreate();
     }
 
+    private boolean isAutoOrientationForced() {
+        return false;
+    }
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         if (DEBUG)
             Log.d(TAG, "Screensaver configuration changed");
         super.onConfigurationChanged(newConfig);
         mHandler.removeCallbacks(mMoveSaverRunnable);
-        layoutClockSaver();
+        if (!isAutoOrientationForced()) {
+            layoutClockSaver();
+        }
     }
 
     @Override
@@ -68,7 +78,15 @@ public class Screensaver extends DreamService {
         // We want the screen saver to exit upon user interaction.
         setInteractive(false);
         setFullscreen(true);
-        layoutClockSaver();
+        if (isAutoOrientationForced()) {
+
+            Intent intent = new Intent(this, ScreensaverActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+        } else {
+            layoutClockSaver();
+        }
     }
 
     @Override
@@ -93,7 +111,6 @@ public class Screensaver extends DreamService {
             getWindow().setAttributes(lp);
         }
         setScreenBright(!dim);
-       
 
     }
 

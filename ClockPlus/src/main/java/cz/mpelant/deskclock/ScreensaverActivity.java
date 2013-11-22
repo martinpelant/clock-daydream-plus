@@ -26,7 +26,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 public class ScreensaverActivity extends BaseScreenOnActivity {
-    static final boolean DEBUG = false;
+    static final boolean DEBUG = BuildConfig.DEBUG;
     static final String TAG = "DeskClock/ScreensaverActivity";
 
     // This value must match android:defaultValue of
@@ -86,7 +86,7 @@ public class ScreensaverActivity extends BaseScreenOnActivity {
         boolean dim = brightness < ScreensaverSettingsActivity.BRIGHTNESS_NIGHT;
         if (dim) {
             WindowManager.LayoutParams lp = getWindow().getAttributes();
-            lp.buttonBrightness=0;
+            lp.buttonBrightness = 0;
             lp.screenBrightness = 0.01f;
             getWindow().setAttributes(lp);
         }
@@ -119,7 +119,7 @@ public class ScreensaverActivity extends BaseScreenOnActivity {
 
     @Override
     protected int getAdditionalFlags() {
-        return WindowManager.LayoutParams.FLAG_FULLSCREEN;
+        return WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON;
     }
 
 }

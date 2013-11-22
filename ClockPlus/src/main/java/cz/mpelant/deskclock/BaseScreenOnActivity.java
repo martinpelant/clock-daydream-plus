@@ -109,7 +109,7 @@ public abstract class BaseScreenOnActivity extends Activity {
             winParams.flags &= (~mFlags);
         win.setAttributes(winParams);
     }
-    
+
     protected int getAdditionalFlags() {
         return 0;
     }
