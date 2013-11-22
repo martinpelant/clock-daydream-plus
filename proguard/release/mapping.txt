@@ -179,11 +179,12 @@ cz.mpelant.deskclock.Screensaver -> cz.mpelant.deskclock.Screensaver:
     android.view.View mDigitalClock -> d
     android.os.Handler mHandler -> e
     cz.mpelant.deskclock.ScreensaverMoveSaverRunnable mMoveSaverRunnable -> f
-    50:51:void onCreate() -> onCreate
-    57:60:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
-    66:72:void onAttachedToWindow() -> onAttachedToWindow
-    78:81:void onDetachedFromWindow() -> onDetachedFromWindow
-    101:114:void layoutClockSaver() -> a
+    55:56:void onCreate() -> onCreate
+    59:59:boolean isAutoOrientationForced() -> a
+    66:71:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    77:91:void onAttachedToWindow() -> onAttachedToWindow
+    97:100:void onDetachedFromWindow() -> onDetachedFromWindow
+    119:132:void layoutClockSaver() -> b
 cz.mpelant.deskclock.ScreensaverActivity -> cz.mpelant.deskclock.ScreensaverActivity:
     android.view.View mContentView -> a
     android.view.View mSaverView -> b
@@ -228,16 +229,16 @@ cz.mpelant.deskclock.ScreensaverMoveSaverRunnable$3$1 -> cz.mpelant.deskclock.s:
     cz.mpelant.deskclock.ScreensaverMoveSaverRunnable$3 this$1 -> a
     211:212:void run() -> run
 cz.mpelant.deskclock.ScreensaverSettingsActivity -> cz.mpelant.deskclock.ScreensaverSettingsActivity:
-    55:62:void onCreate(android.os.Bundle) -> onCreate
-    66:68:void onResume() -> onResume
-    72:85:boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
-    90:147:void refresh() -> a
-    151:155:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    166:172:int getVersionCode(android.content.Context) -> a
-    184:190:java.lang.String getVersionName(android.content.Context) -> b
+    56:63:void onCreate(android.os.Bundle) -> onCreate
+    67:69:void onResume() -> onResume
+    73:86:boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
+    91:151:void refresh() -> a
+    155:159:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    170:176:int getVersionCode(android.content.Context) -> a
+    188:194:java.lang.String getVersionName(android.content.Context) -> b
 cz.mpelant.deskclock.ScreensaverSettingsActivity$1 -> cz.mpelant.deskclock.t:
     cz.mpelant.deskclock.ScreensaverSettingsActivity this$0 -> a
-    118:121:boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+    119:122:boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
 cz.mpelant.deskclock.Utils -> cz.mpelant.deskclock.u:
     java.lang.String TAG -> a
     java.lang.String sCachedVersionCode -> b
