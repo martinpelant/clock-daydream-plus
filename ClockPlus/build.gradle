@@ -54,7 +54,7 @@ android {
 	buildToolsVersion "19.0.0"
 
 	defaultConfig {
-		minSdkVersion 9
+		minSdkVersion 14
 		targetSdkVersion 19
 		versionName mVersion //value from gradle.properties (it is available automatically)
 		versionCode mBuild.toInteger()//value from gradle.properties
