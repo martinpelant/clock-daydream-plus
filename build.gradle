@@ -1,1 +1,126 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+import com.android.builder.model.ProductFlavor;
+
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'com.android.tools.build:gradle:0.12.+'
+		classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.10.+'
+	}
+}
+
+allprojects {
+	repositories {
+		mavenCentral()
+	}
+}
+
+/**
+ * Creates app's version name as specified by eMan versioning convention.
+ * @param isTestBuild False if build is release, true otherwise.
+ * @param defaultVersion Number of version (eg. 1.0.4,  2.1).
+ * @param versionCode Version code.
+ * @param flavors List of flavors used for current build.
+ * @return String that contains complete version name as specified by eMan versioning convention.
+ */
+String getFullVersionName(boolean isTestBuild, String defaultVersion, int versionCode, List<ProductFlavor> flavors) {
+	boolean isStoreBuild = true;
+	String apiSpec = null
+	String mergedFlavorsComments = ""
+	for(int i = 0; i < flavors.size(); ++i) {
+		ProductFlavor flavor = flavors.get(i)
+		String flavorVersionName = flavor.versionName
+		if(flavorVersionName.startsWith("#PA") || flavorVersionName.startsWith("#TA")) {
+			apiSpec = flavorVersionName.substring(1)
+		} else {
+			mergedFlavorsComments = mergedFlavorsComments + flavorVersionName
+		}
+		boolean isReleaseFlavor = flavorVersionName.startsWith("#PA") || flavor.name.endsWith("prod") || flavor.name.endsWith("Prod")
+		isStoreBuild = isStoreBuild && isReleaseFlavor
+	}
+
+	if (isTestBuild & isStoreBuild) {
+		return defaultVersion;
+	}
+
+	String fullVersionName = defaultVersion + "."
+	String[] apiSpecParts = null
+	if(apiSpec != null) {
+		apiSpecParts = apiSpec.split(" ")
+		if(apiSpecParts.length > 0) {
+			fullVersionName = fullVersionName + apiSpecParts[0]
+		}
+	}
+	fullVersionName = fullVersionName + (isTestBuild ? "PB" : "TB")
+	if(apiSpecParts != null && apiSpecParts.length > 1) {
+		for(int i = 1; i < apiSpecParts.length; i++) {
+			fullVersionName = fullVersionName + " " + apiSpecParts[i]
+		}
+	}
+	if(!mergedFlavorsComments.equals("")) {
+		fullVersionName = fullVersionName + mergedFlavorsComments
+	}
+	return fullVersionName + " " + getShortCommitHash() + " (" + versionCode + ")"
+}
+
+/**
+ * Creates empty mapping files for all application variants. (even without proguard).
+ * Needed when building on jenkins without proguard. Uploading to HockeyApp fails without mapping file.
+ * @param rootDir Path to project's root directory.
+ * @param variantDir Name of build variant directory in following format:
+ *      "<build type>/<build flavor>", can be followed by mor flavors as "/<build flavor>"
+ */
+void createDummyMappingFiles(String rootDir, String variantDir) {
+	File mappingFile = new File(rootDir + "/proguard/" + variantDir + "/mapping.txt")
+	mappingFile.parentFile.mkdirs();
+	mappingFile.createNewFile();
+}
+
+/**
+ * Creates String specifing used API.
+ * Format: #<P/T (production/test)>A<api version - if not 0> <api comment - if not "" or null>
+ * @param isTestApi False if api is ment for production, true otherwise.
+ * @param apiVersion Version of api.
+ * @param apiComment Comment for api. Usually contains brief description.
+ * @return String specifiing used API.
+ */
+String getApiSpec(boolean isTestApi, int apiVersion, String apiComment) {
+	String spec = (isTestApi ? "T" : "P") + "A"
+	if(apiVersion > 0) {
+		spec = spec + apiVersion
+	}
+	if(apiComment != null && !apiComment.equals("")) {
+		spec = spec + " " + apiComment
+	}
+	return "#" + spec
+}
+
+/**
+ * Gets number of commits in projects repository.
+ * @return Number of commits in projects repository.
+ */
+def getGitCommits() {
+	def stdout = new ByteArrayOutputStream()
+	exec {
+		commandLine 'git', 'rev-list', 'HEAD', '--count'
+		standardOutput = stdout
+	}
+	println stdout.toString().trim()
+	return Integer.parseInt(stdout.toString().trim())
+}
+
+/**
+ * Gets short hash of last commit in projects repository.
+ * @return Short hash of last commit in projects repository.
+ */
+def getShortCommitHash() {
+	def stdout = new ByteArrayOutputStream()
+	exec {
+		commandLine 'git', 'rev-parse', '--short', 'HEAD'
+		standardOutput = stdout
+	}
+	println stdout.toString().trim()
+	return stdout.toString().trim();
+}

@@ -1,0 +1,95 @@
+import groovy.swing.SwingBuilder
+
+//to get release signing password from console
+task readPasswordFromInput << {
+	android.signingConfigs.release.storePassword = ''
+	if (System.console() == null) {
+		new SwingBuilder().edt {
+			dialog(modal: true, // Otherwise the build will continue running before you closed the dialog
+					title: 'Enter keystore password', // Dialog title
+					alwaysOnTop: true, // pretty much what the name says
+					resizable: false, // Don't allow the user to resize the dialog
+					locationRelativeTo: null, // Place dialog in center of the screen
+					pack: true, // We need to pack the dialog (so it will take the size of it's children)
+					show: true // Let's show it
+			) {
+				vbox { // Put everything below each other
+					label(text: "Enter keystore password:")
+					input = passwordField()
+					button(defaultButton: true, text: 'OK', actionPerformed: {
+						android.signingConfigs.release.storePassword = new String(input.password);
+						// Set pass variable to value of input field
+						dispose(); // Close dialog
+					})
+				} // vbox end
+			} // dialog end
+		} // edt end
+
+		new SwingBuilder().edt {
+			dialog(modal: true, // Otherwise the build will continue running before you closed the dialog
+					title: 'Enter password', // Dialog title
+					alwaysOnTop: true, // pretty much what the name says
+					resizable: false, // Don't allow the user to resize the dialog
+					locationRelativeTo: null, // Place dialog in center of the screen
+					pack: true, // We need to pack the dialog (so it will take the size of it's children)
+					show: true // Let's show it
+			) {
+				vbox { // Put everything below each other
+					label(text: "Enter key password:")
+					input = passwordField()
+					button(defaultButton: true, text: 'OK', actionPerformed: {
+						android.signingConfigs.release.keyPassword = new String(input.password);
+						// Set pass variable to value of input field
+						dispose(); // Close dialog
+					})
+				} // vbox end
+			} // dialog end
+		} // edt end
+	} else {
+		def console = System.console()
+		ext.keystorePassword = console.readLine('\n\n\n> Enter keystore password: ')
+		android.signingConfigs.release.storePassword = ext.keystorePassword
+		ext.keyPassword = console.readLine('\n\n\n> Enter key password: ')
+		android.signingConfigs.release.keyPassword = ext.keyPassword
+	}
+
+	if (android.signingConfigs.release.storePassword.size() <= 0) {
+		throw new InvalidUserDataException("You must enter a password to proceed.")
+	}
+
+}
+/**
+ * Hook for reading keystore password and for copying proguard mapping into proguard
+ * folder in project's root. Mapping copying is done because we do not want to put whole build
+ * folder to git, just the mappings.
+ */
+tasks.whenTaskAdded { task ->
+    if (task.name == 'validateReleaseSigning') {//only once per release build (doesn't matter how many flavours)
+        task.dependsOn readPasswordFromInput
+    } else if (task.name.startsWith("proguard")) {//copy proguard mappings
+        task << {
+            copy {
+                from buildDir.getPath() + "outputs/proguard"
+                into '../proguard'
+                include '**/mapping.txt'
+            }
+            println "PROGUARD FILES COPIED"
+        }
+    }
+}
+
+/**
+ * For every application variant obtains verion name and ensures that dummy mapping files
+ * are copied. Dummy mapping files are empty mapping files for non obfuscated application's
+ * variants. These are created because of Jenkins upload to hockey app, where it tries to find
+ * mapping file for non obfuscated variant.
+ */
+android {
+    applicationVariants.all { variant ->
+        boolean isTestBuild = variant.buildType.name == 'release'
+        variant.mergedFlavor.versionName =
+                getFullVersionName(isTestBuild, android.defaultConfig.versionName,
+                        android.defaultConfig.versionCode, variant.productFlavors)
+        createDummyMappingFiles("$rootDir", dirName)
+    }
+}

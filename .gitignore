@@ -16,10 +16,7 @@ out/
 out/
 build/
 .idea/
-gradle/
 .gradle/
-gradlew*
-
 
 
 #iml files
