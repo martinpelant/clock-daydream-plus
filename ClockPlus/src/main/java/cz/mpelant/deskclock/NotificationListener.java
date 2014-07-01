@@ -47,7 +47,7 @@ public class NotificationListener extends NotificationListenerService {
         for (StatusBarNotification notif : notifs) {
 
             try {
-                if (notif.getNotification().priority > Notification.PRIORITY_MIN) {
+                if (notif.getNotification().priority > Notification.PRIORITY_MIN && (notif.getNotification().flags & Notification.FLAG_ONGOING_EVENT) == 0) {
                     notifications.add(new NotificationInfo(this, notif.getPackageName(), notif.getNotification()));
                 }
             } catch (PackageManager.NameNotFoundException e) {

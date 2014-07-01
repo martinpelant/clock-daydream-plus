@@ -3,6 +3,7 @@ package cz.mpelant.deskclock.notification;
 import android.app.Notification;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,7 +23,12 @@ public class NotificationInfo {
     public NotificationInfo(Context ctx, String pkg, Notification notification) throws PackageManager.NameNotFoundException, IconNotFoundException {
 
         Context remoteCtx = ctx.createPackageContext(pkg, 0);
-        mDrawable = remoteCtx.getResources().getDrawable(notification.icon);
+        try {
+            mDrawable = remoteCtx.getResources().getDrawable(notification.icon);
+        }catch (Resources.NotFoundException ignored){
+
+        }
+
         if(mDrawable==null){
             throw new IconNotFoundException();
         }

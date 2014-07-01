@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.6.+'
+        classpath 'com.android.tools.build:gradle:0.12.+'
     }
 }
 apply plugin: 'android'
@@ -51,7 +51,7 @@ tasks.whenTaskAdded { task ->
 
 android {
 	compileSdkVersion 19
-	buildToolsVersion "19.0.0"
+	buildToolsVersion "20"
 
 	defaultConfig {
 		minSdkVersion 14
