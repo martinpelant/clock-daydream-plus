@@ -105,7 +105,12 @@ public class ScreensaverActivity extends BaseScreenOnActivity {
 
         mMoveSaverRunnable.registerViews(mContentView, mSaverView);
 
-        mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        if(Build.VERSION.SDK_INT>=19){
+            mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN);
+        }else{
+            mContentView.setSystemUiVisibility( View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        }
+
 
         Utils.updateDate(mDateFormat, mDateFormatForAccessibility, mContentView);
         Utils.refreshAlarm(ScreensaverActivity.this, mContentView);

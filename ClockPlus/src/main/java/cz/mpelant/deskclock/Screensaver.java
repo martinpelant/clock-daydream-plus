@@ -19,15 +19,12 @@ package cz.mpelant.deskclock;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Handler;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.service.dreams.DreamService;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 
 @TargetApi(17)
@@ -126,7 +123,9 @@ public class Screensaver extends DreamService {
             return;
         mContentView = (View) mSaverView.getParent();
         mSaverView.setAlpha(0);
-
+        if (Build.VERSION.SDK_INT >= 19) {
+            mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN);
+        }
         mMoveSaverRunnable.registerViews(mContentView, mSaverView);
         mHandler.post(mMoveSaverRunnable);
     }
