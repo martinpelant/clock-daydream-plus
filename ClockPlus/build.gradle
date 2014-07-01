@@ -21,10 +21,18 @@ android {
 		}
 	}
 
+	lintOptions {
+		ignore 'MissingTranslation'
+		ignore 'ExtraTranslation'
+		abortOnError false
+	}
+
 	buildTypes {
-		debug {//automatically marks src/debug as a source folders in addition to src/main if used and if the folder exists
+		debug {
+//automatically marks src/debug as a source folders in addition to src/main if used and if the folder exists
 		}
-		release {//automatically marks src/release as a source folders in addition to src/main if used and if the folder exists
+		release {
+//automatically marks src/release as a source folders in addition to src/main if used and if the folder exists
 			runProguard true
 			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), file('proguard-project.txt')
 			signingConfig signingConfigs.release

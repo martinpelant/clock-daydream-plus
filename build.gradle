@@ -25,23 +25,11 @@ allprojects {
  * @param flavors List of flavors used for current build.
  * @return String that contains complete version name as specified by eMan versioning convention.
  */
-String getFullVersionName(boolean isTestBuild, String defaultVersion, int versionCode, List<ProductFlavor> flavors) {
-	boolean isStoreBuild = true;
+String getFullVersionName(boolean isStoreBuild, String defaultVersion, int versionCode, List<ProductFlavor> flavors) {
 	String apiSpec = null
 	String mergedFlavorsComments = ""
-	for(int i = 0; i < flavors.size(); ++i) {
-		ProductFlavor flavor = flavors.get(i)
-		String flavorVersionName = flavor.versionName
-		if(flavorVersionName.startsWith("#PA") || flavorVersionName.startsWith("#TA")) {
-			apiSpec = flavorVersionName.substring(1)
-		} else {
-			mergedFlavorsComments = mergedFlavorsComments + flavorVersionName
-		}
-		boolean isReleaseFlavor = flavorVersionName.startsWith("#PA") || flavor.name.endsWith("prod") || flavor.name.endsWith("Prod")
-		isStoreBuild = isStoreBuild && isReleaseFlavor
-	}
 
-	if (isTestBuild & isStoreBuild) {
+	if (isStoreBuild) {
 		return defaultVersion;
 	}
 
@@ -53,7 +41,7 @@ String getFullVersionName(boolean isTestBuild, String defaultVersion, int versio
 			fullVersionName = fullVersionName + apiSpecParts[0]
 		}
 	}
-	fullVersionName = fullVersionName + (isTestBuild ? "PB" : "TB")
+	fullVersionName = fullVersionName + (isStoreBuild ? "PB" : "TB")
 	if(apiSpecParts != null && apiSpecParts.length > 1) {
 		for(int i = 1; i < apiSpecParts.length; i++) {
 			fullVersionName = fullVersionName + " " + apiSpecParts[i]

@@ -86,10 +86,11 @@ tasks.whenTaskAdded { task ->
  */
 android {
     applicationVariants.all { variant ->
-        boolean isTestBuild = variant.buildType.name == 'release'
+        boolean isStoreBuild = variant.buildType.name.contains("release")
         variant.mergedFlavor.versionName =
-                getFullVersionName(isTestBuild, android.defaultConfig.versionName,
+                getFullVersionName(true, android.defaultConfig.versionName,
                         android.defaultConfig.versionCode, variant.productFlavors)
+
         createDummyMappingFiles("$rootDir", dirName)
     }
 }
