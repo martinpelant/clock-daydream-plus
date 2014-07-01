@@ -42,7 +42,7 @@ public class NotificationListener extends NotificationListenerService {
     }
 
     public List<NotificationInfo> getNotifications() {
-        List<NotificationInfo> notifications = new ArrayList<NotificationInfo>();
+        List<NotificationInfo> notifications = new ArrayList<>();
         StatusBarNotification[] notifs = getActiveNotifications();
         for (StatusBarNotification notif : notifs) {
 
