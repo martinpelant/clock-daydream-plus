@@ -6,7 +6,7 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
-		classpath 'com.android.tools.build:gradle:0.12.+'
+		classpath 'com.android.tools.build:gradle:1.2.+'
 		classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.10.+'
 	}
 }
@@ -90,13 +90,14 @@ String getApiSpec(boolean isTestApi, int apiVersion, String apiComment) {
  * @return Number of commits in projects repository.
  */
 def getGitCommits() {
-	def stdout = new ByteArrayOutputStream()
-	exec {
-		commandLine 'git', 'rev-list', 'HEAD', '--count'
-		standardOutput = stdout
-	}
-	println stdout.toString().trim()
-	return Integer.parseInt(stdout.toString().trim())
+	//def stdout = new ByteArrayOutputStream()
+	//exec {
+	//	commandLine 'git', 'rev-list', 'HEAD', '--count'
+	//	standardOutput = stdout
+	//}
+	//println stdout.toString().trim()
+	//return Integer.parseInt(stdout.toString().trim())
+	return 0
 }
 
 /**
@@ -104,11 +105,12 @@ def getGitCommits() {
  * @return Short hash of last commit in projects repository.
  */
 def getShortCommitHash() {
-	def stdout = new ByteArrayOutputStream()
-	exec {
-		commandLine 'git', 'rev-parse', '--short', 'HEAD'
-		standardOutput = stdout
-	}
-	println stdout.toString().trim()
-	return stdout.toString().trim();
+	//def stdout = new ByteArrayOutputStream()
+	//exec {
+	//	commandLine 'git', 'rev-parse', '--short', 'HEAD'
+	//	standardOutput = stdout
+	//}
+	//println stdout.toString().trim()
+	//return stdout.toString().trim();
+    return ''
 }

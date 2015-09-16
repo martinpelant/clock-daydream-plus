@@ -35,8 +35,8 @@
     -->
     <string-array name="clock_style_entries2">
         <item>Analog</item>
+        <item>Digital (hours thick)</item>
         <item>Digital</item>
-        <item>Digital (old style)</item>
     </string-array>
 
     <!--
@@ -48,6 +48,32 @@
         <item>digital</item>
         <item>digital2</item>
     </string-array>
+
+    <!-- Header for a Clock Dream Setting referring to choosing small, medium or big size -->
+    <string name="clock_size">Size</string>
+
+    <!--
+     Entries listed in the ListPreference when invoking the clock style
+     preference.
+-->
+    <string-array name="clock_size_entries">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
+    <!--
+         Values that are retrieved from the ListPreference. These must match
+         the clock_style_entries above.
+    -->
+    <string-array name="clock_size_values" translatable="false">
+        <item>small</item>
+        <item>medium</item>
+        <item>large</item>
+    </string-array>
+
+
+
 
     <string name="desk_clock_help_url" translatable="false"></string>
     <!-- Label for the screen saver activity displayed on-screen when that activity must be represented to the user. -->

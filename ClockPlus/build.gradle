@@ -33,7 +33,7 @@ android {
 		}
 		release {
 //automatically marks src/release as a source folders in addition to src/main if used and if the folder exists
-			runProguard true
+			//runProguard true
 			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), file('proguard-project.txt')
 			signingConfig signingConfigs.release
 		}
