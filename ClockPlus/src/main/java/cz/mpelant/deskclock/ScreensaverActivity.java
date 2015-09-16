@@ -17,17 +17,22 @@
 package cz.mpelant.deskclock;
 
 import android.annotation.TargetApi;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 
 public class ScreensaverActivity extends BaseScreenOnActivity {
     static final boolean DEBUG = BuildConfig.DEBUG;
-    static final String TAG = "DeskClock/ScreensaverActivity";
+    static final String TAG = "DeskClock/ScreensaverAc";
 
     // This value must match android:defaultValue of
     // android:key="screensaver_clock_style" in dream_settings.xml
@@ -43,6 +48,20 @@ public class ScreensaverActivity extends BaseScreenOnActivity {
 
     public ScreensaverActivity() {
         mMoveSaverRunnable = new ScreensaverMoveSaverRunnable(mHandler);
+    }
+
+    /**
+     * <p>If the charging is over, for the activity to finish.</p>
+     */
+    public class PowerConnectionReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+            boolean isNotCharging = status == BatteryManager.BATTERY_STATUS_NOT_CHARGING;
+
+            if (isNotCharging)
+                finish();
+        }
     }
 
     @Override
@@ -66,7 +85,7 @@ public class ScreensaverActivity extends BaseScreenOnActivity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         if (DEBUG)
-            Log.d(TAG, "Screensaver configuration changed");
+            Log.d(TAG, "Screensaver config changed");
         super.onConfigurationChanged(newConfig);
         mHandler.removeCallbacks(mMoveSaverRunnable);
         layoutClockSaver();
@@ -81,8 +100,16 @@ public class ScreensaverActivity extends BaseScreenOnActivity {
     private void setClockStyle() {
         Utils.setClockStyle(this, mDigitalClock, mAnalogClock, ScreensaverSettingsActivity.KEY_CLOCK_STYLE);
         mSaverView = findViewById(R.id.main_clock);
-        int brightness = PreferenceManager.getDefaultSharedPreferences(this).getInt(ScreensaverSettingsActivity.KEY_BRIGHTNESS, ScreensaverSettingsActivity.BRIGHTNESS_DEFAULT);
+        int brightness = PreferenceManager.getDefaultSharedPreferences(this).getInt(
+                ScreensaverSettingsActivity.KEY_BRIGHTNESS,
+                ScreensaverSettingsActivity.BRIGHTNESS_DEFAULT);
         Utils.dimView(brightness, mSaverView);
+
+        String size = PreferenceManager.getDefaultSharedPreferences(this).getString(
+                ScreensaverSettingsActivity.KEY_CLOCK_SIZE,
+                ScreensaverSettingsActivity.SIZE_DEFAULT);
+        Utils.resizeContent((ViewGroup) mSaverView, size);
+
         boolean dim = brightness < ScreensaverSettingsActivity.BRIGHTNESS_NIGHT;
         if (dim) {
             WindowManager.LayoutParams lp = getWindow().getAttributes();
@@ -90,6 +117,7 @@ public class ScreensaverActivity extends BaseScreenOnActivity {
             lp.screenBrightness = 0.01f;
             getWindow().setAttributes(lp);
         }
+
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -105,13 +133,7 @@ public class ScreensaverActivity extends BaseScreenOnActivity {
 
         mMoveSaverRunnable.registerViews(mContentView, mSaverView);
 
-        if(Build.VERSION.SDK_INT>=19){
-            mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN);
-        }else{
-            mContentView.setSystemUiVisibility( View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        }
-
-
+        Utils.hideSystemUiAndRetry(mContentView);
         Utils.updateDate(mDateFormat, mDateFormatForAccessibility, mContentView);
         Utils.refreshAlarm(ScreensaverActivity.this, mContentView);
     }
@@ -126,5 +148,4 @@ public class ScreensaverActivity extends BaseScreenOnActivity {
     protected int getAdditionalFlags() {
         return WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON;
     }
-
 }

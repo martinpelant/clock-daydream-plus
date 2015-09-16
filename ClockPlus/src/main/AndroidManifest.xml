@@ -2,10 +2,12 @@
     package="cz.mpelant.deskclock"
      >
 
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="com.google.android.gm.permission.READ_CONTENT_PROVIDER" />
-    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <!--<uses-permission android:name="android.permission.READ_SMS" />-->
+    <!--<uses-permission android:name="android.permission.GET_ACCOUNTS" />-->
+    <!--<uses-permission android:name="com.google.android.gm.permission.READ_CONTENT_PROVIDER" />-->
+    <!--<uses-permission android:name="android.permission.READ_CALL_LOG" />-->
+
+    <uses-sdk android:minSdkVersion="17"/>
 
     <uses-feature
         android:name="android.hardware.telephony"
@@ -24,7 +26,9 @@
         <service
             android:name="Screensaver"
             android:exported="true"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:permission="android.permission.BIND_DREAM_SERVICE">
             <intent-filter>
                 <action android:name="android.service.dreams.DreamService" />
 
@@ -62,6 +66,9 @@
             android:excludeFromRecents="true"
             android:taskAffinity=""
             android:theme="@style/ScreensaverActivityTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
         </activity>
         <activity android:name="ClockActivity" >
             <intent-filter>
@@ -70,6 +77,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--<meta-data android:name="com.google.android.backup.api_key"
+            android:value="your_backup_service_key" />-->
 
     </application>
 

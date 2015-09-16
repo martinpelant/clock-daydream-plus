@@ -141,7 +141,7 @@ public class DigitalClock extends LinearLayout {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
 
-        if (Log.LOGV) Log.v("onAttachedToWindow " + this);
+//        if (Log.LOGV) Log.v("onAttachedToWindow " + this);
 
         if (mAttached) return;
         mAttached = true;

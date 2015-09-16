@@ -25,6 +25,7 @@ import android.preference.PreferenceManager;
 import android.service.dreams.DreamService;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 
 @TargetApi(17)
@@ -99,8 +100,15 @@ public class Screensaver extends DreamService {
     private void setClockStyle() {
         Utils.setClockStyle(this, mDigitalClock, mAnalogClock, ScreensaverSettingsActivity.KEY_CLOCK_STYLE);
         mSaverView = findViewById(R.id.main_clock);
-        int brightness = PreferenceManager.getDefaultSharedPreferences(this).getInt(ScreensaverSettingsActivity.KEY_BRIGHTNESS, ScreensaverSettingsActivity.BRIGHTNESS_DEFAULT);
+        int brightness = PreferenceManager.getDefaultSharedPreferences(this).getInt(
+                ScreensaverSettingsActivity.KEY_BRIGHTNESS,
+                ScreensaverSettingsActivity.BRIGHTNESS_DEFAULT);
         Utils.dimView(brightness, mSaverView);
+
+        String size = PreferenceManager.getDefaultSharedPreferences(this).getString(
+                ScreensaverSettingsActivity.KEY_CLOCK_SIZE,
+                ScreensaverSettingsActivity.SIZE_DEFAULT);
+        Utils.resizeContent((ViewGroup) mSaverView, size);
 
         boolean dim = brightness < ScreensaverSettingsActivity.BRIGHTNESS_NIGHT;
         if (dim) {
@@ -124,7 +132,7 @@ public class Screensaver extends DreamService {
         mContentView = (View) mSaverView.getParent();
         mSaverView.setAlpha(0);
         if (Build.VERSION.SDK_INT >= 19) {
-            mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN);
+            Utils.hideSystemUiAndRetry(mContentView);
         }
         mMoveSaverRunnable.registerViews(mContentView, mSaverView);
         mHandler.post(mMoveSaverRunnable);

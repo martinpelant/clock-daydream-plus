@@ -35,10 +35,12 @@ import android.widget.Toast;
 public class ScreensaverSettingsActivity extends PreferenceActivity implements Preference.OnPreferenceChangeListener {
 
     static final String KEY_CLOCK_STYLE = "screensaver_clock_style";
+    static final String KEY_CLOCK_SIZE = "screensaver_clock_size";
     //    static final String KEY_NIGHT_MODE = "screensaver_night_mode";
     static final String KEY_BRIGHTNESS = "brightness";
     static final int BRIGHTNESS_DEFAULT = 192;
     static final int BRIGHTNESS_NIGHT = 96;
+    static final String SIZE_DEFAULT = "medium";
     static final String KEY_NOTIF_LISTENER = "notif_listener";
     static final String KEY_NOTIF_GMAIL = "notif_gmail";
     static final String KEY_NOTIF_SMS = "notif_sms";
@@ -70,7 +72,7 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
 
     @Override
     public boolean onPreferenceChange(Preference pref, Object newValue) {
-        if (KEY_CLOCK_STYLE.equals(pref.getKey())) {
+        if (KEY_CLOCK_STYLE.equals(pref.getKey()) || KEY_CLOCK_SIZE.equals(pref.getKey())) {
             final ListPreference listPref = (ListPreference) pref;
             final int idx = listPref.findIndexOfValue((String) newValue);
             listPref.setSummary(listPref.getEntries()[idx]);
@@ -88,11 +90,18 @@ public class ScreensaverSettingsActivity extends PreferenceActivity implements P
 
     @SuppressWarnings("deprecation")
     private void refresh() {
-        ListPreference listPref = (ListPreference) findPreference(KEY_CLOCK_STYLE);
+        ListPreference listPref;
+        Preference pref;
+
+        listPref = (ListPreference) findPreference(KEY_CLOCK_STYLE);
         listPref.setSummary(listPref.getEntry());
         listPref.setOnPreferenceChangeListener(this);
 
-        Preference pref = findPreference(KEY_BRIGHTNESS);
+        listPref = (ListPreference) findPreference(KEY_CLOCK_SIZE);
+        listPref.setSummary(listPref.getEntry());
+        listPref.setOnPreferenceChangeListener(this);
+
+        pref = findPreference(KEY_BRIGHTNESS);
         pref.setOnPreferenceChangeListener(this);
 
         pref = findPreference(KEY_NOTIF_GMAIL);

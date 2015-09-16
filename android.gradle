@@ -1,10 +1,10 @@
 android {
-    compileSdkVersion 20
-    buildToolsVersion "20"
+    compileSdkVersion 22
+    buildToolsVersion "22"
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 20
+        minSdkVersion 17
+        targetSdkVersion 22
     }
 
     compileOptions {//Java 1.7

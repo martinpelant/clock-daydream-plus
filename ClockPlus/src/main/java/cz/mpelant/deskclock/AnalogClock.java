@@ -32,6 +32,8 @@ import android.text.format.Time;
 import android.util.AttributeSet;
 import android.view.View;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 /**
@@ -39,7 +41,7 @@ import java.util.TimeZone;
  * minutes.
  */
 public class AnalogClock extends View {
-    private Time mCalendar;
+    private Calendar mCalendar;
 
     private final Drawable mHourHand;
     private final Drawable mMinuteHand;
@@ -57,7 +59,6 @@ public class AnalogClock extends View {
     private float mHour;
     private boolean mChanged;
     private final Context mContext;
-    private String mTimeZoneId;
     private boolean mNoSeconds = false;
 
     private final float mDotRadius;
@@ -92,7 +93,7 @@ public class AnalogClock extends View {
             mDotPaint.setColor(dotColor);
         }
 
-        mCalendar = new Time();
+        mCalendar = new GregorianCalendar();
 
         mDialWidth = mDial.getIntrinsicWidth();
         mDialHeight = mDial.getIntrinsicHeight();
@@ -117,7 +118,7 @@ public class AnalogClock extends View {
         // in the main thread, therefore the receiver can't run before this method returns.
 
         // The time zone may have changed while the receiver wasn't registered, so update the Time
-        mCalendar = new Time();
+        mCalendar = new GregorianCalendar();
 
         // Make sure we update to the current time
         onTimeChanged();
@@ -231,15 +232,11 @@ public class AnalogClock extends View {
     }
 
     private void onTimeChanged() {
-        mCalendar.setToNow();
+        mCalendar = new GregorianCalendar();
 
-        if (mTimeZoneId != null) {
-            mCalendar.switchTimezone(mTimeZoneId);
-        }
-
-        int hour = mCalendar.hour;
-        int minute = mCalendar.minute;
-        int second = mCalendar.second;
+        int hour = mCalendar.get(Calendar.HOUR);
+        int minute = mCalendar.get(Calendar.MINUTE);
+        int second = mCalendar.get(Calendar.SECOND);
         //      long millis = System.currentTimeMillis() % 1000;
 
         mSeconds = second;//(float) ((second * 1000 + millis) / 166.666);
@@ -254,8 +251,7 @@ public class AnalogClock extends View {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(Intent.ACTION_TIMEZONE_CHANGED)) {
-                String tz = intent.getStringExtra("time-zone");
-                mCalendar = new Time(TimeZone.getTimeZone(tz).getID());
+                mCalendar = new GregorianCalendar();
             }
             onTimeChanged();
             invalidate();
@@ -272,16 +268,11 @@ public class AnalogClock extends View {
         }
     };
 
-    private void updateContentDescription(Time time) {
+    private void updateContentDescription(Calendar calendar) {
         final int flags = DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_24HOUR;
         String contentDescription = DateUtils.formatDateTime(mContext,
-                time.toMillis(false), flags);
+                calendar.getTimeInMillis(), flags);
         setContentDescription(contentDescription);
-    }
-
-    public void setTimeZone(String id) {
-        mTimeZoneId = id;
-        onTimeChanged();
     }
 
     public void enableSeconds(boolean enable) {

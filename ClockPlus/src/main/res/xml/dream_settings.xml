@@ -25,6 +25,14 @@
             android:key="screensaver_clock_style"
             android:title="@string/clock_style"/>
 
+    <ListPreference
+        android:defaultValue="@string/default_clock_size"
+        android:dialogTitle="@string/clock_size"
+        android:entries="@array/clock_size_entries"
+        android:entryValues="@array/clock_size_values"
+        android:key="screensaver_size_style"
+        android:title="@string/clock_size"/>
+
     <cz.mpelant.deskclock.BrightnessPreference
             android:defaultValue="192"
             android:key="brightness"
