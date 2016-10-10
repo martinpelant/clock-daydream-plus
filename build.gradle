@@ -3,11 +3,10 @@ import com.android.builder.model.ProductFlavor;
 
 buildscript {
 	repositories {
-		mavenCentral()
+		jcenter()
 	}
 	dependencies {
-		classpath 'com.android.tools.build:gradle:0.12.+'
-		classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.10.+'
+		classpath 'com.android.tools.build:gradle:2.2.1'
 	}
 }
 

@@ -64,7 +64,7 @@ task readPasswordFromInput << {
  * folder to git, just the mappings.
  */
 tasks.whenTaskAdded { task ->
-    if (task.name == 'validateReleaseSigning') {//only once per release build (doesn't matter how many flavours)
+    if (task.name == 'validateSigningRelease') {//only once per release build (doesn't matter how many flavours)
         task.dependsOn readPasswordFromInput
     } else if (task.name.startsWith("proguard")) {//copy proguard mappings
         task << {
